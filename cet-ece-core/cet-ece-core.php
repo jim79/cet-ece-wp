@@ -29,6 +29,8 @@ require_once CET_ECE_CORE_DIR . 'includes/bibtex.php';
 require_once CET_ECE_CORE_DIR . 'includes/hardening.php';
 require_once CET_ECE_CORE_DIR . 'includes/redirects.php';
 require_once CET_ECE_CORE_DIR . 'includes/seo.php';
+require_once CET_ECE_CORE_DIR . 'includes/cli.php';
+require_once CET_ECE_CORE_DIR . 'includes/import-screen.php';
 
 register_activation_hook( __FILE__, function () {
 	cet_ece_register_content_types();

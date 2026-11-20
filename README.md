@@ -17,6 +17,7 @@ The demo builds a complete site in your browser in about a minute: Secure Custom
 | `dist/` | Installable zips of both. Upload these in WordPress. |
 | `playground/` | Playground blueprint, demo sample content and the demo banner. |
 | `tools/` | Template and pattern generator, block markup validator, build script, blueprint generator. |
+| `tools/migrate/` | Converter from the old site to review spreadsheets, and the guide to importing them (Tools › ECE import, or `wp ece import`). |
 
 To rebuild after changing the generator: `cd tools && npm install && cd .. && sh tools/build.sh`. Commit the updated `dist/` zips so the demo picks them up.
 
