@@ -1,0 +1,103 @@
+/* Colour tokens. Light by default; dark follows the visitor's device setting. */
+:root {
+	--ece-bg: #FFFFFF;
+	--ece-surface: #F6F8FB;
+	--ece-tint: #EEF2F7;
+	--ece-text: #14202E;
+	--ece-body: #374151;
+	--ece-muted: #4B5563;
+	--ece-line: #D9E0E8;
+	--ece-chip-line: #C3CCD8;
+	--ece-accent: #1B365D;
+	--ece-on-accent: #FFFFFF;
+	--ece-link: #1B4F8A;
+	--ece-hero: #24364D;
+	--ece-foot: #0E1F38;
+	--ece-foot-text: #DCE3EC;
+	--ece-foot-muted: #B6C1CF;
+	--ece-ph: #E4E9F0;
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--ece-bg: #0E151E;
+		--ece-surface: #141E2A;
+		--ece-tint: #122031;
+		--ece-text: #E7ECF2;
+		--ece-body: #C6CFDA;
+		--ece-muted: #A3AFBE;
+		--ece-line: #263446;
+		--ece-chip-line: #33445A;
+		--ece-accent: #8EB6EA;
+		--ece-on-accent: #0E151E;
+		--ece-link: #9CC3F5;
+		--ece-hero: #1A2A3D;
+		--ece-foot: #080E15;
+		--ece-foot-text: #C6CFDA;
+		--ece-foot-muted: #97A3B3;
+		--ece-ph: #1A2634;
+		color-scheme: dark;
+	}
+}
+
+/* Header */
+.ece-topbar a { color: inherit; text-decoration: none; }
+.ece-topbar a:hover { text-decoration: underline; color: inherit; }
+.ece-header { border-bottom: 1px solid var(--ece-line); }
+.ece-brand .wp-block-site-title a { color: var(--ece-text); text-decoration: none; }
+.ece-header .wp-block-navigation-item__content { padding: 10px 14px; border-radius: 8px; }
+.ece-header .wp-block-navigation-item__content:hover,
+.ece-header .current-menu-item > .wp-block-navigation-item__content { background: var(--ece-tint); }
+.ece-header .wp-block-navigation__responsive-container.is-menu-open { background: var(--ece-bg); color: var(--ece-text); }
+.ece-header .wp-block-search__button { border-radius: 10px; }
+
+/* Title band used on pages and archives */
+.ece-band { background: var(--ece-tint); }
+.ece-band .ece-lead { color: var(--ece-body); max-width: 760px; }
+
+/* Hero: a cover block with an overlay, white text */
+.ece-hero .wp-block-cover__inner-container { color: #FFFFFF; }
+.ece-hero h1, .ece-hero h2, .ece-hero p { color: #FFFFFF; }
+.ece-hero .ece-eyebrow { color: #C9D6E6; }
+.ece-hero .wp-block-button:not(.is-style-outline) .wp-block-button__link { background: #FFFFFF; color: #14202E; }
+.ece-hero .wp-block-button:not(.is-style-outline) .wp-block-button__link:hover { background: #DCE5F0; color: #14202E; }
+.ece-hero .is-style-outline .wp-block-button__link { color: #FFFFFF; border-color: rgba(255,255,255,0.6); background: transparent; }
+
+.ece-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ece-muted); }
+
+/* Cards */
+.ece-card { border: 1px solid var(--ece-line); border-radius: 12px; background: var(--ece-bg); }
+.ece-card-surface { border: 1px solid var(--ece-line); border-radius: 12px; background: var(--ece-surface); }
+.ece-card a, .ece-card-surface a { text-decoration: none; }
+.ece-stat-number { font-size: 38px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin: 0; }
+.ece-stat-label { color: var(--ece-muted); margin: 0; font-size: 15px; }
+
+/* News cards from the query loop */
+.ece-news .wp-block-post-featured-image img { border-radius: 10px; aspect-ratio: 3 / 2; object-fit: cover; }
+.ece-news .wp-block-post-title a { color: var(--ece-text); text-decoration: none; }
+.ece-news .wp-block-post-title a:hover { color: var(--ece-link); }
+
+/* Tables */
+.wp-block-table { overflow-x: auto; }
+.wp-block-table table { border-collapse: collapse; width: 100%; }
+.wp-block-table th, .wp-block-table td { border: 0; border-bottom: 1px solid var(--ece-line); padding: 12px 16px; text-align: left; vertical-align: top; }
+.wp-block-table thead { border-bottom: 0; }
+.wp-block-table thead th { background: var(--ece-surface); }
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) { background: var(--ece-surface); }
+
+/* Footer */
+.ece-footer a { color: var(--ece-foot-text); }
+.ece-footer a:hover { color: #FFFFFF; }
+.ece-footer .ece-foot-muted { color: var(--ece-foot-muted); }
+
+/* Placeholders for missing photos */
+.ece-ph { background: var(--ece-ph); color: var(--ece-muted); display: flex; align-items: center; justify-content: center; font-size: 13px; }
+
+/* Focus is always visible */
+:where(a, button, input, select, textarea, summary):focus-visible { outline: 3px solid var(--ece-link); outline-offset: 2px; border-radius: 4px; }
+
+@media (max-width: 599px) {
+	.ece-brand .wp-block-site-tagline { display: none; }
+	.ece-header .wp-block-navigation { justify-content: flex-end; }
+}

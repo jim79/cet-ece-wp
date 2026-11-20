@@ -1,0 +1,10 @@
+{
+  "name": "cet-ece-tools",
+  "private": true,
+  "description": "Block markup validator for the CET ECE theme",
+  "dependencies": {
+    "@wordpress/block-library": "*",
+    "@wordpress/blocks": "*",
+    "jsdom": "*"
+  }
+}

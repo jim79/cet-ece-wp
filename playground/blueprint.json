@@ -1,0 +1,72 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "ECE CET website demo",
+    "description": "Department of Electronics and Communication Engineering, College of Engineering Trivandrum: theme, plugin and sample content.",
+    "author": "jim79"
+  },
+  "landingPage": "/",
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "features": {
+    "networking": true
+  },
+  "login": true,
+  "siteOptions": {
+    "blogname": "Department of Electronics and Communication Engineering",
+    "blogdescription": "College of Engineering Trivandrum",
+    "timezone_string": "Asia/Kolkata"
+  },
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "wordpress.org/plugins",
+        "slug": "secure-custom-fields"
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/dist/cet-ece-core.zip"
+      }
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/dist/cet-ece.zip"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/mu-plugins"
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/mu-plugins/demo-banner.php",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/demo-banner.php"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/demo-seed.php",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/seed.php"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; require '/wordpress/demo-seed.php';"
+    }
+  ]
+}
