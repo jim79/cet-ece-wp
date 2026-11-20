@@ -4,15 +4,19 @@ Three steps: convert, review, import. The scripts do the bulk work; people check
 
 ## 1. Convert
 
-In the old site's dashboard, go to **Tools › Export › All content** and download the XML file. Then:
+No login to the old site is needed. The script reads the public website:
 
 ```
-python3 tools/migrate/convert_old_site.py --export old-site.xml --out migration
+pip install beautifulsoup4 lxml
+python3 tools/migrate/convert_old_site.py --site https://ece.cet.ac.in --out migration
 ```
 
-(Needs Python 3 with `beautifulsoup4` and `lxml`: `pip install beautifulsoup4 lxml`.)
+It downloads the Faculty, Technical staff, Staff advisors, Laboratories and Publications pages, and every news post from the site's public posts feed. Copies of what it read are kept in `migration/source/`. To convert again later without downloading, use `--pages migration/source/`.
 
-If the export is not available, save the pages from a browser (File › Save page as, "HTML only") as `faculty-2.html`, `technical-staff.html`, `staff-advisors.html`, `laboratories.html` and `publications.html` in one folder and use `--pages folder/` instead.
+Other inputs, if they are easier:
+
+- `--export old-site.xml`: the WordPress export from the old site's dashboard (Tools › Export › All content), if someone with a login can provide it.
+- `--pages folder/`: the five pages saved from a browser (File › Save page as, "HTML only") as `faculty-2.html`, `technical-staff.html`, `staff-advisors.html`, `laboratories.html` and `publications.html`. This gives no news.
 
 This writes to `migration/`:
 
@@ -34,7 +38,9 @@ Open the CSVs in Excel or Google Sheets. Work through `warnings.csv` first. Typi
 - fill in missing emails and joining years;
 - check the suggested research areas (separate several with `;`);
 - for labs: set teaching or research, programmes (`btech-ece; btech-aei; mtech; phd`), the lab in charge (a faculty name exactly as in `faculty.csv`) and a one-line summary;
-- for publications with `confidence` low: split them by hand; replace removed DOIs with each paper's own DOI.
+- for publications with `confidence` low: split them by hand; replace removed DOIs with each paper's own DOI;
+- publications marked "No authors on the old page": the old page listed only the title under a faculty heading, so add the author list;
+- publication headings "Not on the current faculty page": usually former faculty. Their papers still import, without a link to a profile. Decide whether to keep them, or add those people as faculty first. Headings with a different spelling of a current name (for example "Monterio") are matched to that name and listed for checking.
 
 Keep the column headings. Save each sheet as CSV (UTF-8).
 

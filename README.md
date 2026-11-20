@@ -8,6 +8,8 @@ WordPress theme and plugin for the Department of Electronics and Communication E
 
 The demo builds a complete site in your browser in about a minute: Secure Custom Fields, the plugin, the theme, all pages, and sample faculty, labs, batches, publications and news. You are logged in as an administrator, so you can open the dashboard and edit anything. Changes stay in your browser tab and disappear when you close it; nothing is saved to any server. Faculty names, publications and figures in the demo are invented, and a banner on every page says so.
 
+**[Open an empty import test site](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/import-blueprint.json)**: the same theme and plugin with no sample content. It opens on Tools › ECE import, so you can upload the reviewed spreadsheets (see [tools/migrate/](tools/migrate/README.md)) and see the result. It also lives only in your browser tab.
+
 ## Repository layout
 
 | Folder | Contents |

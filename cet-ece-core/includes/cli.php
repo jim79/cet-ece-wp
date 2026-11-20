@@ -82,7 +82,7 @@ class CET_ECE_Importer {
 	}
 
 	public static function norm( $name ) {
-		$n = preg_replace( '/^(dr|prof|mr|ms|mrs|smt|shri)[\.,]?\s+/i', '', trim( (string) $name ) );
+		$n = preg_replace( '/^(dr|prof|mr|ms|mrs|smt|shri)\b[\W_]*/i', '', trim( (string) $name ) );
 		return preg_replace( '/[^a-z]/', '', strtolower( $n ) );
 	}
 

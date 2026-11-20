@@ -1,6 +1,9 @@
 """Convert the old ece.cet.ac.in content into review spreadsheets (CSV).
 
-Input, either:
+Input, one of:
+  --site   https://ece.cet.ac.in   read the public website directly (no login needed):
+                             the five pages below, plus all news posts from the
+                             site's public posts feed (/wp-json/wp/v2/posts)
   --export old-site.xml      WordPress export from the old site (Tools > Export > All content)
   --pages  folder/           saved HTML pages: faculty-2.html, technical-staff.html,
                              staff-advisors.html, laboratories.html, publications.html
@@ -16,10 +19,15 @@ Nothing here guesses silently: anything uncertain is written to warnings.csv.
 """
 import argparse
 import csv
+import difflib
 import html
+import json
 import os
 import re
 import sys
+import time
+import urllib.error
+import urllib.request
 import xml.etree.ElementTree as ET
 
 from bs4 import BeautifulSoup
@@ -38,7 +46,8 @@ def clean(text):
 
 
 def norm_name(name):
-    n = re.sub(r'^(dr|prof|mr|ms|mrs|smt|shri)[\.,]?\s+', '', clean(name), flags=re.I)
+    # \b keeps names such as "Drishya" intact; [\W_]* takes "Dr.David", "Prof`. X".
+    n = re.sub(r'^(dr|prof|mr|ms|mrs|smt|shri)\b[\W_]*', '', clean(name), flags=re.I)
     return re.sub(r'[^a-z]', '', n.lower())
 
 
@@ -79,6 +88,75 @@ def read_export(path):
                 'thumbnail_id': meta.get('_thumbnail_id', ''),
                 'link': item.findtext('link', default=''),
             })
+    return pages, posts, atts
+
+
+PAGE_SLUGS = ('faculty-2', 'technical-staff', 'staff-advisors', 'laboratories', 'publications')
+
+
+def fetch(url):
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (site migration script)'})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return r.read().decode('utf-8', errors='replace'), r.headers
+
+
+def read_site(base, save_to):
+    """Read the public website: the five list pages and every published post.
+
+    Returns (pages_by_slug, posts, attachments_by_id) like read_export. Copies of
+    what was read are saved in save_to, so a later run can use --pages instead.
+    """
+    base = base.rstrip('/')
+    os.makedirs(save_to, exist_ok=True)
+    pages, posts, atts = {}, [], {}
+    for slug in PAGE_SLUGS:
+        try:
+            pages[slug], _ = fetch('%s/%s/' % (base, slug))
+        except urllib.error.URLError as e:
+            warn('site', slug, 'Could not download %s/%s/ (%s)' % (base, slug, e))
+            continue
+        with open(os.path.join(save_to, slug + '.html'), 'w', encoding='utf-8') as fh:
+            fh.write(pages[slug])
+        time.sleep(1)  # be gentle with the old server
+    n = 1
+    raw_posts = []
+    while True:
+        url = '%s/wp-json/wp/v2/posts?per_page=100&page=%d&_embed=wp:featuredmedia,wp:term' % (base, n)
+        try:
+            body, headers = fetch(url)
+        except urllib.error.HTTPError as e:
+            if e.code == 400 and n > 1:  # past the last page
+                break
+            warn('news', '-', 'The public posts feed is not available (%s): news not converted' % e)
+            break
+        except urllib.error.URLError as e:
+            warn('news', '-', 'Could not read the public posts feed (%s): news not converted' % e)
+            break
+        batch = json.loads(body)
+        raw_posts += batch
+        if not batch or n >= int(headers.get('X-WP-TotalPages') or 1):
+            break
+        n += 1
+        time.sleep(1)
+    with open(os.path.join(save_to, 'posts.json'), 'w', encoding='utf-8') as fh:
+        json.dump(raw_posts, fh, ensure_ascii=False, indent=1)
+    for p in raw_posts:
+        emb = p.get('_embedded', {})
+        media = (emb.get('wp:featuredmedia') or [{}])[0] or {}
+        if p.get('featured_media') and media.get('source_url'):
+            atts[str(p['featured_media'])] = media['source_url']
+        cats = [t.get('name', '') for group in emb.get('wp:term', []) for t in group if t.get('taxonomy') == 'category']
+        posts.append({
+            'old_id': str(p['id']),
+            'title': clean(p['title']['rendered']),
+            'date': p['date'].replace('T', ' '),
+            'slug': p['slug'],
+            'content': p['content']['rendered'],
+            'excerpt': p['excerpt']['rendered'],
+            'old_categories': '; '.join(clean(c) for c in cats if c),
+            'thumbnail_id': str(p.get('featured_media') or ''),
+            'link': p.get('link', ''),
+        })
     return pages, posts, atts
 
 
@@ -334,17 +412,23 @@ def parse_labs(soup):
     rows, section = [], ''
     for tag, text, el in blocks(soup):
         low = text.lower()
-        if re.search(r'\bug\b.*lab|under\s*graduate', low) and len(text) < 40:
+        # Only real headings switch section: lab names such as "UG DSP Lab" or
+        # "RF Research Lab" would otherwise match these patterns.
+        is_heading = tag in ('h1', 'h2', 'h3', 'h4', 'h5', 'h6') or (tag in ('strong', 'b'))
+        if is_heading and re.search(r'\bug\b.*lab|under\s*graduate', low) and len(text) < 40:
             section = 'ug'
             continue
-        if re.search(r'pg|post\s*graduate|research', low) and 'lab' in low and len(text) < 40:
+        if is_heading and re.search(r'pg|post\s*graduate|research', low) and 'lab' in low and len(text) < 40:
             section = 'pg'
             continue
-        if tag != 'li' or not section:
+        # The live page lists labs as one paragraph each; older copies used bullets.
+        if tag not in ('li', 'p') or not section:
             continue
         name = clean(text)
         a = el.find('a')
-        if not re.search(r'lab|centre|center|c2s', name, re.I):
+        # Any short line under a lab heading is a lab ("Electronics Workshop",
+        # "Department Computing Facility (DCF)"); longer paragraphs are prose.
+        if len(name) > 90 or name.endswith('.'):
             continue
         is_research = section == 'pg' and re.search(r'research|perl|\[', name, re.I)
         rows.append({
@@ -376,33 +460,100 @@ def parse_labs(soup):
 
 # ---------- publications ----------
 
-QUOTE = re.compile(r'[“"]\s*(.+?)\s*[,.]?\s*[”"]')
+# The old page sometimes opens with ” after a comma: 'Narayanan,”MS-HViT ...”'.
+QUOTE = re.compile(r'(?:[“"]|(?<=[,\s])”)\s*(.+?)\s*[,.]?\s*[”"]')
+# Single curly quotes, used as quotation marks only after a comma or space
+# and before a capital, so apostrophes ("Parkinson’s") are left alone.
+SQUOTE = re.compile(r'(?:(?<=[,\s])|^)[‘’](?=[A-Z0-9])(.+?)[’‘](?=\s*[,.;]|$)')
+# APA: "Pradeep, R., Veerasimman, A. & Rajendran, S." optionally followed by "(2024)."
+APA_AUTHORS = re.compile(r"^((?:(?:&\s*)?[A-Z][\w'’-]+(?: [A-Z][\w'’-]+)?,\s(?:[A-Z]\.\s?-?){1,3},?\s*)+)(?:\((?:19|20)\d{2}\)\.?\s*)?(?=[A-Z][a-z]|[A-Z]{2}|[0-9“\"])")
 DOI = re.compile(r'(?:doi[:\s]*|https?://(?:dx\.)?doi\.org/)?\b(10\.\d{4,9}/[^\s,;]+|1\d{3}/[A-Za-z0-9.\-()/]+)', re.I)
+
+
+NOT_NAME = re.compile(r'\b(of|for|using|the|based|with|in|on|via|from|to|by|an?|its|under|over|towards?)\b')
+
+
+def looks_like_authors(s):
+    """True for "A. Dubey and J. Zacharias", "LP Gokul, P Adarsh", "Noumida A."."""
+    s = s.strip(' ,.;:')
+    if not s or len(s) > 300:
+        return False
+    for n in [n.strip(' .') for n in re.split(r',|\band\b|&', s)]:
+        if not n or n.lower() in ('et al', 'et al.'):
+            continue
+        words = n.split()
+        if len(words) > 5 or NOT_NAME.search(n):
+            return False
+        if any(w[0].isalpha() and not w[0].isupper() and w.lower() not in ('et', 'al') for w in words):
+            return False
+    return True
+
+
+def split_unquoted(s):
+    """(authors, title, rest) for citations without quotation marks."""
+    # APA: Surname, I., Surname, I. & Surname, I. (2023). Title. Venue
+    m = APA_AUTHORS.match(s)
+    if m and m.group(1).count(',') >= 2:
+        authors = re.sub(r'\s*\((?:19|20)\d{2}\)\.?\s*$', '', m.group(1)).strip(' ,')
+        t, _, rest = s[m.end():].partition('. ')
+        if not looks_like_authors(t):  # "..., Sivakumar, R., R. Pradeep, Title" is not APA
+            return authors, t.rstrip('.'), rest
+    # Authors. Title. Venue
+    dot = [p.strip() for p in re.split(r'(?<=[a-z\]\)0-9])\.\s+(?=[A-Z0-9])', s) if p.strip()]
+    if len(dot) >= 3 and looks_like_authors(dot[0]):
+        return dot[0], dot[1].rstrip('.'), ' '.join(dot[2:])
+    # Title; Venue; Year  or  Authors; Title; Venue
+    segs = [p.strip(' .') for p in s.split(';') if p.strip(' .')]
+    if len(segs) >= 2:
+        if len(segs) >= 3 and looks_like_authors(segs[0]):
+            return segs[0], segs[1], '; '.join(segs[2:])
+        return '', segs[0], '; '.join(segs[1:])
+    # Author, Author, Title, Venue, ...  or  Title, Venue, ...
+    pieces = [p.strip() for p in re.split(r',\s+', s) if p.strip()]
+    i = 0
+    while i < len(pieces) - 1 and looks_like_authors(pieces[i]):
+        i += 1
+    if len(pieces) >= 2:
+        authors, title, rest = ', '.join(pieces[:i]), pieces[i], ', '.join(pieces[i + 1:])
+        # "Titto Anujan, Vismaya Vijayan- Exploring Terahertz ...- 2nd Conference"
+        dm = re.match(r'([A-Z][\w. ]{2,40}?)\s*-\s*([A-Z].+)$', title)
+        if dm and authors and len(dm.group(1).split()) >= 2 and looks_like_authors(dm.group(1)):
+            authors += ', ' + dm.group(1).strip()
+            title, _, more = dm.group(2).partition('- ')
+            rest = more + (', ' + rest if more and rest else rest)
+        # "R. Pradeep, Visual analysis of dance. Visual Computer (2025)"
+        tm = re.match(r'(.+?[a-z\)])\.\s+([A-Z].*)$', title)
+        if tm and len(tm.group(1).split()) >= 3:
+            title, rest = tm.group(1), (tm.group(2) + (', ' + rest if rest else ''))
+        return authors, title.rstrip('.'), rest
+    return '', s, ''
 
 
 def parse_pub_entry(text, year_ctx):
     raw = clean(text)
     r = {'title': '', 'authors': '', 'venue': '', 'type': '', 'year': '', 'volume': '', 'pages': '', 'doi': '', 'status': 'published', 'faculty': '', 'raw': raw, 'confidence': 'low'}
-    m = DOI.search(raw)
+    body = re.sub(r',(?=[A-Za-z])', ', ', raw)  # "Remanan,Vismaya"
+    body = re.sub(r'^accepted the paper titled\s*', '', body, flags=re.I)  # status is still read from raw
+    # "Title; Authors, “Title”, Venue": drop the repeated title in front.
+    if ';' in body:
+        head, tail = body.split(';', 1)
+        h = re.sub(r'[^a-z0-9]', '', head.lower())
+        if len(h) > 15 and h in re.sub(r'[^a-z0-9]', '', tail.lower()):
+            body = tail.strip()
+    m = DOI.search(body)
     if m:
         d = m.group(1).rstrip('.')
         if not d.startswith('10.'):
             d = '10.' + d
             warn('publications', raw[:80], 'DOI was missing "10.": corrected to %s, check it' % d)
         r['doi'] = d
-    q = QUOTE.search(raw)
+    q = QUOTE.search(body) or SQUOTE.search(body)
     if q:
         r['title'] = q.group(1).strip(' ,.')
-        r['authors'] = raw[:q.start()].strip(' ,.:')
-        rest = raw[q.end():]
+        r['authors'] = body[:q.start()].strip(' ,.:;')
+        rest = body[q.end():]
     else:
-        parts = [p.strip() for p in re.split(r'(?<=[a-z\]\)])\.\s+|,\s+(?=[A-Z])', raw) if p.strip()]
-        rest = ''
-        if len(parts) >= 2:
-            r['authors'], r['title'] = parts[0], parts[1]
-            rest = ' '.join(parts[2:])
-        else:
-            r['title'] = raw
+        r['authors'], r['title'], rest = split_unquoted(body)
     rest = DOI.sub('', rest)
     vm = re.search(r'\bvol(?:ume)?\.?\s*([\w-]+)', rest, re.I)
     if vm:
@@ -414,8 +565,11 @@ def parse_pub_entry(text, year_ctx):
     r['year'] = ys[-1] if ys else year_ctx
     if ys and year_ctx and ys[-1] != year_ctx:
         warn('publications', r['title'][:80], 'Listed under %s but the citation says %s' % (year_ctx, ys[-1]))
-    venue = re.split(r'\bvol\b|\bpp?\.|\b(19|20)\d{2}\b|doi', rest, flags=re.I)[0]
-    r['venue'] = venue.strip(' ,.;:-')
+    # Stop at volume, pages, a trailing ", 2021", DOI or ISSN. A year at the
+    # start belongs to the name ("2024 International Conference on ...").
+    venue = re.split(r'\bvol\b|\bvol\.|\bpp?\.\s*\d|[,;]\s*(?:19|20)\d{2}\b|\bdoi\b|\(ISSN', rest.strip(' ,.;:'), flags=re.I)[0]
+    r['venue'] = re.sub(r'^in\s+', '', venue.strip(' ,.;:-'), flags=re.I)
+    r['title'] = r['title'].strip(' ,.;:“”"‘’')
     blob = raw.lower()
     if re.search(r'accepted|to be presented|in press|status', blob):
         r['status'] = 'accepted'
@@ -432,9 +586,47 @@ def parse_pub_entry(text, year_ctx):
         r['type'] = 'journal'
     else:
         r['type'] = 'other'
-    if r['title'] and r['authors'] and r['venue']:
+    # A split that left an initial or a name on the wrong side is not trusted.
+    suspect = (re.match(r'[A-Z]\.\s', r['title']) or re.search(r'[,&]$', r['authors'])
+               or (r['authors'] and not looks_like_authors(r['authors']) and not APA_AUTHORS.match(r['authors'] + ' X')))
+    if suspect:
+        pass
+    elif r['title'] and r['authors'] and r['venue']:
         r['confidence'] = 'high' if q else 'medium'
+    elif r['title'] and r['venue'] and not r['authors']:
+        # Common on the old page: "Title, Journal, 2023" under a faculty heading.
+        r['confidence'] = 'medium'
+        warn('publications', r['title'][:80], 'No authors on the old page: add the author list')
     return r
+
+
+FACULTY_NAMES = []  # filled from faculty.csv rows before publications are parsed
+SEEN_HEADINGS = {}
+
+
+def resolve_faculty(heading):
+    """Map a heading on the publications page to the name in faculty.csv."""
+    name = clean(heading)
+    if name in SEEN_HEADINGS:
+        return SEEN_HEADINGS[name]
+    idx = {norm_name(n): n for n in FACULTY_NAMES}
+    k = norm_name(name)
+    out = name
+    if not idx:
+        pass
+    elif k in idx:
+        out = idx[k]
+    else:
+        close = difflib.get_close_matches(k, idx, n=1, cutoff=0.85)
+        if close:
+            out = idx[close[0]]
+            warn('publications', name, 'Heading matched to faculty "%s" (spelling differs): check' % out)
+        else:
+            near = difflib.get_close_matches(k, idx, n=1, cutoff=0.6)
+            hint = ' Closest current name: "%s".' % idx[near[0]] if near else ''
+            warn('publications', name, 'Not on the current faculty page (former faculty?): their papers import without a faculty link.' + hint)
+    SEEN_HEADINGS[name] = out
+    return out
 
 
 def parse_publications(soup):
@@ -445,7 +637,7 @@ def parse_publications(soup):
             year = t.strip(' :')
             continue
         if len(t) < 60 and t.endswith(':') and re.search(r'[A-Za-z]', t):
-            fac = clean(t.rstrip(':'))
+            fac = resolve_faculty(t.rstrip(':'))
             continue
         if len(t) < 40 or tag in ('h1', 'h2'):
             continue
@@ -506,6 +698,8 @@ def parse_news(posts, atts):
         if not thumb:
             img = BeautifulSoup(p['content'], 'lxml').find('img')
             thumb = img.get('src', '') if img else ''
+            # WordPress resized copy ("photo-1024x768.jpg"): use the original.
+            thumb = re.sub(r'-\d{2,4}x\d{2,4}(?=\.(?:jpe?g|png|webp|gif)$)', '', thumb, flags=re.I)
         excerpt = clean(BeautifulSoup(p['excerpt'] or '', 'lxml').get_text(' '))
         if not excerpt:
             excerpt = ' '.join(clean(BeautifulSoup(p['content'], 'lxml').get_text(' ')).split()[:35])
@@ -532,13 +726,16 @@ def write(path, rows, cols):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('--site', help='public address of the old site, e.g. https://ece.cet.ac.in')
     ap.add_argument('--export')
     ap.add_argument('--pages')
     ap.add_argument('--out', default='migration')
     a = ap.parse_args()
-    if not a.export and not a.pages:
-        ap.error('give --export or --pages')
+    if not (a.site or a.export or a.pages):
+        ap.error('give --site, --export or --pages')
     pages, posts, atts = ({}, [], {})
+    if a.site:
+        pages, posts, atts = read_site(a.site, os.path.join(a.out, 'source'))
     if a.export:
         pages, posts, atts = read_export(a.export)
     if a.pages:
@@ -559,6 +756,8 @@ def main():
             warn(name, '-', 'Page not found in the input (%s)' % ', '.join(slugs))
             continue
         rows = fn(soup)
+        if name == 'faculty':
+            FACULTY_NAMES[:] = [r['name'] for r in rows]
         write(os.path.join(a.out, name + '.csv'), rows, cols)
         summary.append('%-13s %4d rows' % (name, len(rows)))
     if posts:

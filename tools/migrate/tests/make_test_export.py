@@ -47,7 +47,8 @@ adv_html = '''<h2>B.Tech. (ECE)</h2>
 <p><strong>Dr. Anil Kumar R</strong></p>'''
 
 labs_html = '''<h2>UG Labs</h2><ul><li><a href="https://ece.cet.ac.in/ec-lab/">Electronic Circuits  Lab</a></li><li>Microwave Lab</li><li><a href="https://ece.cet.ac.in/fo/">Fiber Optics Lab</a></li></ul>
-<h2>PG &amp; Research Labs</h2><ul><li><a href="https://ece.cet.ac.in/fo/">Fiber Optics Lab</a></li><li>Power Electronics Research Lab [P E R L]</li><li>C2S</li><li>Advanced Communication Lab</li></ul>'''
+<p><a href="https://ece.cet.ac.in/ug-dsp/">UG DSP Lab</a></p><p>Electronics Workshop</p>
+<h2>PG &amp; Research Labs</h2><p>RF Research Lab</p><ul><li><a href="https://ece.cet.ac.in/fo/">Fiber Optics Lab</a></li><li>Power Electronics Research Lab [P E R L]</li><li>C2S</li><li>Advanced Communication Lab</li></ul>'''
 
 pubs_html = '''<p><strong>2025</strong></p>
 <p>Dr. Anil Kumar R:</p>

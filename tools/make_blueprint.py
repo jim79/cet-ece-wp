@@ -36,6 +36,17 @@ bp = {
         {'step': 'runPHP', 'code': "<?php require_once '/wordpress/wp-load.php'; require '/wordpress/demo-seed.php';"},
     ],
 }
-out = pathlib.Path(__file__).resolve().parent.parent / 'playground' / 'blueprint.json'
-out.write_text(json.dumps(bp, indent=2) + '\n')
-print('https://playground.wordpress.net/?blueprint-url=' + f'{raw}/playground/blueprint.json')
+here = pathlib.Path(__file__).resolve().parent.parent / 'playground'
+(here / 'blueprint.json').write_text(json.dumps(bp, indent=2) + '\n')
+print('Demo:   https://playground.wordpress.net/?blueprint-url=' + f'{raw}/playground/blueprint.json')
+
+# Import test site: same theme and plugin, no sample content, opens on Tools > ECE import.
+imp = json.loads(json.dumps(bp))
+imp['meta']['title'] = 'ECE CET import test site'
+imp['meta']['description'] = 'Empty copy of the ECE CET website for trying an import of the reviewed spreadsheets. Nothing is saved.'
+imp['landingPage'] = '/wp-admin/tools.php?page=cet-ece-import'
+imp['steps'] = bp['steps'][:4] + [
+    {'step': 'writeFile', 'path': '/wordpress/wp-content/mu-plugins/import-banner.php', 'data': {'resource': 'url', 'url': f'{raw}/playground/import-banner.php'}},
+]
+(here / 'import-blueprint.json').write_text(json.dumps(imp, indent=2) + '\n')
+print('Import: https://playground.wordpress.net/?blueprint-url=' + f'{raw}/playground/import-blueprint.json')
