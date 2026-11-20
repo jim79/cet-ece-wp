@@ -15,17 +15,36 @@ function cet_ece_render_news( $attributes ) {
 
 	$args = array( 'post_type' => 'post', 'posts_per_page' => $limit, 'ignore_sticky_posts' => true, 'no_found_rows' => true );
 	if ( $category ) {
-		$args['category_name'] = $category;
+		// Several categories can be given, separated by commas.
+		$args['category_name'] = preg_replace( '/\s*,\s*/', ',', $category );
 	}
 	if ( $exclude ) {
-		$term = get_category_by_slug( $exclude );
-		if ( $term ) {
-			$args['category__not_in'] = array( $term->term_id );
+		// Several categories can be left out, separated by commas.
+		$not = array();
+		foreach ( array_map( 'trim', explode( ',', $exclude ) ) as $slug ) {
+			$term = get_category_by_slug( $slug );
+			if ( $term ) {
+				$not[] = (int) $term->term_id;
+			}
+		}
+		if ( $not ) {
+			$args['category__not_in'] = $not;
 		}
 	}
 	$posts = get_posts( $args );
 	if ( ! $posts ) {
 		return '<p class="ece-empty">Nothing posted yet.</p>';
+	}
+
+	if ( 'posters' === $style ) {
+		$h = '<div class="ece-posters">';
+		foreach ( $posts as $p ) {
+			$cats = get_the_category( $p->ID );
+			$meta = trim( ( $cats ? strtoupper( $cats[0]->name ) : '' ) . ' · ' . strtoupper( get_the_date( 'M Y', $p ) ), ' ·' );
+			$img  = has_post_thumbnail( $p ) ? cet_ece_image( get_post_thumbnail_id( $p ), 'large', get_the_title( $p ), 'ece-poster-img' ) : '<span class="ece-poster-img ece-ph" aria-hidden="true"></span>';
+			$h   .= '<article class="ece-poster"><a class="ece-poster-link" href="' . esc_url( get_permalink( $p ) ) . '">' . $img . '<span class="ece-news-meta">' . esc_html( $meta ) . '</span><span class="ece-poster-title">' . esc_html( get_the_title( $p ) ) . '</span></a></article>';
+		}
+		return '<div class="ece-news">' . $h . '</div></div>';
 	}
 
 	$h = 'list' === $style ? '<ul class="ece-news-list">' : '<div class="ece-news-cards">';

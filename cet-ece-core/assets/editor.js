@@ -25,9 +25,9 @@
 			}
 			if ( name === 'news' ) {
 				controls.push( el( c.RangeControl, { key: 'n', label: 'Number of posts', value: a.limit, min: 1, max: 12, onChange: function ( v ) { set( { limit: v } ); } } ) );
-				controls.push( el( c.TextControl, { key: 'c', label: 'Only this category (slug)', help: 'e.g. announcements. Leave empty for all.', value: a.category, onChange: function ( v ) { set( { category: v } ); } } ) );
+				controls.push( el( c.TextControl, { key: 'c', label: 'Only this category (slug)', help: 'e.g. announcements, or several: placements,student-achievements. Leave empty for all.', value: a.category, onChange: function ( v ) { set( { category: v } ); } } ) );
 				controls.push( el( c.TextControl, { key: 'x', label: 'Leave out this category (slug)', value: a.exclude, onChange: function ( v ) { set( { exclude: v } ); } } ) );
-				controls.push( el( c.SelectControl, { key: 'y', label: 'Layout', value: a.style, options: [ { label: 'Cards with photos', value: 'cards' }, { label: 'Simple list', value: 'list' } ], onChange: function ( v ) { set( { style: v } ); } } ) );
+				controls.push( el( c.SelectControl, { key: 'y', label: 'Layout', value: a.style, options: [ { label: 'Cards with photos', value: 'cards' }, { label: 'Simple list', value: 'list' }, { label: 'Poster grid', value: 'posters' } ], onChange: function ( v ) { set( { style: v } ); } } ) );
 			}
 			if ( name === 'staff-advisors' ) {
 				controls.push( el( c.SelectControl, { key: 's', label: 'Batches', value: a.type, options: [ { label: 'Current batches', value: 'current' }, { label: 'Past batches', value: 'past' } ], onChange: function ( v ) { set( { type: v } ); } } ) );

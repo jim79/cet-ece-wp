@@ -57,6 +57,58 @@
       }
     },
     {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/uploads/demo-posters"
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/demo-posters/placement-1.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/posters/placement-1.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/demo-posters/placement-2.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/posters/placement-2.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/demo-posters/placement-3.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/posters/placement-3.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/demo-posters/achievement-1.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/posters/achievement-1.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/demo-posters/achievement-2.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/posters/achievement-2.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/demo-posters/achievement-3.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/posters/achievement-3.jpg"
+      }
+    },
+    {
       "step": "writeFile",
       "path": "/wordpress/demo-seed.php",
       "data": {

@@ -41,7 +41,7 @@ The content lives in the plugin, so a future theme change keeps every faculty pr
 3. Plugins › Add New › Upload: upload `cet-ece-core.zip`, then activate it.
 4. Appearance › Themes › Add New › Upload: upload `cet-ece.zip`, then activate it.
 
-On first activation the theme creates the site's pages (Home, About, Academics and the eight programme pages, OBE, Research, Publications, Placements, Students, Library, Staff advisors, Technical staff, Contact, News and Events). It sets Home as the homepage and News and Events as the posts page, adds the news categories (Announcements, Department news, Workshops and FDPs, Talks, Outreach) and switches permalinks to `/page-name/`. Pages that already exist with the same address are left alone.
+On first activation the theme creates the site's pages (Home, About, Academics and the eight programme pages, OBE, Research, Publications, Placements, Students, Library, Staff advisors, Technical staff, Alumni, Downloads, Contact, Privacy, Accessibility, News and Events). It sets Home as the homepage and News and Events as the posts page, adds the news categories (Announcements, Department news, Student achievements, Placements, Workshops and FDPs, Talks, Outreach) and switches permalinks to `/page-name/`. Pages that already exist with the same address are left alone.
 
 5. Settings › General: check the site title and tagline. Appearance › Editor › Site logo: upload the department logo.
 6. In `wp-config.php`, add `define( 'DISALLOW_FILE_EDIT', true );` if it is not there. (The plugin sets it too.)
@@ -58,6 +58,9 @@ Work through the [brackets] on each page: they mark facts to confirm or add (NBA
 | A publication | Publications › Add | Publications page, Research page, faculty profiles, BibTeX download |
 | Technical staff | Technical staff › Add | Technical staff page, lab pages |
 | News or an announcement | Posts › Add, pick a category | Homepage, News and Events, Students (announcements) |
+| An achievement or placement poster | Posts › Add, category *Student achievements* or *Placements*, poster as the featured image | Homepage poster strip, Students (achievements), Placements (recent placements), News and Events |
+
+Posters: always write the essentials as text in the post (name, batch, award or company, date). Text inside an image cannot be searched, read by screen readers, or read easily on a phone. Posters are shown whole, never cropped, and old ones move to the archive on their own.
 
 Rules built into the forms:
 
@@ -76,6 +79,12 @@ Lab pages: the Programme box in the sidebar decides which programme pages list t
 - JPEG and PNG uploads are saved as WebP where the server supports it; images larger than 2000 px are scaled down.
 - Old addresses redirect: `/faculty-2/` → `/faculty/`, `/placements-latest/` → `/placements/`, `/research-overview/` → `/research/`, `/publications/` → `/research/publications/`, `/activities/` → `/news/`, `/laboratories/` → `/labs/`, `/golden-jubilee-celebrations/` → `/about/`, `/obe/` → `/academics/obe/`, `/programs/` → `/academics/`.
 - Dark mode follows the visitor's device setting.
+- Every page has a meta description and a sharing preview (title, description, image) for WhatsApp, Facebook and LinkedIn. The homepage carries organisation data for search engines. If an SEO plugin is installed later, these step aside.
+- WordPress's built-in sitemap lists every page, faculty profile and lab at `/wp-sitemap.xml`. Submit it in Google Search Console.
+
+## Recommended extra
+
+- **Two Factor** (free, by WordPress contributors): turn on two-step login for every administrator account.
 
 ## Yearly check (one person, about an hour)
 

@@ -80,6 +80,20 @@
 
 <!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"16px","margin":{"top":"48px"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="margin-top:48px"><!-- wp:heading -->
+<h2 class="wp-block-heading">Industry collaborations and MoUs</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table {"hasFixedLayout":false} -->
+<figure class="wp-block-table"><table><thead><tr><th>Partner</th><th>Type</th><th>Since</th><th>Activities</th></tr></thead><tbody><tr><td>[Organisation]</td><td>MoU</td><td>[Year]</td><td>[Internships, projects, training]</td></tr><tr><td>[Organisation]</td><td>Consultancy</td><td>[Year]</td><td>[Work done]</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph {"textColor":"muted","fontSize":"small"} -->
+<p class="has-muted-color has-text-color has-small-font-size">List current agreements only. Link each partner to the signed MoU (PDF) if it can be public.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"16px","margin":{"top":"48px"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide" style="margin-top:48px"><!-- wp:heading -->
 <h2 class="wp-block-heading">Ph.D. programme</h2>
 <!-- /wp:heading -->
 

@@ -130,3 +130,10 @@ a.ece-chip:hover { color: var(--_link); text-decoration: underline; }
 .ece-news-list { list-style: none; margin: 0; padding: 0; border: 1px solid var(--_line); border-radius: 12px; }
 .ece-news-list li { padding: 16px 18px; border-bottom: 1px solid var(--_line); display: flex; flex-direction: column; gap: 4px; }
 .ece-news-list li:last-child { border-bottom: 0; }
+
+/* Posters: achievement and placement posters, shown whole (never cropped) */
+.ece-posters { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+.ece-poster-link { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--_text); }
+.ece-poster-img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; background: var(--_surface); border: 1px solid var(--_line); border-radius: 12px; }
+.ece-poster-title { font-weight: 600; font-size: 15px; line-height: 1.35; }
+.ece-poster-link:hover .ece-poster-title { color: var(--_link); text-decoration: underline; }

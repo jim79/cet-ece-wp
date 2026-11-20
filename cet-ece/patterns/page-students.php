@@ -18,6 +18,16 @@
 <p style="font-weight:600"><a href="/category/announcements/">All notices</a></p>
 <!-- /wp:paragraph -->
 
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Recent achievements</h2>
+<!-- /wp:heading -->
+
+<!-- wp:cet-ece/news {"limit":4,"category":"student-achievements","style":"posters","align":"wide"} /-->
+
+<!-- wp:paragraph {"style":{"typography":{"fontWeight":"600"}}} -->
+<p style="font-weight:600"><a href="/category/student-achievements/">All achievements</a></p>
+<!-- /wp:paragraph -->
+
 <!-- wp:group {"align":null,"style":{"spacing":{"blockGap":"16px","margin":{"top":"48px"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group" style="margin-top:48px"><!-- wp:heading -->
 <h2 class="wp-block-heading">Quick links</h2>
@@ -61,6 +71,16 @@
 
 <!-- wp:paragraph {"textColor":"muted","fontSize":"small"} -->
 <p class="has-muted-color has-text-color has-small-font-size">Lab pages carry the manuals</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"ece-card-surface","style":{"spacing":{"padding":{"top":"20px","right":"20px","bottom":"20px","left":"20px"},"blockGap":"6px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group ece-card-surface" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px"><!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"17px"}}} -->
+<h3 class="wp-block-heading" style="font-size:17px"><a href="/downloads/">Downloads</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"textColor":"muted","fontSize":"small"} -->
+<p class="has-muted-color has-text-color has-small-font-size">Forms, calendars, syllabus</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 

@@ -55,6 +55,16 @@
 <!-- /wp:group -->
 
 <!-- wp:heading -->
+<h2 class="wp-block-heading">Recent placements</h2>
+<!-- /wp:heading -->
+
+<!-- wp:cet-ece/news {"limit":8,"category":"placements","style":"posters","align":"wide"} /-->
+
+<!-- wp:paragraph {"style":{"typography":{"fontWeight":"600"}}} -->
+<p style="font-weight:600"><a href="/category/placements/">All placement news</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
 <h2 class="wp-block-heading">Year by year</h2>
 <!-- /wp:heading -->
 

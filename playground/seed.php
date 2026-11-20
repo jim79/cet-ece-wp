@@ -247,5 +247,42 @@ foreach ( $ann as $a ) {
 	) );
 }
 
+// ---------- Achievement and placement posters (sample) ----------
+require_once ABSPATH . 'wp-admin/includes/image.php';
+$poster_dir = WP_CONTENT_DIR . '/uploads/demo-posters/';
+$posters    = array(
+	array( 'placement-1', 'placements', '[Student name], B.Tech ECE 2026, placed at [Company A]', '2026-11-12 10:00:00', '[Student name] of the 2026 B.Tech ECE batch has been placed at [Company A] as [role], with a package of [x] LPA.' ),
+	array( 'placement-2', 'placements', '[Student name], B.Tech AEI 2026, placed at [Company B]', '2026-11-05 10:00:00', '[Student name] of the 2026 B.Tech AEI batch has been placed at [Company B] as [role].' ),
+	array( 'placement-3', 'placements', '[Student name], B.Tech ECE 2026, placed at [Company C]', '2026-10-28 10:00:00', '[Student name] of the 2026 B.Tech ECE batch has been placed at [Company C] as [role].' ),
+	array( 'achievement-1', 'student-achievements', 'S7 team wins first prize at [national hackathon]', '2026-11-08 10:00:00', 'A team of S7 B.Tech ECE students, [names], won first prize at [national hackathon], held at [venue] on [date].' ),
+	array( 'achievement-2', 'student-achievements', 'Best paper award for M.Tech student at [conference]', '2026-10-20 10:00:00', '[Student name], M.Tech Signal Processing, received the best paper award at [conference] for the paper "[title]", guided by [faculty name].' ),
+	array( 'achievement-3', 'student-achievements', 'University first rank in B.Tech AEI, 2025', '2026-09-15 10:00:00', '[Student name] of the 2025 B.Tech AEI batch secured the first rank in APJ Abdul Kalam Technological University examinations.' ),
+);
+foreach ( $posters as $pp ) {
+	$file = $poster_dir . $pp[0] . '.jpg';
+	$att  = 0;
+	if ( file_exists( $file ) ) {
+		$att = wp_insert_attachment( array( 'post_mime_type' => 'image/jpeg', 'post_title' => $pp[2], 'post_status' => 'inherit' ), $file );
+		if ( $att && ! is_wp_error( $att ) ) {
+			$meta = @wp_generate_attachment_metadata( $att, $file ); // Image sizes need GD or Imagick; the full image works without them.
+			if ( $meta ) {
+				wp_update_attachment_metadata( $att, $meta );
+			}
+			update_post_meta( $att, '_wp_attachment_image_alt', 'Sample poster: ' . $pp[2] );
+		}
+	}
+	$post_id = wp_insert_post( array(
+		'post_status'   => 'publish',
+		'post_title'    => $pp[2],
+		'post_date'     => $pp[3],
+		'post_excerpt'  => $pp[4],
+		'post_category' => demo_cat( $pp[1] ),
+		'post_content'  => demo_para( $pp[4] ) . '<!-- wp:paragraph --><p>The poster is the featured image of this post.</p><!-- /wp:paragraph -->',
+	) );
+	if ( $att && ! is_wp_error( $att ) ) {
+		set_post_thumbnail( $post_id, $att );
+	}
+}
+
 flush_rewrite_rules();
 echo 'Demo content ready.';

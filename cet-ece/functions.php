@@ -71,6 +71,10 @@ function cet_ece_starter_pages() {
 		array( 'placements', 'Placements', 'cet-ece/page-placements', '' ),
 		array( 'students', 'Students', 'cet-ece/page-students', '' ),
 		array( 'contact', 'Contact', 'cet-ece/page-contact', '' ),
+		array( 'alumni', 'Alumni', 'cet-ece/page-alumni', '' ),
+		array( 'downloads', 'Downloads', 'cet-ece/page-downloads', '' ),
+		array( 'privacy', 'Privacy', 'cet-ece/page-privacy', '' ),
+		array( 'accessibility', 'Accessibility', 'cet-ece/page-accessibility', '' ),
 		array( 'news', 'News and Events', '', '' ),
 	);
 }
@@ -100,6 +104,10 @@ function cet_ece_starter_leads() {
 		'placements'                   => 'Placement results for B.Tech ECE and AEI, year by year, with the companies that recruit from the department.',
 		'students'                     => 'Notices, calendars, syllabus and contacts for current students.',
 		'contact'                      => 'Department of Electronics and Communication Engineering, College of Engineering Trivandrum.',
+		'alumni'                       => 'Stay connected with the department, current students and fellow graduates.',
+		'downloads'                    => 'Forms, calendars, syllabus and department documents.',
+		'privacy'                      => 'What this website collects and how to correct information about you.',
+		'accessibility'                => 'How we make the website usable for everyone, and how to report a problem.',
 	);
 }
 
@@ -165,7 +173,11 @@ function cet_ece_create_starter_content() {
 		update_option( 'page_for_posts', $ids['news'] );
 	}
 
-	foreach ( array( 'Announcements', 'Department news', 'Workshops and FDPs', 'Talks', 'Outreach' ) as $cat ) {
+	if ( ! empty( $ids['privacy'] ) ) {
+		update_option( 'wp_page_for_privacy_policy', $ids['privacy'] );
+	}
+
+	foreach ( array( 'Announcements', 'Department news', 'Student achievements', 'Placements', 'Workshops and FDPs', 'Talks', 'Outreach' ) as $cat ) {
 		if ( ! term_exists( $cat, 'category' ) ) {
 			wp_insert_term( $cat, 'category' );
 		}

@@ -125,7 +125,7 @@
 
 <!-- wp:group {"className":"ece-card-surface","style":{"spacing":{"padding":{"top":"20px","right":"20px","bottom":"20px","left":"20px"},"blockGap":"6px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group ece-card-surface" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px"><!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"17px"}}} -->
-<h3 class="wp-block-heading" style="font-size:17px"><a href="/contact/">Alumni</a></h3>
+<h3 class="wp-block-heading" style="font-size:17px"><a href="/alumni/">Alumni</a></h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"textColor":"muted","fontSize":"small"} -->
@@ -142,7 +142,7 @@
 <h2 class="wp-block-heading">Latest news</h2>
 <!-- /wp:heading -->
 
-<!-- wp:cet-ece/news {"limit":3,"exclude":"announcements"} /-->
+<!-- wp:cet-ece/news {"limit":3,"exclude":"announcements,student-achievements,placements"} /-->
 
 <!-- wp:paragraph {"style":{"typography":{"fontWeight":"600"}}} -->
 <p style="font-weight:600"><a href="/news/">All news and events</a></p>
@@ -161,6 +161,18 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"16px","margin":{"top":"48px"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide" style="margin-top:48px"><!-- wp:heading -->
+<h2 class="wp-block-heading">Achievements and placements</h2>
+<!-- /wp:heading -->
+
+<!-- wp:cet-ece/news {"limit":4,"category":"student-achievements,placements","style":"posters"} /-->
+
+<!-- wp:paragraph {"style":{"typography":{"fontWeight":"600"}}} -->
+<p style="font-weight:600"><a href="/category/student-achievements/">All achievements</a> · <a href="/category/placements/">All placement news</a></p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 

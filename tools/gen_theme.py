@@ -364,12 +364,13 @@ HOME = '\n\n'.join([
             card('Current students', 'Calendar, syllabus, notices, advisors', '/students/'),
             card('Researchers', 'Labs, projects, publications, Ph.D.', '/research/'),
             card('Recruiters', 'Placement statistics and contacts', '/placements/'),
-            card('Alumni', 'Stay in touch, give a talk, mentor', '/contact/'),
+            card('Alumni', 'Stay in touch, give a talk, mentor', '/alumni/'),
         ], '200px')]),
         group([columns([
-            ('66.66%', [h(2, 'Latest news'), dyn('cet-ece/news', limit=3, exclude='announcements'), p('<a href="/news/">All news and events</a>', style={'typography': {'fontWeight': '600'}})]),
+            ('66.66%', [h(2, 'Latest news'), dyn('cet-ece/news', limit=3, exclude='announcements,student-achievements,placements'), p('<a href="/news/">All news and events</a>', style={'typography': {'fontWeight': '600'}})]),
             ('33.33%', [h(2, 'Announcements'), dyn('cet-ece/news', limit=4, category='announcements', style='list'), p('<a href="/category/announcements/">All announcements</a>', style={'typography': {'fontWeight': '600'}})]),
         ], style={'spacing': {'blockGap': {'left': '48px'}}})], align='wide', style={'spacing': {'margin': {'top': '56px'}}}, layout={'type': 'default'}),
+        section('Achievements and placements', [dyn('cet-ece/news', limit=4, category='student-achievements,placements', style='posters'), p('<a href="/category/student-achievements/">All achievements</a> · <a href="/category/placements/">All placement news</a>', style={'typography': {'fontWeight': '600'}})]),
     ], align='full', style={'spacing': {'padding': {'top': '24px', 'bottom': '72px'}, 'margin': {'top': '0', 'bottom': '0'}}}, layout={'type': 'constrained', 'contentSize': '1200px'}),
     group([group([h(2, 'Research areas'), dyn('cet-ece/research-areas'), p('<a href="/research/">Labs, projects and publications</a>', style={'typography': {'fontWeight': '600'}})], align='wide', style={'spacing': {'blockGap': '20px'}}, layout={'type': 'default'})],
           align='full', backgroundColor='tint', style={'spacing': {'padding': {'top': '64px', 'bottom': '64px'}, 'margin': {'top': '0', 'bottom': '0'}}}, layout={'type': 'constrained', 'contentSize': '1200px'}),
@@ -474,6 +475,7 @@ RES = '\n\n'.join([
     section('Research areas', [dyn('cet-ece/research-areas'), p('Each area lists its faculty, labs and publications.', textColor='muted', fontSize='small')]),
     section('Research labs', [dyn('cet-ece/lab-list', type='research')]),
     section('Funded projects', [dyn('cet-ece/projects')]),
+    section('Industry collaborations and MoUs', [table(['Partner', 'Type', 'Since', 'Activities'], [['[Organisation]', 'MoU', '[Year]', '[Internships, projects, training]'], ['[Organisation]', 'Consultancy', '[Year]', '[Work done]']]), p('List current agreements only. Link each partner to the signed MoU (PDF) if it can be public.', textColor='muted', fontSize='small')]),
     section('Ph.D. programme', [p('Full-time and part-time Ph.D. under APJ Abdul Kalam Technological University. The department is a QIP centre. <a href="/academics/phd/">Schemes, eligibility and admission</a>.')]),
     section('Latest publications', [dyn('cet-ece/publications', showFilters=False, limit=5), p('<a href="/research/publications/">All publications</a>', style={'typography': {'fontWeight': '600'}})]),
 ])
@@ -499,6 +501,9 @@ pattern('page-library', 'Library', 'Holdings, hours, e-resources, rules and cont
 PLC = '\n\n'.join([
     h(2, '[Year] batch at a glance'),
     grid([stat('[n]', 'Students placed'), stat('[n]%', 'Of eligible students'), stat('[x] LPA', 'Median package'), stat('[n]', 'Recruiting companies')], '170px', cols=4, align='wide'),
+    h(2, 'Recent placements'),
+    dyn('cet-ece/news', limit=8, category='placements', style='posters', align='wide'),
+    p('<a href="/category/placements/">All placement news</a>', style={'typography': {'fontWeight': '600'}}),
     h(2, 'Year by year'),
     table(['Batch', 'Programme', 'Eligible', 'Placed', 'Median CTC (LPA)', 'Highest CTC (LPA)'], [['[2025]', 'B.Tech ECE', '[n]', '[n]', '[x]', '[x]'], ['[2025]', 'B.Tech AEI', '[n]', '[n]', '[x]', '[x]'], ['[2024]', 'B.Tech ECE', '[n]', '[n]', '[x]', '[x]'], ['[2024]', 'B.Tech AEI', '[n]', '[n]', '[x]', '[x]']]),
     p('All packages in lakhs per annum (LPA). Link each batch to its detailed list (PDF).', textColor='muted', fontSize='small'),
@@ -515,7 +520,10 @@ STU = '\n\n'.join([
     h(2, 'Notices'),
     dyn('cet-ece/news', limit=6, category='announcements', style='list'),
     p('<a href="/category/announcements/">All notices</a>', style={'typography': {'fontWeight': '600'}}),
-    section('Quick links', [grid([card('Academic calendar', 'Current semester, from KTU', 'https://ktu.edu.in/'), card('Scheme and syllabus', 'By programme and admission year', '/academics/'), card('Staff advisors', 'Your batch advisor', '/staff-advisors/'), card('Labs and manuals', 'Lab pages carry the manuals', '/labs/'), card('Exam results', 'KTU results portal', 'https://ktu.edu.in/')], '200px')], align=None),
+    h(2, 'Recent achievements'),
+    dyn('cet-ece/news', limit=4, category='student-achievements', style='posters', align='wide'),
+    p('<a href="/category/student-achievements/">All achievements</a>', style={'typography': {'fontWeight': '600'}}),
+    section('Quick links', [grid([card('Academic calendar', 'Current semester, from KTU', 'https://ktu.edu.in/'), card('Scheme and syllabus', 'By programme and admission year', '/academics/'), card('Staff advisors', 'Your batch advisor', '/staff-advisors/'), card('Labs and manuals', 'Lab pages carry the manuals', '/labs/'), card('Downloads', 'Forms, calendars, syllabus', '/downloads/'), card('Exam results', 'KTU results portal', 'https://ktu.edu.in/')], '200px')], align=None),
     h(2, 'University rank holders'),
     table(['Year', 'B.Tech ECE', 'B.Tech AEI'], [['[2025]', '[Name, rank]', '[Name, rank]'], ['[2024]', '[Name, rank]', '[Name, rank]']]),
     h(2, 'Student associations'),
@@ -536,6 +544,58 @@ CON = '\n\n'.join([
     table(['By', 'Directions'], [['Air', '[Trivandrum International Airport: distance and route]'], ['Train', '[Nearest station: distance and route]'], ['Bus', '[Buses to Sreekariyam, nearest stop]']]),
 ])
 pattern('page-contact', 'Contact and directions', 'Address, contacts by purpose and directions.', CON)
+
+ALUMNI = '\n\n'.join([
+    p('Graduates of the department work across industry, research and academia in India and abroad. This page is how alumni stay connected with current students and faculty.'),
+    h(2, 'Stay in touch'),
+    p('Send your name, batch, programme and current role to [alumni coordinator email], or fill in the <a href="#">alumni form</a> [link to a Google Form].'),
+    h(2, 'Ways to give back'),
+    ul(['Give a talk in the Technical Talk Series (alumni talks appear under <a href="/category/talks/">Talks</a>)', 'Mentor final-year students on projects and careers', 'Offer internships or refer recruiters to the <a href="/placements/">placement cell</a>', 'Support a lab, award or scholarship']),
+    h(2, 'Recent alumni talks'),
+    dyn('cet-ece/news', limit=3, category='talks', style='list'),
+    h(2, 'Notable alumni'),
+    table(['Name', 'Batch', 'Role'], [['[Name]', '[Programme, year]', '[Role, organisation]'], ['[Name]', '[Programme, year]', '[Role, organisation]']]),
+    p('Listed with their consent.', textColor='muted', fontSize='small'),
+    h(2, 'Batch coordinators'),
+    table(['Batch', 'Coordinator', 'Contact'], [['[Year]', '[Name]', '[Email]']]),
+])
+pattern('page-alumni', 'Alumni', 'Stay in touch, ways to give back, alumni talks and notable alumni.', ALUMNI)
+
+DOWN = '\n\n'.join([
+    p('Forms, calendars and documents in one place. Each link opens a PDF. Replace a file when a new version comes out; do not add a second copy.'),
+    h(2, 'Academic'),
+    table(['Document', 'Applies to', 'Updated'], [['<a href="#">Academic calendar [semester]</a>', 'All programmes', '[Date]'], ['<a href="#">B.Tech scheme and syllabus, [2024]</a>', 'B.Tech admitted [2024] onwards', '[Date]'], ['<a href="#">M.Tech scheme and syllabus, [2022]</a>', 'M.Tech admitted [2022] onwards', '[Date]']]),
+    h(2, 'Student forms'),
+    table(['Form', 'Submit to', 'Updated'], [['<a href="#">Leave application</a>', 'Staff advisor', '[Date]'], ['<a href="#">Bonafide certificate request</a>', 'Department office', '[Date]'], ['<a href="#">Internship approval</a>', 'Placement coordinator', '[Date]']]),
+    h(2, 'Department'),
+    table(['Document', 'Updated'], [['<a href="#">Department brochure</a>', '[Date]'], ['<a href="#">Placement brochure</a>', '[Date]'], ['<a href="#">NBA accreditation certificates</a>', '[Date]']]),
+    p('Lab manuals are on each <a href="/labs/">lab page</a>. Attainment reports are on the <a href="/academics/obe/">outcome-based education</a> page.', textColor='muted', fontSize='small'),
+])
+pattern('page-downloads', 'Downloads', 'Forms, calendars, syllabus and department documents.', DOWN)
+
+PRIV = '\n\n'.join([
+    p('This page explains what information this website collects and how it is used.'),
+    h(2, 'What we collect'),
+    p('The site does not use tracking or advertising cookies and has no analytics. The web server keeps standard access logs (IP address, page requested, time) for security, deleted after [period]. Editors who log in use a session cookie.'),
+    h(2, 'Information about staff and students'),
+    p('Faculty and staff profiles show institutional email addresses and work details only. Student names appear in news, rank lists and placement posts with their consent. To correct or remove information about you, write to <a href="mailto:hodece@cet.ac.in">hodece@cet.ac.in</a>.'),
+    h(2, 'Embedded and linked content'),
+    p('Some pages link to other sites, such as the university portal or Google Maps. Those sites have their own privacy policies.'),
+    h(2, 'Contact'),
+    p('Head of Department, Department of Electronics and Communication Engineering, College of Engineering Trivandrum. <a href="mailto:hodece@cet.ac.in">hodece@cet.ac.in</a>'),
+])
+pattern('page-privacy', 'Privacy', 'What the website collects and how to correct information.', PRIV)
+
+ACC = '\n\n'.join([
+    p('We want everyone to be able to use this website, including people who use screen readers, keyboard navigation or magnification.'),
+    h(2, 'What we do'),
+    ul(['Pages follow the Web Content Accessibility Guidelines (WCAG) 2.2 at level AA as the target.', 'Text and background colours meet contrast requirements in light and dark mode.', 'Every page works with a keyboard and has a skip-to-content link.', 'Photos carry text descriptions, and posters have their text written out in the post.']),
+    h(2, 'Known gaps'),
+    p('Some older PDF documents are scanned images and cannot be read by screen readers. Ask us for an accessible copy.'),
+    h(2, 'Report a problem'),
+    p('Write to <a href="mailto:hodece@cet.ac.in">hodece@cet.ac.in</a> with the page address and the problem. We aim to reply within [number] working days.'),
+])
+pattern('page-accessibility', 'Accessibility', 'Accessibility statement and how to report problems.', ACC)
 
 # ---------- section patterns for editors ----------
 pattern('section-link-cards', 'Link cards', 'A responsive grid of linked cards.', grid([card('[Title]', '[One line]', '#'), card('[Title]', '[One line]', '#'), card('[Title]', '[One line]', '#')], '220px', align='wide'), cats='cet-ece-sections', post_types='page,post')
