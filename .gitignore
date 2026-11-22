@@ -3,3 +3,6 @@ node_modules/
 migration/
 reports/
 __pycache__/
+docs/*.aux
+docs/*.log
+docs/*.out

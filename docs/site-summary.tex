@@ -1,0 +1,58 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\setlist[itemize]{leftmargin=1.4em,itemsep=2pt,topsep=4pt}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{14pt}{4pt}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\begin{document}
+
+{\LARGE\bfseries New ECE CET website: key features}\par
+\vspace{4pt}
+{\small Department of Electronics and Communication Engineering, College of Engineering Trivandrum\\ 22 November 2026}\par
+\vspace{10pt}
+
+A WordPress site for the ECE department that staff can keep current without a programmer.
+
+\section*{Key features}
+\begin{itemize}
+  \item Faculty profiles: photo, qualifications, courses, Scholar and ORCID links, publications
+  \item Programme pages: intake, syllabus, PEOs, PSOs and POs, labs
+  \item OBE page: vision, mission, outcomes, committees, attainment reports
+  \item Labs: in-charge, technical staff, experiments, manuals
+  \item Research: areas, funded projects, filterable publications with BibTeX
+  \item News, notices, achievement and placement posters
+  \item Staff advisors by batch
+  \item Mobile-friendly, dark mode, accessible (WCAG 2.2 AA target)
+\end{itemize}
+
+\section*{Maintainability}
+\begin{itemize}
+  \item Enter once, shown everywhere
+  \item Simple forms, not page editing; consistent design
+  \item Errors caught at entry: @cet.ac.in emails, photo descriptions, DOIs
+  \item Pages update themselves: past batches, poster archive, dates
+  \item Content kept separate from design: a redesign loses nothing
+  \item Standard WordPress and one free plugin: no page builder, no licence fees
+  \item Automatic updates and hardened security
+  \item Old links redirect to the new pages
+  \item Code, guides and change history on GitHub
+  \item Upkeep: about one hour a year for checks
+\end{itemize}
+
+\section*{Migration}
+\begin{itemize}
+  \item Old site converted: 41 faculty, 35 labs, 421 publications, OBE and syllabus
+  \item Convert, review in a spreadsheet, import; reruns never duplicate
+  \item Photos and PDFs copied in: no dependence on the old site
+\end{itemize}
+
+\end{document}
