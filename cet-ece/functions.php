@@ -54,13 +54,13 @@ function cet_ece_starter_pages() {
 		array( 'home', 'Home', 'cet-ece/page-home', '' ),
 		array( 'about', 'About', 'cet-ece/page-about', '' ),
 		array( 'academics', 'Academics', 'cet-ece/page-academics', '' ),
-		array( 'btech-ece', 'B.Tech in Electronics and Communication Engineering', 'cet-ece/page-programme', 'academics' ),
-		array( 'btech-aei', 'B.Tech in Applied Electronics and Instrumentation', 'cet-ece/page-programme', 'academics' ),
-		array( 'mtech-applied-electronics', 'M.Tech in Applied Electronics and Instrumentation', 'cet-ece/page-programme', 'academics' ),
-		array( 'mtech-communication-systems', 'M.Tech in Communication Systems', 'cet-ece/page-programme', 'academics' ),
-		array( 'mtech-signal-processing', 'M.Tech in Signal Processing', 'cet-ece/page-programme', 'academics' ),
-		array( 'mtech-micro-nano-electronics', 'M.Tech in Micro and Nano Electronics', 'cet-ece/page-programme', 'academics' ),
-		array( 'mtech-robotics-automation', 'M.Tech in Robotics and Automation', 'cet-ece/page-programme', 'academics' ),
+		array( 'btech-ece', 'B.Tech in Electronics and Communication Engineering', 'cet-ece/page-programme-btech-ece', 'academics' ),
+		array( 'btech-aei', 'B.Tech in Applied Electronics and Instrumentation', 'cet-ece/page-programme-btech-aei', 'academics' ),
+		array( 'mtech-applied-electronics', 'M.Tech in Applied Electronics and Instrumentation', 'cet-ece/page-programme-mtech-applied-electronics', 'academics' ),
+		array( 'mtech-communication-systems', 'M.Tech in Communication Systems', 'cet-ece/page-programme-mtech-communication-systems', 'academics' ),
+		array( 'mtech-signal-processing', 'M.Tech in Signal Processing', 'cet-ece/page-programme-mtech-signal-processing', 'academics' ),
+		array( 'mtech-micro-nano-electronics', 'M.Tech in Micro and Nano Electronics', 'cet-ece/page-programme-mtech-micro-nano-electronics', 'academics' ),
+		array( 'mtech-robotics-automation', 'M.Tech in Robotics and Automation', 'cet-ece/page-programme-mtech-robotics-automation', 'academics' ),
 		array( 'phd', 'Ph.D. in Electronics and Communication Engineering', 'cet-ece/page-phd', 'academics' ),
 		array( 'obe', 'Outcome-based education', 'cet-ece/page-obe', 'academics' ),
 		array( 'staff-advisors', 'Staff advisors', 'cet-ece/page-staff-advisors', '' ),
@@ -112,10 +112,12 @@ function cet_ece_starter_leads() {
 }
 
 function cet_ece_programme_facts() {
-	// slug => intake, duration, programme taxonomy slug for the labs list.
+	// slug => intake, duration, programme taxonomy slug for the labs list. The
+	// per-programme patterns already carry these; this fills the generic
+	// pattern if a programme page is ever created from it.
 	return array(
-		'btech-ece'                    => array( '120 + 12 lateral entry [confirm]', '4 years, 8 semesters', 'btech-ece' ),
-		'btech-aei'                    => array( '60 + 6 lateral entry [confirm]', '4 years, 8 semesters', 'btech-aei' ),
+		'btech-ece'                    => array( '120 + 12 lateral entry', '4 years, 8 semesters', 'btech-ece' ),
+		'btech-aei'                    => array( '60 + 6 lateral entry', '4 years, 8 semesters', 'btech-aei' ),
 		'mtech-applied-electronics'    => array( '18', '2 years, 4 semesters', 'mtech' ),
 		'mtech-communication-systems'  => array( '18', '2 years, 4 semesters', 'mtech' ),
 		'mtech-signal-processing'      => array( '18', '2 years, 4 semesters', 'mtech' ),

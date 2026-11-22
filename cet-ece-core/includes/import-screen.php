@@ -22,6 +22,7 @@ function cet_ece_import_screen() {
 		'batches'      => 'Staff advisor batches',
 		'publications' => 'Publications',
 		'news'         => 'News and announcements',
+		'sections'     => 'Department pages (committees, syllabus, calendars)',
 	);
 	$log   = null;
 	$error = '';
@@ -48,7 +49,8 @@ function cet_ece_import_screen() {
 	?>
 	<div class="wrap">
 		<h1>ECE import</h1>
-		<p>Load a reviewed spreadsheet from the old website. Save it as CSV first. Import in this order: Faculty, Technical staff, Labs, Staff advisor batches, Publications, News.</p>
+		<p>Load a reviewed spreadsheet from the old website. Save it as CSV first. Import in this order: Faculty, Technical staff, Labs, Staff advisor batches, Publications, News, Department pages.</p>
+		<p>Photos, lab manuals, syllabus and calendar PDFs and the pictures in news posts are copied from the old site into the media library, so run the imports while the old site is still online. Large files take time: if the page stops before the result appears, run the same import again and it carries on where it stopped, or use <code>wp ece import</code> on the server.</p>
 		<p>Entries are matched by name, so importing the same file again updates entries instead of adding duplicates. Run a <strong>dry run</strong> first: it shows what would happen and changes nothing.</p>
 
 		<?php if ( $error ) : ?>
@@ -74,7 +76,7 @@ function cet_ece_import_screen() {
 					<th scope="row">Options</th>
 					<td>
 						<label><input type="checkbox" name="dry_run" value="1" <?php checked( $dry ); ?>> Dry run (change nothing, just show the result)</label><br>
-						<label><input type="checkbox" name="no_photos" value="1"> Do not download photos</label>
+						<label><input type="checkbox" name="no_photos" value="1"> Do not download photos and documents</label>
 					</td>
 				</tr>
 			</table>

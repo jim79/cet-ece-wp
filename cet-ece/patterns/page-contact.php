@@ -13,7 +13,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Head of Department<br>Department of Electronics and Communication Engineering<br>College of Engineering Trivandrum<br>Sreekariyam, Thiruvananthapuram, Kerala [PIN]</p>
+<p>Head of Department<br>Department of Electronics and Communication Engineering<br>College of Engineering Trivandrum<br>Sreekariyam, Thiruvananthapuram, Kerala 695016</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -37,5 +37,5 @@
 <!-- /wp:heading -->
 
 <!-- wp:table {"hasFixedLayout":false} -->
-<figure class="wp-block-table"><table><thead><tr><th>By</th><th>Directions</th></tr></thead><tbody><tr><td>Air</td><td>[Trivandrum International Airport: distance and route]</td></tr><tr><td>Train</td><td>[Nearest station: distance and route]</td></tr><tr><td>Bus</td><td>[Buses to Sreekariyam, nearest stop]</td></tr></tbody></table></figure>
+<figure class="wp-block-table"><table><thead><tr><th>By</th><th>Directions</th></tr></thead><tbody><tr><td>Air</td><td>Thiruvananthapuram International Airport has domestic and international flights daily. Take a cab from the pre-paid taxi counter (about ₹500) or an online taxi. Places near CET: Sreekariyam, Chavadimukku, Kulathoor and Mannanthala.</td></tr><tr><td>Train</td><td>Get off at Thiruvananthapuram Central (Thampanoor). A pre-paid autorickshaw from outside the station costs about ₹120, or take a bus from the Thampanoor bus stand, 100 m away. Online taxis are also available.</td></tr><tr><td>Bus</td><td>The main bus terminus is at Thampanoor, opposite the railway station, with buses to the CET campus. Otherwise take a bus to Sreekariyam or Chavadimukku: CET is 2 km from Sreekariyam and 1 km (a 10-minute walk) from Chavadimukku. An autorickshaw from either costs ₹20–30.</td></tr></tbody></table></figure>
 <!-- /wp:table -->

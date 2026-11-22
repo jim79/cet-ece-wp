@@ -2,14 +2,16 @@
 
 Input, one of:
   --site   https://ece.cet.ac.in   read the public website directly (no login needed):
-                             the five pages below, plus all news posts from the
-                             site's public posts feed (/wp-json/wp/v2/posts)
+                             the five pages below, every page from the public
+                             pages feed (faculty profiles, lab pages, OBE,
+                             Programs...), and all news posts from the posts feed
   --export old-site.xml      WordPress export from the old site (Tools > Export > All content)
   --pages  folder/           saved HTML pages: faculty-2.html, technical-staff.html,
                              staff-advisors.html, laboratories.html, publications.html
 
 Output (in --out, default ./migration):
   faculty.csv, staff.csv, batches.csv, labs.csv, publications.csv, news.csv
+  sections.csv   changes to department pages (committees, syllabus, calendars...)
   warnings.csv   every row that needs a human look, with the reason
 
 Review and correct the CSVs in a spreadsheet, then load them with
@@ -32,7 +34,10 @@ import xml.etree.ElementTree as ET
 
 from bs4 import BeautifulSoup
 
+import old_pages
+
 WARN = []
+API_PAGES = []  # every published page of the old site, from /wp-json/wp/v2/pages
 
 
 def warn(kind, item, reason):
@@ -74,6 +79,8 @@ def read_export(path):
             atts[pid] = item.findtext('wp:attachment_url', default='', namespaces=NS)
         elif ptype == 'page' and status == 'publish':
             pages[slug] = body
+            API_PAGES.append({'slug': slug, 'link': item.findtext('link', default=''),
+                              'title': {'rendered': item.findtext('title', default='')}, 'content': {'rendered': body}})
         elif ptype == 'post' and status == 'publish':
             meta = {m.findtext('wp:meta_key', namespaces=NS): m.findtext('wp:meta_value', namespaces=NS) for m in item.findall('wp:postmeta', NS)}
             cats = [c.text for c in item.findall('category') if c.get('domain') == 'category']
@@ -118,6 +125,7 @@ def read_site(base, save_to):
         with open(os.path.join(save_to, slug + '.html'), 'w', encoding='utf-8') as fh:
             fh.write(pages[slug])
         time.sleep(1)  # be gentle with the old server
+    API_PAGES[:] = read_api_pages(base, save_to)
     n = 1
     raw_posts = []
     while True:
@@ -160,7 +168,38 @@ def read_site(base, save_to):
     return pages, posts, atts
 
 
+def read_api_pages(base, save_to):
+    """Every published page (faculty profiles, lab pages, OBE, Programs...)."""
+    out, n = [], 1
+    while True:
+        try:
+            body, headers = fetch('%s/wp-json/wp/v2/pages?per_page=100&page=%d' % (base, n))
+        except urllib.error.HTTPError as e:
+            if e.code == 400 and n > 1:
+                break
+            warn('pages', '-', 'The public pages feed is not available (%s): profiles, lab pages and department pages not converted' % e)
+            break
+        except urllib.error.URLError as e:
+            warn('pages', '-', 'Could not read the public pages feed (%s)' % e)
+            break
+        batch = json.loads(body)
+        out += batch
+        if not batch or n >= int(headers.get('X-WP-TotalPages') or 1):
+            break
+        n += 1
+        time.sleep(1)
+    if out:
+        os.makedirs(os.path.join(save_to, 'api'), exist_ok=True)
+        with open(os.path.join(save_to, 'api', 'pages.json'), 'w', encoding='utf-8') as fh:
+            json.dump(out, fh, ensure_ascii=False)
+    return out
+
+
 def read_pages(folder):
+    api = os.path.join(folder, 'api', 'pages.json')
+    if os.path.exists(api):
+        with open(api, encoding='utf-8') as fh:
+            API_PAGES[:] = json.load(fh)
     pages = {}
     for f in os.listdir(folder):
         if f.endswith('.html'):
@@ -257,7 +296,7 @@ def parse_faculty(soup):
         img = h.find_previous('img')
         photo = ''
         if img is not None and (prev is None or order.get(id(img), -1) > order.get(id(prev), -1)):
-            photo = img.get('data-src') or img.get('src') or ''
+            photo = old_pages.original_image(img.get('data-src') or img.get('src') or '')
         joined = ' | '.join(texts)
         des_text = next((t for t in texts if re.search(r'professor|principal', t, re.I)), '')
         role = ''
@@ -714,6 +753,150 @@ def parse_news(posts, atts):
     return rows
 
 
+
+# ---------- individual pages: profiles and labs ----------
+
+def enrich_faculty(rows):
+    by_slug = {p['slug']: p for p in API_PAGES}
+    guides = []
+    if 'programs' in by_slug:
+        guides = [norm_name(g) for g in old_pages.approved_guides(by_slug['programs'])]
+    for r, page in old_pages.match_profiles(rows, API_PAGES, warn):
+        d = old_pages.parse_profile(page)
+        r['old_profile_url'] = page['link']
+        for k in ('room', 'qualifications', 'courses', 'scholar_url', 'orcid_url', 'scopus_url', 'about'):
+            r[k] = d[k]
+        if d['photo_url'] and (not r.get('photo_url') or re.search(r'-\d+x\d+\.', r.get('photo_url', ''))):
+            r['photo_url'] = d['photo_url']
+        if d['email'] and not r.get('email'):
+            r['email'] = d['email']
+        des = designation_key(d['designation_text'])
+        if des and r['designation'] and des != r['designation']:
+            warn('faculty', r['name'], 'Faculty page says "%s", profile page says "%s": check the designation' % (r['designation_text'], d['designation_text']))
+        if not r.get('additional_role'):
+            m = re.search(r'dean\s*\(([^)]+)\)', d['designation_text'], re.I)
+            if m:
+                r['additional_role'] = 'Dean (%s)' % clean(m.group(1))
+            elif re.search(r'&\s*head|\bhod\b', d['designation_text'], re.I):
+                r['additional_role'] = 'Head of Department'
+        if d['interests']:
+            r['research_areas'] = suggest_areas(d['interests'] + ' ' + r.get('specialisation', '')) or r['research_areas']
+            if not r.get('specialisation'):
+                r['specialisation'] = d['interests'][:200]
+        r['is_guide'] = '1' if norm_name(r['name']) in guides else ''
+        if not d['qualification_rows']:
+            warn('faculty', r['name'], 'No qualifications could be read from the profile page: add them by hand')
+        elif any(not q['institution'] for q in d['qualification_rows']):
+            warn('faculty', r['name'], 'A qualification has no institution: check the qualifications column')
+        if not d['courses']:
+            warn('faculty', r['name'], 'No courses on the profile page')
+        if d['publication_lines'] > 3:
+            warn('faculty', r['name'], 'The profile page lists %d papers: check they are in publications.csv' % d['publication_lines'])
+    return rows
+
+
+def resolve_people(names, pool, kind, item):
+    """Map names on a lab page to names in faculty.csv or staff.csv."""
+    idx = {norm_name(n): n for n in pool}
+    out = []
+    for n in names:
+        k = norm_name(n)
+        if k in idx:
+            out.append(idx[k])
+            continue
+        close = difflib.get_close_matches(k, list(idx), n=1, cutoff=0.88)
+        if close:
+            out.append(idx[close[0]])
+            if idx[close[0]] != n:
+                warn('labs', item, '%s "%s" matched to "%s" (spelling differs): check' % (kind, n, idx[close[0]]))
+        else:
+            warn('labs', item, '%s "%s" is not in %s.csv: add them there or fix the name' % (kind, n, 'faculty' if kind == 'Lab in charge' else 'staff'))
+    return list(dict.fromkeys(out))
+
+
+PROG_OF = [
+    (r'^S\d', 'ECE', 'btech-ece', 'B.Tech ECE'), (r'^S\d', 'AEI', 'btech-aei', 'B.Tech AEI'),
+    (r'^M\d', 'AEI', 'mtech', 'M.Tech AEI'), (r'^M\d', 'MTV', 'mtech', 'M.Tech CS'), (r'^M\d', 'CMS', 'mtech', 'M.Tech CS'),
+    (r'^M\d', 'SP', 'mtech', 'M.Tech SP'), (r'^M\d', 'MNE', 'mtech', 'M.Tech MNE'), (r'^M\d', 'RAA', 'mtech', 'M.Tech RA'),
+]
+
+
+def enrich_labs(rows, faculty_names, staff_rows):
+    staff_names = [s['name'] for s in staff_rows]
+    staff_labs = {}
+    def slug_of(url):
+        return re.sub(r'^(https?://[^/]+)?/|/$', '', url or '').split('/')[-1]
+    lab_pages = [p for p in API_PAGES if re.search(r'Lab in charge|Labs conducted', p['content']['rendered'], re.I)
+                 and 'pp-dual-heading' not in p['content']['rendered']]  # profiles mention labs too
+    titles = {p['slug']: clean(BeautifulSoup(p['title']['rendered'], 'lxml').get_text()) for p in lab_pages}
+    match, used = {}, set()
+    # Each lab row takes one page: by its old link, then by exact name, then by a close name.
+    for how in ('slug', 'name', 'close'):
+        for page in lab_pages:
+            if page['slug'] in match:
+                continue
+            for i, r in enumerate(rows):
+                if i in used:
+                    continue
+                a, b = norm_name(titles[page['slug']]), norm_name(r['name'])
+                if (how == 'slug' and slug_of(r.get('old_url')) == page['slug']) or (how == 'name' and a == b) \
+                        or (how == 'close' and difflib.SequenceMatcher(None, a, b).ratio() >= 0.9):
+                    match[page['slug']] = i
+                    used.add(i)
+                    break
+    for page in lab_pages:
+        title = titles[page['slug']]
+        r = rows[match[page['slug']]] if page['slug'] in match else None
+        if r is None:
+            r = {'name': title, 'type': 'teaching', 'programmes': '', 'summary': '', 'lead_faculty': '', 'old_url': page['link']}
+            rows.append(r)
+            warn('labs', title, 'Has a page on the old site but is not on the Laboratories page: added, check it is still a lab')
+        d = old_pages.parse_lab_page(page)
+        r['old_url'] = page['link']
+        lead = resolve_people(d['lead_faculty'], faculty_names, 'Lab in charge', r['name'])
+        r['lead_faculty'] = '; '.join(lead)
+        staff = resolve_people(d['staff'], staff_names, 'Technical staff', r['name'])
+        r['tech_staff'] = '; '.join(staff)
+        for sname in staff:
+            staff_labs.setdefault(sname, []).append(r['name'])
+        progs = [p for p in r.get('programmes', '').split('; ') if p]
+        courses = []
+        for c in d['courses']:
+            labels = []
+            for pat, code, tax, label in PROG_OF:
+                if re.match(pat, c['semester'] or '') and code in c['programme'].split('; '):
+                    labels.append(label)
+                    progs.append(tax)
+            courses.append('%s | %s | %s | %s' % (c['code'], c['name'], ', '.join(labels) or c['programme'], c['semester']))
+        r['courses'] = '\n'.join(courses)
+        r['programmes'] = '; '.join(dict.fromkeys(progs))
+        scholars = [old_pages.parse_scholar(x, faculty_names) for x in d['scholars'] if 3 < len(x) < 160]
+        r['scholars'] = '\n'.join('%s | %s | %s | %s | %s' % (x['name'], x['level'], x['guide'], x['topic'], x['status']) for x in scholars if x['name'])
+        if (scholars or d['research_areas']) and not d['courses']:
+            r['type'] = 'research'
+        if d['research_areas'] and r['type'] == 'research':
+            r['research_areas'] = suggest_areas(' '.join(d['research_areas'] + d['description'])) or r.get('research_areas', '')
+        r['photo_url'] = d['images'][0] if d['images'] else ''
+        r['gallery'] = '\n'.join(d['images'][1:6])
+        manual = next((h for l, h in d['manuals'] if 'manual' in l.lower()), '')
+        r['manual_url'] = manual if len([1 for l, h in d['manuals'] if 'manual' in l.lower()]) == 1 else ''
+        r['content'] = old_pages.lab_content(d, d['manuals'])
+        if not r.get('summary'):
+            aims = [a for b in d['blocks'] for a in b['aims']] + d['description'] + d['aims']
+            first = next((a for a in aims if len(a) > 30), '')
+            if first:
+                first = re.sub(r'^to\s+', '', first.strip(' .'), flags=re.I)
+                r['summary'] = (first[:1].upper() + first[1:])[:200].rstrip(' ,;') + '.'
+            elif d['courses']:
+                r['summary'] = 'Lab for ' + ', '.join(c['name'] for c in d['courses'][:3]) + '.'
+            if r['summary']:
+                warn('labs', r['name'], 'Summary written from the old page ("%s"): check it reads well' % r['summary'][:60])
+    for st in staff_rows:
+        if not st.get('lab') and st['name'] in staff_labs:
+            st['lab'] = staff_labs[st['name']][0]  # the labs import links every lab they work in
+    return rows
+
+
 # ---------- output ----------
 
 def write(path, rows, cols):
@@ -742,24 +925,45 @@ def main():
         pages.update(read_pages(a.pages))
     os.makedirs(a.out, exist_ok=True)
 
-    sets = {
-        'faculty': (parse_faculty, ('faculty-2', 'faculty'), ['name', 'designation', 'designation_text', 'additional_role', 'joined_year', 'email', 'specialisation', 'research_areas', 'photo_url', 'old_profile_url']),
-        'staff': (parse_staff, ('technical-staff',), ['name', 'category', 'lab']),
-        'batches': (parse_batches, ('staff-advisors',), ['programme', 'admission_year', 'batch_label', 'advisors', 'source_line']),
-        'labs': (parse_labs, ('laboratories',), ['name', 'type', 'programmes', 'summary', 'lead_faculty', 'old_url']),
-        'publications': (parse_publications, ('publications',), ['title', 'authors', 'venue', 'type', 'year', 'volume', 'pages', 'doi', 'status', 'faculty', 'confidence', 'raw']),
+    cols = {
+        'faculty': ['name', 'designation', 'designation_text', 'additional_role', 'joined_year', 'email', 'room', 'specialisation', 'research_areas', 'qualifications', 'courses', 'scholar_url', 'orcid_url', 'scopus_url', 'is_guide', 'about', 'photo_url', 'old_profile_url'],
+        'staff': ['name', 'category', 'lab'],
+        'batches': ['programme', 'admission_year', 'batch_label', 'advisors', 'source_line'],
+        'labs': ['name', 'type', 'programmes', 'summary', 'lead_faculty', 'tech_staff', 'research_areas', 'courses', 'scholars', 'photo_url', 'gallery', 'manual_url', 'content', 'old_url'],
+        'publications': ['title', 'authors', 'venue', 'type', 'year', 'volume', 'pages', 'doi', 'status', 'faculty', 'confidence', 'raw'],
     }
-    summary = []
-    for name, (fn, slugs, cols) in sets.items():
+    parsers = {
+        'faculty': (parse_faculty, ('faculty-2', 'faculty')),
+        'staff': (parse_staff, ('technical-staff',)),
+        'batches': (parse_batches, ('staff-advisors',)),
+        'labs': (parse_labs, ('laboratories',)),
+        'publications': (parse_publications, ('publications',)),
+    }
+    out = {}
+    for name, (fn, slugs) in parsers.items():
         soup = page(pages, *slugs)
         if soup is None:
             warn(name, '-', 'Page not found in the input (%s)' % ', '.join(slugs))
+            out[name] = []
             continue
-        rows = fn(soup)
+        out[name] = fn(soup)
         if name == 'faculty':
-            FACULTY_NAMES[:] = [r['name'] for r in rows]
-        write(os.path.join(a.out, name + '.csv'), rows, cols)
-        summary.append('%-13s %4d rows' % (name, len(rows)))
+            FACULTY_NAMES[:] = [r['name'] for r in out[name]]
+    if API_PAGES:
+        enrich_faculty(out['faculty'])
+        enrich_labs(out['labs'], FACULTY_NAMES, out['staff'])
+    else:
+        warn('pages', '-', 'No individual pages in the input: profiles and lab details not converted (use --site, or --pages with api/pages.json)')
+    summary = []
+    for name in parsers:
+        if out[name] or name in ('faculty', 'labs'):
+            write(os.path.join(a.out, name + '.csv'), out[name], cols[name])
+            summary.append('%-13s %4d rows' % (name, len(out[name])))
+    if API_PAGES:
+        by_slug = {p['slug']: p for p in API_PAGES}
+        sections = old_pages.department_sections(by_slug, out['faculty'], warn)
+        write(os.path.join(a.out, 'sections.csv'), sections, ['page', 'action', 'target', 'content'])
+        summary.append('%-13s %4d rows' % ('sections', len(sections)))
     if posts:
         rows = parse_news(posts, atts)
         write(os.path.join(a.out, 'news.csv'), rows, ['old_id', 'title', 'date', 'slug', 'category', 'old_categories', 'featured_image_url', 'excerpt', 'content_html', 'old_url'])

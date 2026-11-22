@@ -17,7 +17,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:table {"hasFixedLayout":false} -->
-<figure class="wp-block-table"><table><thead><tr><th>Scheme</th><th>What it is</th></tr></thead><tbody><tr><td>QIP</td><td>Quality Improvement Programme, for faculty from other institutions</td></tr><tr><td>NET-JRF</td><td>UGC Junior Research Fellowship holders</td></tr><tr><td>KSCSTE</td><td>Kerala State Council for Science, Technology and Environment fellowship</td></tr><tr><td>NDF / ADF</td><td>[Expand the scheme name]</td></tr><tr><td>CERD</td><td>[Expand: Centre for Engineering Research and Development fellowship]</td></tr></tbody></table></figure>
+<figure class="wp-block-table"><table><thead><tr><th>Scheme</th><th>What it is</th></tr></thead><tbody><tr><td>QIP</td><td>Quality Improvement Programme, for faculty from other institutions</td></tr><tr><td>NET-JRF</td><td>UGC Junior Research Fellowship holders</td></tr><tr><td>KSCSTE</td><td>Kerala State Council for Science, Technology and Environment fellowship</td></tr><tr><td>NDF / ADF</td><td>AICTE National Doctoral Fellowship and AICTE Doctoral Fellowship</td></tr><tr><td>CERD</td><td>Centre for Engineering Research and Development, Government of Kerala, fellowship</td></tr></tbody></table></figure>
 <!-- /wp:table -->
 
 <!-- wp:heading -->

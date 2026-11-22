@@ -166,7 +166,7 @@ def fact(k, v):
     return group([p(k, textColor='muted', fontSize='small', style={'typography': {'fontWeight': '600'}}), p(v, style={'typography': {'fontSize': '17px', 'fontWeight': '600'}})], className='ece-card', style={'spacing': {'padding': {'top': '14px', 'right': '18px', 'bottom': '14px', 'left': '18px'}, 'blockGap': '2px'}}, layout={'type': 'flex', 'orientation': 'vertical'})
 
 
-def pattern(slug, title, desc, content, cats='cet-ece-pages', post_types='page'):
+def pattern(slug, title, desc, content, cats='cet-ece-pages', post_types='page', inserter=True):
     head = f"""<?php
 /**
  * Title: {title}
@@ -174,7 +174,7 @@ def pattern(slug, title, desc, content, cats='cet-ece-pages', post_types='page')
  * Categories: {cats}
  * Description: {desc}
  * Post Types: {post_types}
- * Inserter: true
+ * Inserter: {'true' if inserter else 'false'}
  */
 ?>
 """
@@ -342,6 +342,123 @@ template('taxonomy-research_area', '\n\n'.join([
     FOOTER,
 ]))
 
+
+# ---------- department content from the old site (ece.cet.ac.in, November 2026) ----------
+
+VISION = 'To transform young students into responsible and competent professionals with focus on dissemination of knowledge in the sphere of Electronics, Communication and Instrumentation Engineering.'
+MISSION = [
+    'To impart quality engineering education to satisfy the needs of academics, industry and society.',
+    'To achieve excellence in teaching-learning, research and innovation in the area of Electronics, Communication and Instrumentation Engineering.',
+    'To facilitate networking with alumni, industries and institutions in bringing about excellence and nourishing the entrepreneurial skills of the students.',
+    'To practise the highest level of professional integrity, transparency and accountability.',
+]
+WK = [
+    ('WK1', 'A systematic, theory-based understanding of the natural sciences applicable to the discipline and awareness of relevant social sciences.'),
+    ('WK2', 'Conceptually-based mathematics, numerical analysis, data analysis, statistics and formal aspects of computer and information science to support detailed analysis and modelling applicable to the discipline.'),
+    ('WK3', 'A systematic, theory-based formulation of engineering fundamentals required in the engineering discipline.'),
+    ('WK4', 'Engineering specialist knowledge that provides theoretical frameworks and bodies of knowledge for the accepted practice areas in the engineering discipline; much is at the forefront of the discipline.'),
+    ('WK5', 'Knowledge, including efficient resource use, environmental impacts, whole-life cost, re-use of resources, net zero carbon, and similar concepts, that supports engineering design and operations in a practice area.'),
+    ('WK6', 'Knowledge of engineering practice (technology) in the practice areas in the engineering discipline.'),
+    ('WK7', 'Knowledge of the role of engineering in society and identified issues in engineering practice in the discipline, such as the professional responsibility of an engineer to public safety and sustainable development.'),
+    ('WK8', 'Engagement with selected knowledge in the current research literature of the discipline, awareness of the power of critical thinking and creative approaches to evaluate emerging issues.'),
+    ('WK9', 'Ethics, inclusive behaviour and conduct. Knowledge of professional ethics, responsibilities, and norms of engineering practice. Awareness of the need for diversity by reason of ethnicity, gender, age, physical ability etc. with mutual understanding and respect, and of inclusive attitudes.'),
+]
+POS = [
+    ('PO1', 'Engineering knowledge', 'Apply knowledge of mathematics, natural science, computing, engineering fundamentals and an engineering specialization as specified in WK1 to WK4 respectively to develop to the solution of complex engineering problems.'),
+    ('PO2', 'Problem analysis', 'Identify, formulate, review research literature and analyze complex engineering problems reaching substantiated conclusions with consideration for sustainable development. (WK1 to WK4)'),
+    ('PO3', 'Design/development of solutions', 'Design creative solutions for complex engineering problems and design/develop systems/components/processes to meet identified needs with consideration for the public health and safety, whole-life cost, net zero carbon, culture, society and environment as required. (WK5)'),
+    ('PO4', 'Conduct investigations of complex problems', 'Conduct investigations of complex engineering problems using research-based knowledge including design of experiments, modelling, analysis and interpretation of data to provide valid conclusions. (WK8)'),
+    ('PO5', 'Engineering tool usage', 'Create, select and apply appropriate techniques, resources and modern engineering and IT tools, including prediction and modelling recognizing their limitations to solve complex engineering problems. (WK2 and WK6)'),
+    ('PO6', 'The engineer and the world', 'Analyze and evaluate societal and environmental aspects while solving complex engineering problems for its impact on sustainability with reference to economy, health, safety, legal framework, culture and environment. (WK1, WK5 and WK7)'),
+    ('PO7', 'Ethics', 'Apply ethical principles and commit to professional ethics, human values, diversity and inclusion; adhere to national and international laws. (WK9)'),
+    ('PO8', 'Individual and collaborative team work', 'Function effectively as an individual, and as a member or leader in diverse/multi-disciplinary teams.'),
+    ('PO9', 'Communication', 'Communicate effectively and inclusively within the engineering community and society at large, such as being able to comprehend and write effective reports and design documentation, make effective presentations considering cultural, language, and learning differences.'),
+    ('PO10', 'Project management and finance', 'Apply knowledge and understanding of engineering management principles and economic decision-making and apply these in multidisciplinary environments.'),
+    ('PO11', 'Life-long learning', 'Recognize the need for, and have the preparation and ability for i) independent and life-long learning ii) adaptability to new and emerging technologies and iii) critical thinking in the broadest context of technological change. (WK8)'),
+]
+# The first five M.Tech programme outcomes are common to all specialisations.
+MTECH_PO = [
+    'An ability to independently carry out research/investigation and development work to solve practical problems.',
+    'An ability to write and present a substantial technical report/document.',
+    'Students should be able to demonstrate a degree of mastery over the area as per the specialization of the program. The mastery should be at a level higher than the requirements in the appropriate bachelor program.',
+    'Students will be able to demonstrate ethics related to intellectual properties and professional practice.',
+    'Ability to learn independently based on the individual and system level needs especially in the context of rapidly changing technology.',
+]
+BTECH_PSO = {
+    'btech-ece': [
+        ('Domain knowledge', 'The ability to apply the knowledge of basic science and engineering to understand various real world problems of Electronics and Communication engineering systems using sustainable technologies demonstrating the practice of professional ethics and the concerns for societal and environmental well-being.'),
+        ('Application skill', 'The ability to apply domain knowledge to design and solve the state of the art requirements of Electronics industry with good interpersonal skills as a leader in a team in appreciation of professional ethics and societal responsibilities.'),
+        ('Research', 'Excellent adaptability to changing work environment by selecting and applying cutting edge engineering hardware and software tools to analyze and improve systems/processes for a variety of applications as well as to interpret/synthesize the simulated and experimental data leading to valid conclusions aimed at the furtherance of research activities for the well-being of humanity.'),
+    ],
+    'btech-aei': [
+        ('Domain knowledge', 'The ability to apply the knowledge of basic science and engineering to understand various real world problems of Electronics, Instrumentation and Control using sustainable technologies demonstrating the practice of professional ethics and the concerns for societal and environmental well-being.'),
+        ('Application skill', 'The ability to apply domain knowledge to design and solve the state of the art requirements of Electronics and Instrumentation industry with good interpersonal skills as a leader in a team in appreciation of professional ethics and societal responsibilities.'),
+        ('Research', 'Excellent adaptability to changing work environment by selecting and applying cutting edge engineering hardware and software tools to analyze and improve systems/processes for a variety of applications as well as to interpret/synthesize the simulated and experimental data leading to valid conclusions aimed at the furtherance of research activities for the well-being of humanity.'),
+    ],
+}
+PEOS = {
+    'btech-ece': ['Build successful professional career in industry and academic institutions as engineers, managers and academicians.', 'Develop solutions to engineering problems through innovation and research.', 'Strive for the betterment of society by proposing solutions to engineering problems or as entrepreneurs.', 'Uphold good ethical practices, right professional conduct and provide responsible team leadership.'],
+    'btech-aei': ['Excel in academia or industries as engineers, managers and academicians.', 'Demonstrate ability to adapt to technological challenges by acquiring new skills and competencies.', 'Pursue a socially responsible approach while proposing solutions to engineering problems or as entrepreneurs.', 'Uphold professional ethical values, exhibit leadership skills and professional competence.'],
+    'mtech-applied-electronics': ['Technocrats capable of developing eco-friendly automation systems.', 'Competent researchers solving state-of-the-art problems.', 'Successful entrepreneurs taking lead role for developing engineering solutions with global, societal, and environmental perspectives.', 'Responsible professionals exhibiting integrity and ethical values.'],
+    'mtech-micro-nano-electronics': ['Engage in development of innovative and sustainable solutions in microelectronics.', 'Address emerging challenges through reskilling and upskilling.', 'Exhibit self-reliance and entrepreneurial skills to meet the needs of the society.', 'Maintain high professional and ethical standards.'],
+    'mtech-communication-systems': ['To be successful engineers, capable of analysing, designing and optimizing communication systems and developing innovative solutions for real-world engineering challenges in society.', 'To be professionals fostering a culture of continuous learning and innovation while pursuing research in communication systems or related fields.', 'To be proficient in communication and collaboration, capable of excelling as entrepreneurs and working effectively in multidisciplinary teams.', 'To be ethically responsible engineers who consider the societal impact of their work, promoting safety, sustainability and inclusivity in the design and development of communication systems.'],
+    'mtech-robotics-automation': ['Be a promising technology expert capable of solving industrial and social issues through nature friendly initiatives.', 'Address emerging challenges, reinvent existing solutions and practices in Robotics and Automation.', 'Establish business startups and be a successful entrepreneur.', 'Be an outstanding professional with high degree of managerial skills and ethical values.'],
+    'mtech-signal-processing': ['Demonstrate the ability to cater to the diverse and evolving needs of the industry, through sustainable and eco-friendly solutions.', 'Formulate novel solutions to existing and emerging problems in the domain of signal processing through research.', 'Exhibit leadership skills, professional competence and entrepreneurial skills.', 'Uphold professional and ethical values.'],
+}
+MTECH_PO6 = {
+    'mtech-applied-electronics': 'Attain the capability to design and develop solutions in the field of electronics, control and instrumentation engineering using modern engineering tools.',
+    'mtech-micro-nano-electronics': 'Ability to design, model and develop micro and nano systems using modern tools.',
+    'mtech-communication-systems': 'Design and develop systems using modern engineering tools for solving problems in the area of communication systems.',
+    'mtech-robotics-automation': 'Design, analyse and develop solutions for robotic and automation systems.',
+    'mtech-signal-processing': 'Design and develop algorithms for computer aided signal processing and implement state-of-the-art signal processing systems.',
+}
+# slug: intake, duration, labs programme term, accreditation, started, overview
+PROGRAMMES = {
+    'btech-ece': ('120 + 12 lateral entry', '4 years, 8 semesters', 'btech-ece', 'NBA accredited; extended to 30 June 2025 [confirm the renewal]', 'Started in 1965 with 33 students; a second batch was approved in 2024. Part-time B.Tech from 1982.'),
+    'btech-aei': ('60 + 6 lateral entry', '4 years, 8 semesters', 'btech-aei', 'NBA accredited; extended to 30 June 2025 [confirm the renewal]', 'Started in 1981.'),
+    'mtech-applied-electronics': ('18', '2 years, 4 semesters', 'mtech', '[NBA status]', 'Started in 1986.'),
+    'mtech-communication-systems': ('18', '2 years, 4 semesters', 'mtech', '[NBA status]', 'Started in 1972 as Microwave and Television Engineering; renamed Communication Systems in 2023.'),
+    'mtech-signal-processing': ('18', '2 years, 4 semesters', 'mtech', 'NBA accredited for 2024–25 to 2026–27, to 30 June 2027', 'Started in 2005.'),
+    'mtech-micro-nano-electronics': ('18', '2 years, 4 semesters', 'mtech', '[NBA status]', 'Started in 2015, during the department’s Golden Jubilee.'),
+    'mtech-robotics-automation': ('18', '2 years, 4 semesters', 'mtech', '[NBA status]', 'An interdisciplinary programme, started in 2016.'),
+}
+SCHEMES = {
+    'btech': [['2024 scheme', 'Admitted 2024 onwards', '<a href="#">Scheme and syllabus (PDF)</a>', 'Current'], ['2019 scheme', 'Admitted 2019–2023', '<a href="https://ktu.edu.in/">Scheme and syllabus (KTU)</a>', 'Current for older batches'], ['2015 scheme', 'Admitted 2015–2018', '<a href="https://ktu.edu.in/">Scheme and syllabus (KTU)</a>', 'Archived']],
+    'mtech': [['2022 scheme', 'Admitted 2022 onwards', '<a href="#">Scheme and syllabus (PDF)</a>', 'Current'], ['2015 scheme', 'Admitted 2015–2021', '<a href="#">Scheme and syllabus (PDF)</a>', 'Archived']],
+}
+ACCREDITATION_HISTORY = [
+    ('1999', 'B.Tech ECE accredited with A5 grade'),
+    ('2000', 'B.Tech AEI accredited with B5 grade'),
+    ('2001', 'ISO 9002:1994 certification'),
+    ('2007', 'B.Tech ECE, B.Tech AEI and M.Tech Microwave and Television Engineering accredited with A5 grade; M.Tech AEI with A3 grade'),
+    ('2013', 'M.Tech AEI and M.Tech Signal Processing accredited for 3 years'),
+    ('2014', 'B.Tech ECE, B.Tech AEI and M.Tech Microwave and Television Engineering accredited for 5 years'),
+    ('2019', 'B.Tech ECE and B.Tech AEI accredited for 3 years'),
+    ('2022', 'Accreditation of B.Tech ECE and B.Tech AEI extended by 3 years, to 30 June 2025'),
+    ('2024', 'M.Tech Signal Processing accredited for 3 years, 2024–25 to 2026–27'),
+]
+MILESTONES = [
+    ('1965', 'B.Tech in Electronics and Communication Engineering'), ('1972', 'M.Tech in Microwave and Television Engineering'),
+    ('1981', 'B.Tech in Applied Electronics and Instrumentation'), ('1982', 'Part-time B.Tech in Electronics and Communication Engineering'),
+    ('1986', 'M.Tech in Applied Electronics and Instrumentation'), ('1988', 'Part-time M.Tech in Microwave and Television Engineering, and in Applied Electronics and Instrumentation'),
+    ('1991', 'Project IMPACT'), ('1995', 'Project NETWORK; department library'), ('1996', 'Leased line connectivity'), ('1998', 'Project RESPOND'),
+    ('2003', 'Project FIST'), ('2005', 'M.Tech in Signal Processing'), ('2006', 'New PG labs: VLSI, Embedded Systems, Advanced Communication and Fiber Optics'),
+    ('2008', 'Power Electronics Research Laboratory (PERL)'), ('2010', 'Project NPMaSS'),
+    ('2011', 'ECE new block; approved as a QIP centre; full-time Ph.D. under CERD and SPEED-IT'), ('2012', 'Higher intake in the M.Tech Microwave and AEI programmes'),
+    ('2013', 'Computer Vision Lab'), ('2015', 'M.Tech in Micro and Nano Electronics; RUSA; Ph.D. centre; Golden Jubilee year opens, 9 September 2015'),
+    ('2016', 'M.Tech in Robotics and Automation'), ('2017', 'Construction of the PG and Research Block begins'), ('2018', 'Ph.D. under the National Doctoral Fellowship scheme'),
+    ('2020', 'Patent: an automated duct fan based wall climbing device'), ('2021', 'CET Oxymonitor, a tabletop pulse oximeter, developed for the Government of Kerala during COVID-19'),
+    ('2022', 'RISC-V processor developed by CET with TrEST Research Park and Westguard'),
+    ('2023', 'C V Raman Centre for Nanoelectronics and Srinivasa Ramanujan Centre for Machine Intelligence approved by the Government of Kerala; Golden Jubilee PG and Research Block inaugurated; M.Tech Microwave and Television Engineering renamed Communication Systems; C2S project funded by MeitY, Government of India (₹4.7 crore)'),
+    ('2024', 'Second batch of B.Tech Electronics and Communication Engineering approved'),
+    ('2025', 'Patent granted, 15 December 2025: method of automatic grading of ribbed smoked sheets and system thereof'),
+]
+PATENTS = [
+    ('Method of automatic grading of ribbed smoked sheets and system thereof', 'Granted and recorded in the Register of Patents on 15 December 2025'),
+    ('An automatic safety system that enhances safety of a user while riding a vehicle', 'Patent No. 470200, granted 16 November 2023'),
+    ('An automated duct fan based wall climbing device', 'September 2020'),
+]
+
 # ---------- page patterns ----------
 
 hero = f'''<!-- wp:cover {{"dimRatio":100,"overlayColor":"hero","isUserOverlayColor":true,"minHeight":460,"minHeightUnit":"px","align":"full","className":"ece-hero","style":{{"spacing":{{"padding":{{"top":"96px","bottom":"88px"}},"margin":{{"top":"0","bottom":"0"}}}}}},"layout":{{"type":"constrained","contentSize":"1200px"}}}} -->
@@ -378,15 +495,23 @@ HOME = '\n\n'.join([
 pattern('page-home', 'Homepage', 'Hero, key figures, visitor paths, news, announcements and research areas.', HOME)
 
 ABOUT = '\n\n'.join([
+    p('The Department of Electronics and Communication Engineering was established at the CET campus, Sreekariyam, in 1964–65. The B.Tech programme in Electronics and Communication Engineering started with an intake of 33 students.'),
+    p('Today the department offers B.Tech programmes in Electronics and Communication Engineering and in Applied Electronics and Instrumentation; M.Tech programmes in Applied Electronics and Instrumentation, Communication Systems, Signal Processing, Micro and Nano Electronics, and Robotics and Automation; and a doctoral programme. All programmes are approved by AICTE, and the department is an approved QIP centre.'),
     h(2, 'Vision'),
-    p('To transform young students into responsible and competent professionals.', fontSize='large', style={'typography': {'fontWeight': '500'}}),
+    p(VISION, fontSize='large', style={'typography': {'fontWeight': '500'}}),
     h(2, 'Mission'),
-    ul(['[Mission point 1]', '[Mission point 2]', '[Mission point 3]', '[Mission point 4]'], ordered=True),
+    ul(MISSION, ordered=True),
     h(2, 'Accreditation'),
-    table(['Programme', 'Body', 'Status', 'Valid until'], [['B.Tech ECE', 'NBA', '[Confirm current status]', '[Date]'], ['B.Tech AEI', 'NBA', '[Confirm current status]', '[Date]'], ['M.Tech Signal Processing', 'NBA', 'Accredited', '30 June 2027'], ['[Other M.Tech]', 'NBA', '[Status]', '[Date]']]),
+    table(['Programme', 'Body', 'Status', 'Valid until'], [['B.Tech ECE', 'NBA', 'Accredited; extension granted in 2022', '30 June 2025 [confirm the renewal]'], ['B.Tech AEI', 'NBA', 'Accredited; extension granted in 2022', '30 June 2025 [confirm the renewal]'], ['M.Tech Signal Processing', 'NBA', 'Accredited, 2024–25 to 2026–27', '30 June 2027']]),
     p('Current status only. Link each programme name to its certificate (PDF).', textColor='muted', fontSize='small'),
+    h(3, 'Accreditation history'),
+    table(['Year', 'Accreditation or certification'], [list(x) for x in ACCREDITATION_HISTORY]),
     h(2, 'Milestones'),
-    table(['Year', 'Milestone'], [['1964–65', 'Department established with an intake of 33 students'], ['2015', 'Golden Jubilee year opens, 9 September 2015'], ['[Year]', 'Golden Jubilee PG and Research Block inaugurated'], ['2025', 'Patent granted, December 2025: [title]']]),
+    table(['Year', 'Milestone'], [list(x) for x in MILESTONES]),
+    h(2, 'Patents'),
+    table(['Title', 'Status'], [list(x) for x in PATENTS]),
+    h(2, 'Golden Jubilee'),
+    p('The department marked its Golden Jubilee in 2015 with a year of programmes for students and faculty rather than celebrations: an alumni lecture series, workshops, exhibitions and a project exposition. The Chief Minister of Kerala inaugurated the year on 9 September 2015 and laid the foundation stone of the Golden Jubilee PG and Research Block, which opened in 2023. The M.Tech programme in Micro and Nano Electronics was launched the same day.'),
     h(2, 'Head of Department'),
     p('[Name]<br><a href="mailto:hodece@cet.ac.in">hodece@cet.ac.in</a> · 0471-2515563'),
 ])
@@ -406,31 +531,67 @@ ACAD = '\n\n'.join([
 ])
 pattern('page-academics', 'Academics overview', 'All programmes with intake and links.', ACAD)
 
-PROG = '\n\n'.join([
-    grid([fact('Intake', '[Intake]'), fact('Duration', '[Duration]'), fact('Accreditation', '[NBA status, valid to date]'), fact('Programme coordinator', '[Faculty name]')], '170px', cols=4, align='wide'),
-    p('On this page: <a href="#overview">Overview</a> · <a href="#curriculum">Curriculum</a> · <a href="#outcomes">Outcomes</a> · <a href="#labs">Labs</a> · <a href="#contacts">Contacts</a>', fontSize='small'),
-    h(2, 'Overview', anchor='overview'),
-    p('[One paragraph: what the programme covers, electives, project work and internships, and what graduates go on to do.]'),
-    h(2, 'Curriculum', anchor='curriculum'),
-    table(['Scheme', 'Applies to', 'Documents', 'Status'], [['[2024] scheme', 'Admitted [2024] onwards', '<a href="#">Scheme and syllabus (PDF)</a>', 'Current'], ['[2019] scheme', 'Admitted [2019–2023]', '<a href="#">Scheme and syllabus (PDF)</a>', 'Current for older batches'], ['[2015] scheme', 'Admitted [2015–2018]', '<a href="#">Archive (PDF)</a>', 'Archived']]),
-    p('Regulations and the academic calendar come from APJ Abdul Kalam Technological University: <a href="https://ktu.edu.in/">ktu.edu.in</a>.', textColor='muted', fontSize='small'),
-    h(2, 'Outcomes', anchor='outcomes'),
-    h(3, 'Programme educational objectives (PEOs)'),
-    ul(['<strong>PEO1:</strong> [Statement]', '<strong>PEO2:</strong> [Statement]', '<strong>PEO3:</strong> [Statement]']),
-    h(3, 'Programme specific outcomes (PSOs)'),
-    ul(['<strong>PSO1:</strong> [Statement]', '<strong>PSO2:</strong> [Statement]']),
-    p('Programme outcomes (POs) are common to all programmes and listed on the <a href="/academics/obe/">outcome-based education</a> page, with attainment reports.'),
-    h(2, 'Labs used in this programme', anchor='labs'),
-    dyn('cet-ece/lab-list', type='teaching', programme=''),
-    h(2, 'Contacts', anchor='contacts'),
-    ul(['Programme coordinator: [Faculty name], [name]@cet.ac.in', 'Staff advisors: <a href="/staff-advisors/">current batches</a>', 'Admissions: [KEAM / GATE / university process], see <a href="/contact/">contact</a>']),
-])
+def programme_page(slug=None):
+    """One programme page. Without a slug: the generic pattern with placeholders."""
+    if slug:
+        intake, duration, term, accr, started = PROGRAMMES[slug]
+        level = 'btech' if slug.startswith('btech') else 'mtech'
+    else:
+        intake, duration, term, accr, started, level = '[Intake]', '[Duration]', '', '[NBA status, valid to date]', '', 'btech'
+    if slug and level == 'btech':
+        outcomes = [
+            h(3, 'Programme educational objectives (PEOs)'),
+            ul([f'<strong>PEO{i}:</strong> {t}' for i, t in enumerate(PEOS[slug], 1)]),
+            h(3, 'Programme specific outcomes (PSOs)'),
+            ul([f'<strong>PSO{i} ({k}):</strong> {t}' for i, (k, t) in enumerate(BTECH_PSO[slug], 1)]),
+            p('Programme outcomes (POs) are common to all B.Tech programmes and listed on the <a href="/academics/obe/">outcome-based education</a> page, with attainment reports.'),
+        ]
+    elif slug:
+        outcomes = [
+            h(3, 'Programme educational objectives (PEOs)'),
+            ul([f'<strong>PEO{i}:</strong> {t}' for i, t in enumerate(PEOS[slug], 1)]),
+            h(3, 'Programme outcomes (POs)'),
+            ul([f'<strong>PO{i}:</strong> {t}' for i, t in enumerate(MTECH_PO + [MTECH_PO6[slug]], 1)]),
+            p('Attainment reports are on the <a href="/academics/obe/">outcome-based education</a> page.'),
+        ]
+    else:
+        outcomes = [
+            h(3, 'Programme educational objectives (PEOs)'),
+            ul(['<strong>PEO1:</strong> [Statement]', '<strong>PEO2:</strong> [Statement]', '<strong>PEO3:</strong> [Statement]']),
+            h(3, 'Programme specific outcomes (PSOs)'),
+            ul(['<strong>PSO1:</strong> [Statement]', '<strong>PSO2:</strong> [Statement]']),
+            p('Programme outcomes (POs) are common to all programmes and listed on the <a href="/academics/obe/">outcome-based education</a> page, with attainment reports.'),
+        ]
+    overview = (started + ' ' if started else '') + '[One paragraph: what the programme covers, electives, project work and internships, and what graduates go on to do.]'
+    schemes = SCHEMES[level] if slug else [['[2024] scheme', 'Admitted [2024] onwards', '<a href="#">Scheme and syllabus (PDF)</a>', 'Current'], ['[2019] scheme', 'Admitted [2019–2023]', '<a href="#">Scheme and syllabus (PDF)</a>', 'Current for older batches'], ['[2015] scheme', 'Admitted [2015–2018]', '<a href="#">Archive (PDF)</a>', 'Archived']]
+    admissions = '[KEAM / GATE / university process]' if not slug else ('KEAM, through the Commissioner for Entrance Examinations, Kerala' if level == 'btech' else 'GATE score and the state PG admission process [confirm]')
+    return '\n\n'.join([
+        grid([fact('Intake', intake), fact('Duration', duration), fact('Accreditation', accr), fact('Programme coordinator', '[Faculty name]')], '170px', cols=4, align='wide'),
+        p('On this page: <a href="#overview">Overview</a> · <a href="#curriculum">Curriculum</a> · <a href="#outcomes">Outcomes</a> · <a href="#labs">Labs</a> · <a href="#contacts">Contacts</a>', fontSize='small'),
+        h(2, 'Overview', anchor='overview'),
+        p(overview),
+        h(2, 'Curriculum', anchor='curriculum'),
+        table(['Scheme', 'Applies to', 'Documents', 'Status'], schemes),
+        p('Regulations and the academic calendar come from APJ Abdul Kalam Technological University: <a href="https://ktu.edu.in/">ktu.edu.in</a>.', textColor='muted', fontSize='small'),
+        h(2, 'Outcomes', anchor='outcomes'),
+        *outcomes,
+        h(2, 'Labs used in this programme', anchor='labs'),
+        dyn('cet-ece/lab-list', type='teaching', programme=term),
+        h(2, 'Contacts', anchor='contacts'),
+        ul(['Programme coordinator: [Faculty name], [name]@cet.ac.in', 'Staff advisors: <a href="/staff-advisors/">current batches</a>', f'Admissions: {admissions}, see <a href="/contact/">contact</a>']),
+    ])
+
+
+PROGRAMME_NAMES = {'btech-ece': 'B.Tech ECE', 'btech-aei': 'B.Tech AEI', 'mtech-applied-electronics': 'M.Tech Applied Electronics and Instrumentation', 'mtech-communication-systems': 'M.Tech Communication Systems', 'mtech-signal-processing': 'M.Tech Signal Processing', 'mtech-micro-nano-electronics': 'M.Tech Micro and Nano Electronics', 'mtech-robotics-automation': 'M.Tech Robotics and Automation'}
+PROG = programme_page()
+for _slug in PROGRAMMES:
+    pattern('page-programme-' + _slug, 'Programme page: ' + PROGRAMME_NAMES[_slug], 'Starter content for this programme page, used when the theme creates the site\u2019s pages.', programme_page(_slug), inserter=False)
 pattern('page-programme', 'Programme page', 'Facts, curriculum by scheme, PEOs and PSOs, labs and contacts for one programme.', PROG)
 
 PHD = '\n\n'.join([
     p('Full-time and part-time Ph.D. under APJ Abdul Kalam Technological University. The department is a QIP centre with approved research guides across its research areas.'),
     h(2, 'Fellowship schemes'),
-    table(['Scheme', 'What it is'], [['QIP', 'Quality Improvement Programme, for faculty from other institutions'], ['NET-JRF', 'UGC Junior Research Fellowship holders'], ['KSCSTE', 'Kerala State Council for Science, Technology and Environment fellowship'], ['NDF / ADF', '[Expand the scheme name]'], ['CERD', '[Expand: Centre for Engineering Research and Development fellowship]']]),
+    table(['Scheme', 'What it is'], [['QIP', 'Quality Improvement Programme, for faculty from other institutions'], ['NET-JRF', 'UGC Junior Research Fellowship holders'], ['KSCSTE', 'Kerala State Council for Science, Technology and Environment fellowship'], ['NDF / ADF', 'AICTE National Doctoral Fellowship and AICTE Doctoral Fellowship'], ['CERD', 'Centre for Engineering Research and Development, Government of Kerala, fellowship']]),
     h(2, 'Eligibility and admission'),
     ul(['[Eligibility]', '[Admission calendar and how to apply]', '[Course work requirements]']),
     h(2, 'Guides and research areas'),
@@ -442,12 +603,15 @@ pattern('page-phd', 'Ph.D. programme', 'Schemes, eligibility, admission and cont
 
 OBE = '\n\n'.join([
     h(2, 'Department vision'),
-    p('To transform young students into responsible and competent professionals.', fontSize='large', style={'typography': {'fontWeight': '500'}}),
+    p(VISION, fontSize='large', style={'typography': {'fontWeight': '500'}}),
     h(2, 'Department mission'),
-    ul(['[Mission point 1]', '[Mission point 2]', '[Mission point 3]', '[Mission point 4]'], ordered=True),
+    ul(MISSION, ordered=True),
     h(2, 'Programme outcomes (POs)'),
-    p('The NBA graduate attributes, common to all B.Tech programmes.', textColor='muted', fontSize='small'),
-    table(['PO', 'Statement'], [['PO1', '[NBA statement]'], ['PO2', '[NBA statement]'], ['PO3', '[NBA statement]'], ['…', '[Add every PO in the current NBA list]']]),
+    p('Common to all B.Tech programmes. The M.Tech programme outcomes are on each M.Tech programme page.', textColor='muted', fontSize='small'),
+    table(['PO', 'Outcome', 'Statement'], [[a, b, c] for a, b, c in POS]),
+    h(3, 'Knowledge and attitude profile (WK)'),
+    p('The programme outcomes refer to this knowledge and attitude profile.', textColor='muted', fontSize='small'),
+    table(['WK', 'Statement'], [[a, b] for a, b in WK]),
     h(2, 'PEOs and PSOs by programme'),
     ul(['<a href="/academics/btech-ece/#outcomes">B.Tech Electronics and Communication Engineering</a>', '<a href="/academics/btech-aei/#outcomes">B.Tech Applied Electronics and Instrumentation</a>', '<a href="/academics/mtech-applied-electronics/#outcomes">M.Tech Applied Electronics and Instrumentation</a>', '<a href="/academics/mtech-communication-systems/#outcomes">M.Tech Communication Systems</a>', '<a href="/academics/mtech-signal-processing/#outcomes">M.Tech Signal Processing</a>', '<a href="/academics/mtech-micro-nano-electronics/#outcomes">M.Tech Micro and Nano Electronics</a>', '<a href="/academics/mtech-robotics-automation/#outcomes">M.Tech Robotics and Automation</a>']),
     h(2, 'Programme assessment committees'),
@@ -484,13 +648,15 @@ pattern('page-research', 'Research hub', 'Figures, research areas, labs, funded 
 pattern('page-publications', 'Publications', 'Filterable list of publications in IEEE style.', dyn('cet-ece/publications', align='wide'))
 
 LIB = '\n\n'.join([
-    p('The department library supports the B.Tech, M.Tech and Ph.D. programmes.'),
+    p('The department library supports the B.Tech, M.Tech and Ph.D. programmes. It began as a small reference collection given by the teaching faculty. In 1993 it became a full library with separate lending and reference sections, using funds from the IMPACT project; later purchases came from the NETWORK and TEQIP projects.'),
+    p('In 2013 the library was renovated and air-conditioned with a contribution from the alumni batch of 1983–88. It is dedicated to the memory of their classmate Dr. Suresh Kumar R., who taught in the department before leaving for research in the USA.'),
     h(2, 'Holdings'),
-    table(['Collection', 'Count', 'As of'], [['Lending', '[n]', '[Date]'], ['Reference', '[n]', '[Date]'], ['Journals', '[n]', '[Date]']]),
+    table(['Collection', 'Count', 'As of'], [['All books', 'Over 9,355', '[Date]'], ['Lending section', '6,673', '[Date]'], ['Reference section', 'Over 1,788', '[Date]']]),
+    p('There is a separate reference area with seating, and a reading area with newspapers and periodicals.'),
     h(2, 'Opening hours'),
     p('[Days and times]'),
     h(2, 'E-resources'),
-    p('[Current subscriptions, how to access them, and the access period]'),
+    p('IEEE journals and Elsevier ScienceDirect through the INDEST consortium, with computers in the library for online journals and internet reference. [Confirm the current subscriptions and access period]'),
     h(2, 'Lending rules'),
     ul(['[Loan period]', '[Number of books]', '[Fines]']),
     h(2, 'Contact'),
@@ -535,13 +701,17 @@ pattern('page-students', 'Students', 'Notices, quick links, rank holders and hel
 
 CON = '\n\n'.join([
     h(2, 'Address'),
-    p('Head of Department<br>Department of Electronics and Communication Engineering<br>College of Engineering Trivandrum<br>Sreekariyam, Thiruvananthapuram, Kerala [PIN]'),
+    p('Head of Department<br>Department of Electronics and Communication Engineering<br>College of Engineering Trivandrum<br>Sreekariyam, Thiruvananthapuram, Kerala 695016'),
     p('<a href="tel:04712515563">0471-2515563</a> · <a href="mailto:hodece@cet.ac.in">hodece@cet.ac.in</a> · Office hours: [Mon–Fri, 9:00–17:00]'),
     p('<a href="https://maps.google.com/?q=College+of+Engineering+Trivandrum">Open in Google Maps</a>'),
     h(2, 'Who to contact'),
     table(['For', 'Contact', 'Email'], [['Admissions and general queries', 'Department office', '<a href="mailto:hodece@cet.ac.in">hodece@cet.ac.in</a>'], ['Placements and internships', '[Placement coordinator]', '[name]@cet.ac.in'], ['Ph.D. admissions', '[Research coordinator]', '[name]@cet.ac.in'], ['Website corrections', '[Web coordinator]', '[name]@cet.ac.in']]),
     h(2, 'How to reach'),
-    table(['By', 'Directions'], [['Air', '[Trivandrum International Airport: distance and route]'], ['Train', '[Nearest station: distance and route]'], ['Bus', '[Buses to Sreekariyam, nearest stop]']]),
+    table(['By', 'Directions'], [
+        ['Air', 'Thiruvananthapuram International Airport has domestic and international flights daily. Take a cab from the pre-paid taxi counter (about ₹500) or an online taxi. Places near CET: Sreekariyam, Chavadimukku, Kulathoor and Mannanthala.'],
+        ['Train', 'Get off at Thiruvananthapuram Central (Thampanoor). A pre-paid autorickshaw from outside the station costs about ₹120, or take a bus from the Thampanoor bus stand, 100 m away. Online taxis are also available.'],
+        ['Bus', 'The main bus terminus is at Thampanoor, opposite the railway station, with buses to the CET campus. Otherwise take a bus to Sreekariyam or Chavadimukku: CET is 2 km from Sreekariyam and 1 km (a 10-minute walk) from Chavadimukku. An autorickshaw from either costs ₹20–30.'],
+    ]),
 ])
 pattern('page-contact', 'Contact and directions', 'Address, contacts by purpose and directions.', CON)
 
