@@ -1,0 +1,190 @@
+page,action,target,content
+academics/obe,replace_section,Programme assessment committees,"### Department Quality Assurance Cell (DQAC)
+| Name | Role |
+| Dr. Asha Prasad | DQAC Coordinator |
+| Dr. Christy James Jose | PG Coordinator |
+| Dr. Binu L S | UG Coordinator (ECE) |
+| Dr. Biju K S | UG Coordinator (AEI) |
+| Dr. Jerrin Thomas Panachakel | Member (PG courses) |
+| Prof. Minha Mubarak | Member (UG Courses) |
+| Prof. Aswini S H | Member (UG Courses) |
+| Prof. Rencymol M V | Member (UG Courses) |
+| Prof. Riyaz R | Member (UG Courses) |
+
+### Programme assessment committee: B.Tech Applied Electronics and Instrumentation
+| Name | Role |
+| Dr. Shajahan E S (HoD) | Chairperson |
+| Dr. Biju K S | Program Coordinator |
+| Dr. Sindhu N | Criteria 2 Representative (Curriculum) |
+| Dr. Asha Prasad | DQAC Chairperson |
+| Prof. Sudhi S | DQAC Member |
+| Dr. Biju K.S | Module Coordinator: Instrumentation and control |
+| Dr. Latha V | Module Coordinator: Electronic Circuits |
+| Prof. Rencymol M.V. | Module Coordinator: Humanities |
+| Prof. Joaquim Ignatious Monteiro | Module Coordinator: Programming & Processors |
+| Dr. Christy James Jose | Module Coordinator: Seminar & Project |
+| Dr. Sivakumar R | Module Coordinator: Signals and Systems |
+
+### Programme assessment committee: B.Tech Electronics and Communication Engineering
+| Name | Role |
+| Dr. Shajahan E S (HoD) | Chairperson |
+| Dr. Binu L S | Program Coordinator |
+| Dr. Sindhu N | Criteria 2 Representative (Curriculum) |
+| Dr. Asha Prasad | DQAC Chairperson |
+| Prof. Sudhi S | DQAC Member |
+| Prof. Sanoj Viswasom | Module Coordinator: Communication Engineering |
+| Dr. Latha V | Module Coordinator: Electronic Circuits |
+| Prof. Rencymol M.V. | Module Coordinator: Humanities |
+| Prof. Joaquim Ignatious Monteiro | Module Coordinator: Programming & Processors |
+| Dr. Christy James Jose | Module Coordinator: Seminar & Project |
+| Dr. Sivakumar R | Module Coordinator: Signals and Systems |"
+about,replace_section,Head of Department,"Dr. Shajahan E S
+
+[hodece@cet.ac.in](mailto:hodece@cet.ac.in) · 0471-2515563"
+academics/btech-aei,replace_text,"[Faculty name], [name]@cet.ac.in","Dr. Biju K. S, bijukarunnya@cet.ac.in"
+academics/btech-aei,replace_text,[Faculty name],Dr. Biju K. S
+academics/btech-ece,replace_text,"[Faculty name], [name]@cet.ac.in","Dr. Binu L. S., binuls@cet.ac.in"
+academics/btech-ece,replace_text,[Faculty name],Dr. Binu L. S.
+academics/mtech-applied-electronics,replace_text,"[Faculty name], [name]@cet.ac.in","Dr. Christy James Jose, christy@cet.ac.in"
+academics/mtech-applied-electronics,replace_text,[Faculty name],Dr. Christy James Jose
+academics/mtech-communication-systems,replace_text,"[Faculty name], [name]@cet.ac.in","Dr. Christy James Jose, christy@cet.ac.in"
+academics/mtech-communication-systems,replace_text,[Faculty name],Dr. Christy James Jose
+academics/mtech-signal-processing,replace_text,"[Faculty name], [name]@cet.ac.in","Dr. Christy James Jose, christy@cet.ac.in"
+academics/mtech-signal-processing,replace_text,[Faculty name],Dr. Christy James Jose
+academics/mtech-micro-nano-electronics,replace_text,"[Faculty name], [name]@cet.ac.in","Dr. Christy James Jose, christy@cet.ac.in"
+academics/mtech-micro-nano-electronics,replace_text,[Faculty name],Dr. Christy James Jose
+academics/mtech-robotics-automation,replace_text,"[Faculty name], [name]@cet.ac.in","Dr. Christy James Jose, christy@cet.ac.in"
+academics/mtech-robotics-automation,replace_text,[Faculty name],Dr. Christy James Jose
+academics/btech-ece,replace_section,Curriculum,"| Scheme | Documents |
+| 2015 scheme | [Syllabus (KTU website)](https://ktu.edu.in/academics/syllabus) |
+| 2019 scheme | [Syllabus (KTU website)](https://ktu.edu.in/academics/syllabus) |
+| 2024 scheme | [Syllabus (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/2024_Electronics-and-Communication-Engineering-2_compressed.pdf) |
+
+Regulations: [2015 regulations](https://ktu.edu.in/academics/scheme) · [2019 regulations](http://ece.cet.ac.in/wp-content/uploads/2025/10/2019_B.Techregulation-1_compressed.pdf) · [2024 regulations](http://ece.cet.ac.in/wp-content/uploads/2025/10/B.TechRegulations_2024-1_compressed.pdf)
+
+[Faculty list (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/Faculty-list-ECE_Revised.pdf)
+
+Regulations and the academic calendar come from APJ Abdul Kalam Technological University: [ktu.edu.in](https://ktu.edu.in/)."
+academics/btech-aei,replace_section,Curriculum,"| Scheme | Documents |
+| 2015 scheme | [Syllabus (KTU website)](https://ktu.edu.in/eu/acd/viewCurriculum.htm?clusterId=w131TweVk3WjLPVQpR71WaEwenWHjkExpKzNYj6MbtI%3D&programId=nNoNRU%2BQiT%2FKwm40B6VcWhayHXvhdytHaKn136ijBVg%3D) |
+| 2019 scheme | [Syllabus (KTU website)](https://ktu.edu.in/eu/acd/academicRegulation2019.htm) |
+| 2024 scheme | [Syllabus (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/2024_Applied-Electronics-and-Instrumentation_compressed.pdf) |
+
+Regulations: [2015 regulations](https://ktu.edu.in/academics/scheme) · [2019 regulations](http://ece.cet.ac.in/wp-content/uploads/2025/10/2019_B.Techregulation-1_compressed.pdf) · [2024 regulations](http://ece.cet.ac.in/wp-content/uploads/2025/10/B.TechRegulations_2024-1_compressed.pdf)
+
+[Faculty list (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/Faculty-list-AEI_Revised.pdf)
+
+Regulations and the academic calendar come from APJ Abdul Kalam Technological University: [ktu.edu.in](https://ktu.edu.in/)."
+academics/mtech-applied-electronics,replace_section,Curriculum,"| Scheme | Documents |
+| 2015 scheme | [Syllabus (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/2015S_AEIRevisedsyllabus03August2016_compressed.pdf) |
+| 2022 scheme | [Syllabus (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/S1-S3APPLIEDELECTRONICSANDINSTRUMENTATION-compressed.pdf) |
+
+[Faculty list (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/PG_AEI-FACULTY-LIST-FINAL.pdf)
+
+Regulations and the academic calendar come from APJ Abdul Kalam Technological University: [ktu.edu.in](https://ktu.edu.in/)."
+academics/mtech-communication-systems,replace_section,Curriculum,"| Scheme | Documents |
+| 2015 scheme | [Syllabus (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/MTVRevisedsyllabus03August2016_compressed.pdf) |
+
+[Faculty list (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/PG-Faculty-list-of-Communicaion-Systems-3.pdf)
+
+Regulations and the academic calendar come from APJ Abdul Kalam Technological University: [ktu.edu.in](https://ktu.edu.in/)."
+academics/mtech-signal-processing,replace_section,Curriculum,"| Scheme | Documents |
+| 2015 scheme | [Syllabus (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/2015S_SIGNALPROCESSING_compressed.pdf) |
+| 2022 scheme | [Syllabus S1 & S2 (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/S1-S4MTECHSIGNALPROCESSING-1-1-207_compressed.pdf) |
+| 2022 scheme | [Syllabus S3 & S4 (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/S1-S4MTECHSIGNALPROCESSING-1-208-273_compressed.pdf) |
+
+[Faculty list (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/PG_SP-FACULTY-LIST-FINAL-ONE.pdf)
+
+Regulations and the academic calendar come from APJ Abdul Kalam Technological University: [ktu.edu.in](https://ktu.edu.in/)."
+academics/mtech-micro-nano-electronics,replace_section,Curriculum,"| Scheme | Documents |
+| 2015 scheme | [Syllabus (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/MicroandNanoElectronicsRevisedsyllabus03August2016_compressed.pdf) |
+| 2022 scheme | [Syllabus (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/S1-S4MICROANDNANOELECTRONICS_compressed.pdf) |
+
+[Faculty list (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/PG_Faculty-list-of-MNE.pdf)
+
+Regulations and the academic calendar come from APJ Abdul Kalam Technological University: [ktu.edu.in](https://ktu.edu.in/)."
+academics/mtech-robotics-automation,replace_section,Curriculum,"| Scheme | Documents |
+| 2015 scheme | [Syllabus (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/ROBOTICSAUTOMATION_compressed.pdf) |
+| 2022 scheme | [Syllabus (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/MTech2022RoboticsandAutomationS1-S2_compressed.pdf) |
+
+[Faculty list (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/PG_Faculty-list-of-RAA-.pdf)
+
+Regulations and the academic calendar come from APJ Abdul Kalam Technological University: [ktu.edu.in](https://ktu.edu.in/)."
+downloads,replace_section,Academic,"| Academic calendar | Programme |
+| [M.Tech S1 – Aug 2026 – Dec 2026](http://ece.cet.ac.in/wp-content/uploads/2026/09/1848-2026-KTUM.TECHS1_.pdf) | M.Tech |
+| [B.Tech S1 – Aug 2026 – Dec 2026](http://ece.cet.ac.in/wp-content/uploads/2026/09/2003-2026-KTU.pdf) | B.Tech |
+| [B.Tech S3,S5,S7 – July 2026 – Dec 2026](http://ece.cet.ac.in/wp-content/uploads/2026/09/1738-2026-KTU-academic-calender_compressed.pdf) | B.Tech |
+| [M.Tech S2 – Jan 2026 – June 2026](http://ece.cet.ac.in/wp-content/uploads/2026/03/MergedAll-1.pdf) | M.Tech |
+| [B.Tech S4,S6,S8 – Dec 2025 – June 2026](http://ece.cet.ac.in/wp-content/uploads/2026/03/1.B.TechAcademicCalender_EvenSem_Dec25-June26-1.pdf) | B.Tech |
+| [B.Tech S2 – Jan 2026 – June 2026](http://ece.cet.ac.in/wp-content/uploads/2026/03/2.B.TechAcademicCalender_S2_Jan26-June26.pdf) | B.Tech |
+| [M. Tech S1 July 2025 – Nov 2025](http://ece.cet.ac.in/wp-content/uploads/2025/08/AcademicCalendar-MTech-S1-2025-Odd.pdf) | M.Tech |
+| [B. Tech S3/S5/S7 – July 2025 to Dec 2025](http://ece.cet.ac.in/wp-content/uploads/2025/05/B.-Tech-Academic-Calender_Odd-and-Even-Sem_-July-25Jan-June-26.pdf) | B.Tech |
+| [M. Tech S3 July 2024 – Dec 2024](http://ece.cet.ac.in/wp-content/uploads/2024/07/Merged-All-PG-programs.pdf) | M.Tech |
+| [B. Tech S3/S5/S7 – July 2024 – Dec 2024](http://ece.cet.ac.in/wp-content/uploads/2024/07/1882-2024-KTU-Academic-Calendar-UG_compressed.pdf) | B.Tech |
+| [B. Tech S2/S4/S6/S8 – Jan 2024 – June 2024 revised](http://ece.cet.ac.in/wp-content/uploads/2024/03/1._B._Tech_Academic_Calender__S2_S4_S6_S8_Jan_24-Jun_24_v3.pdf) | B.Tech |
+| [B. Tech S2/S4/S6/S8 – Jan 2024 – June 2024](http://ece.cet.ac.in/wp-content/uploads/2024/01/Academic-Calendar-even-23-24_compressed.pdf) | B.Tech |
+| [B.Tech S1 Sept 2023 – Jan 2024](http://ece.cet.ac.in/wp-content/uploads/2023/09/B.Tech_B.Arch_B.DesAcademicCalender_S1_2023-24.pdf) | B.Tech |
+| [M.Tech S1 Aug 2023 – Jan 2024](http://ece.cet.ac.in/wp-content/uploads/2023/09/M.Arch_M.Tech_M_PlanS1AcademicCalendar_2023-24OddSemester.pdf) | M.Tech |
+| [M.Tech S3 Aug 2023 – Jan 2024](http://ece.cet.ac.in/wp-content/uploads/2023/09/M.Arch_M.Tech_M_PlanS3AcademicCalendar_2023-24OddSemester.pdf) | M.Tech |
+| [B.Tech S3/S5/S7 July 2023 – Jan 2024](http://ece.cet.ac.in/wp-content/uploads/2023/11/B.TechAcademicCalenderS3_S5_S7Aug_24-Jan24_New-1.pdf) | B.Tech |
+| [B.Tech S2 Feb 2023 – Sept 2023](http://ece.cet.ac.in/wp-content/uploads/2023/06/Academic-Calendar-B.Tech-S2-B.Arch-S2-B.Des-S2-BHMCT-S2-M.Plan-S2-M.Arch-S2MCA-S2-INT-MCA-S2-.pdf) | B.Tech |
+| [B.Tech S4/S6 Jan 2023 – July 2023](http://ece.cet.ac.in/wp-content/uploads/2023/02/B.Tech-S4-S6B.Arch-S4-S6-S8BHMCT-S4-S6.Programmes-.pdf) | B.Tech |
+| [M.Tech S4: Dec 2022 – June 2023](http://ece.cet.ac.in/wp-content/uploads/2023/01/KTU-AC1-582-2022-8.pdf) | M.Tech |
+| [B.Tech S1: Oct 2022 – Feb 2023](http://ece.cet.ac.in/wp-content/uploads/2022/11/MBAS1MCAS1IntMCAS1M.TechS1M.PlanS1M.ArchS1B.TechS1B.ArchS1BHMCTS1B.DesS1B.DesS7_.pdf) | B.Tech |
+| [B.Tech S7/S5/S3: Sept 2022 – Jan 2023](http://ece.cet.ac.in/wp-content/uploads/2022/09/KTU-AC1-582-2022.pdf) | B.Tech |
+| [M. Tech 2022 scheme - syllabus - S1 & S2](http://ece.cet.ac.in/wp-content/uploads/2025/10/S1-S4MTECHSIGNALPROCESSING-1-1-207_compressed.pdf) | M.Tech |
+| [M. Tech 2022 scheme - syllabus - S3 & S4](http://ece.cet.ac.in/wp-content/uploads/2025/10/S1-S4MTECHSIGNALPROCESSING-1-208-273_compressed.pdf) | M.Tech |
+
+Calendars are published by APJ Abdul Kalam Technological University. Older calendars are kept for reference."
+downloads,add_section,Department newsletters,"- [Newsletter August 2025](http://ece.cet.ac.in/wp-content/uploads/2025/09/Brown-Beige-Newsletter-9_compressed.pdf)
+- [Newsletter February 2025](http://ece.cet.ac.in/wp-content/uploads/2025/08/CET-ELECTRON-FEBRUARY-2025-1_compressed.pdf)
+- [Newsletter August 2024](http://ece.cet.ac.in/wp-content/uploads/2025/08/ECAE-Newsletter_20240830_122550_0000_compressed.pdf)
+- [Newsletter February 2024](http://ece.cet.ac.in/wp-content/uploads/2024/03/ELECTRONICS-DEPT.-Newsletter-ELECTRON_compressed-1.pdf)
+- [Newsletter August 2023](http://ece.cet.ac.in/wp-content/uploads/2023/09/NEWS-LETTER-2023.pdf)
+- [Newsletter November 2022](http://ece.cet.ac.in/wp-content/uploads/2022/12/nl2.pdf)
+- [Newsletter March 2022](http://ece.cet.ac.in/wp-content/uploads/2022/05/NEWS_LETTER_MARCH_2022.pdf)
+- [Newsletter December 2021](http://ece.cet.ac.in/wp-content/uploads/2022/05/NEWS_LETTER_DECEMBER_2021_compressed.pdf)
+- [Newsletter June 2021](http://ece.cet.ac.in/wp-content/uploads/2022/05/NEWS_LETTER_JUNE_2021_compressed.pdf)
+- [Newsletter December 2020](http://ece.cet.ac.in/wp-content/uploads/2022/05/NEWS_LETTER_DECEMBER_2020.pdf)
+- [Newsletter June 2020](http://ece.cet.ac.in/wp-content/uploads/2022/05/NEWS_LETTER_JUNE_2020_compressed.pdf)"
+academics/phd,replace_section,Guides and research areas,"| Guide | Research areas |
+| Dr. Joseph Zacharias | Radio Over Fibre, Microwave Engineering, Computational Electromagnetics |
+| Dr. Tara Raveendran | Statistical Signal Processing, Particle filters, Deep Learning |
+| Dr. Shiny G | Industrial Drives and Control, Biomedical Engineering |
+| Dr. Binu L S | Bio Medical, Control Systems and Robotics |
+| Dr. Sreelatha G. | Image and video processing, Computer vision, Medical image processing |
+| Dr. Pradeep R | Communication, Signal Processing |
+| Dr. Alex Raj S | Embedded System, Image Processing |
+| Dr. Vinod B R | Power electronics and Drives, Control systems |
+| Dr. Sreeni K.G | Computational Haptics, Image Processing and Computer Graphics |
+| Dr. Rajeev Rajan | Image Processing, Speech and Music Processing, Natural Language Processing |
+| Dr. Biju K S | Biosignal processing, Sleep research |
+| Dr. Sivakumar | Bio-optics, Signal and Image Processing, Optical Coherence Tomography, Diffused Tomography |
+| Dr. Anitha Edison | Computer Vision, Machine Learning |
+| Dr. Asha Prasad | Fiber Bragg Grating Sensors, Optical Fiber Communication |
+| Dr. Linu Shine | Deep Learning in Computer Vision |
+
+Approved research guides: Dr. Jiji C V, Dr. Santhosh Kumar S, Dr. Biji Jacob, Dr. Joseph Zacharias, Dr. Tara Raveendran, Dr. Shiny G, Dr. Binu L S, Dr. Pradeep R, Dr. Sreelatha G, Dr. Alex Raj S, Dr. Biju K S, Dr. Rajeev Rajan, Dr. Sreeni K G, Dr. Vinod B R, Dr. Sivakumar, Dr. Asha Prasad, Dr. Linu Shine, Dr. Anitha Edison.
+
+See [Research](/research/) for research areas and labs, and the [faculty directory](/faculty/) for profiles."
+placements,replace_section,Year by year,"Placement details for earlier batches:
+- [Placement Details – ECE](http://ece.cet.ac.in/wp-content/uploads/2025/10/Placements-ECE-Final.pdf)
+- [Placement Details – AEI](http://ece.cet.ac.in/wp-content/uploads/2025/10/Placements-AEI-Final.pdf)
+
+Year-by-year figures (eligible, placed, median and highest CTC) are to be added from the placement cell's records."
+placements,replace_section,Recruiters this year,"| Company | CTC (lakhs per annum) |
+| Schneider electric | 12 |
+| IBM | 11 |
+| Amadeus | 12.62 |
+| Ignatarium | 5 |
+| Centelon Solutions | 5 |
+| Capegemini | 5 |
+| AMD | 13 |
+| Clairvolex | 12 |
+| Tismo | 12 |
+| Ashok leyland | 7.5 |
+| EmbedUR | 8 |
+| Anora | 6 |
+| Cavli Wireless | 5 |
+
+Offers of 5 LPA and above to the 2025 B.Tech ECE batch, from the old website."

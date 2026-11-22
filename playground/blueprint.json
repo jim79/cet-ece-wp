@@ -2,7 +2,7 @@
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
   "meta": {
     "title": "ECE CET website demo",
-    "description": "Department of Electronics and Communication Engineering, College of Engineering Trivandrum: theme, plugin and sample content.",
+    "description": "Department of Electronics and Communication Engineering, College of Engineering Trivandrum: theme, plugin and the content of the current website.",
     "author": "jim79"
   },
   "landingPage": "/",
@@ -58,54 +58,62 @@
     },
     {
       "step": "mkdir",
-      "path": "/wordpress/wp-content/uploads/demo-posters"
+      "path": "/wordpress/demo-data"
     },
     {
       "step": "writeFile",
-      "path": "/wordpress/wp-content/uploads/demo-posters/placement-1.jpg",
+      "path": "/wordpress/demo-data/faculty.csv",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/posters/placement-1.jpg"
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/data/faculty.csv"
       }
     },
     {
       "step": "writeFile",
-      "path": "/wordpress/wp-content/uploads/demo-posters/placement-2.jpg",
+      "path": "/wordpress/demo-data/staff.csv",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/posters/placement-2.jpg"
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/data/staff.csv"
       }
     },
     {
       "step": "writeFile",
-      "path": "/wordpress/wp-content/uploads/demo-posters/placement-3.jpg",
+      "path": "/wordpress/demo-data/labs.csv",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/posters/placement-3.jpg"
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/data/labs.csv"
       }
     },
     {
       "step": "writeFile",
-      "path": "/wordpress/wp-content/uploads/demo-posters/achievement-1.jpg",
+      "path": "/wordpress/demo-data/batches.csv",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/posters/achievement-1.jpg"
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/data/batches.csv"
       }
     },
     {
       "step": "writeFile",
-      "path": "/wordpress/wp-content/uploads/demo-posters/achievement-2.jpg",
+      "path": "/wordpress/demo-data/publications.csv",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/posters/achievement-2.jpg"
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/data/publications.csv"
       }
     },
     {
       "step": "writeFile",
-      "path": "/wordpress/wp-content/uploads/demo-posters/achievement-3.jpg",
+      "path": "/wordpress/demo-data/news.csv",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/posters/achievement-3.jpg"
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/data/news.csv"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/demo-data/sections.csv",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/data/sections.csv"
       }
     },
     {

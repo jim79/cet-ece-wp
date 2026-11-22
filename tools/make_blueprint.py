@@ -9,7 +9,7 @@ bp = {
     '$schema': 'https://playground.wordpress.net/blueprint-schema.json',
     'meta': {
         'title': 'ECE CET website demo',
-        'description': 'Department of Electronics and Communication Engineering, College of Engineering Trivandrum: theme, plugin and sample content.',
+        'description': 'Department of Electronics and Communication Engineering, College of Engineering Trivandrum: theme, plugin and the content of the current website.',
         'author': repo.split('/')[0],
     },
     'landingPage': '/',
@@ -27,10 +27,10 @@ bp = {
         {'step': 'installTheme', 'themeData': {'resource': 'url', 'url': f'{raw}/dist/cet-ece.zip'}, 'options': {'activate': True}},
         {'step': 'mkdir', 'path': '/wordpress/wp-content/mu-plugins'},
         {'step': 'writeFile', 'path': '/wordpress/wp-content/mu-plugins/demo-banner.php', 'data': {'resource': 'url', 'url': f'{raw}/playground/demo-banner.php'}},
-        {'step': 'mkdir', 'path': '/wordpress/wp-content/uploads/demo-posters'},
+        {'step': 'mkdir', 'path': '/wordpress/demo-data'},
     ] + [
-        {'step': 'writeFile', 'path': f'/wordpress/wp-content/uploads/demo-posters/{n}.jpg', 'data': {'resource': 'url', 'url': f'{raw}/playground/posters/{n}.jpg'}}
-        for n in ('placement-1', 'placement-2', 'placement-3', 'achievement-1', 'achievement-2', 'achievement-3')
+        {'step': 'writeFile', 'path': f'/wordpress/demo-data/{n}.csv', 'data': {'resource': 'url', 'url': f'{raw}/playground/data/{n}.csv'}}
+        for n in ('faculty', 'staff', 'labs', 'batches', 'publications', 'news', 'sections')
     ] + [
         {'step': 'writeFile', 'path': '/wordpress/demo-seed.php', 'data': {'resource': 'url', 'url': f'{raw}/playground/seed.php'}},
         {'step': 'runPHP', 'code': "<?php require_once '/wordpress/wp-load.php'; require '/wordpress/demo-seed.php';"},

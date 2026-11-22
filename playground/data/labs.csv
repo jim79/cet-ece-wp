@@ -1,0 +1,834 @@
+name,type,programmes,summary,lead_faculty,tech_staff,research_areas,courses,scholars,photo_url,gallery,manual_url,content
+Communication Engineering Lab,teaching,btech-ece; btech-aei,Familiarize students with the Analog Integrated Circuits and Design and implementation of application circuits using basic Analog Integrated Circuits.,Prof. Rencymol M V,Anshad R. Yunus,,"ECL331 | Analog Integrated Circuits & Simulation Lab | B.Tech ECE | S5
+AEL331 | Analog Integrated Circuits & Instrumentation Lab | B.Tech AEI | S5
+ECL332 | Communication Lab | B.Tech ECE | S6",,https://ece.cet.ac.in/wp-content/uploads/2022/05/WhatsApp-Image-2022-05-26-at-7.45.06-AM.jpeg,,,"## ECL331 Analog Integrated Circuits & Simulation Lab
+This course aims to:
+- Familiarize students with the Analog Integrated Circuits and Design and implementation of application circuits using basic Analog Integrated Circuits
+- Familiarize students with simulation of basic Analog Integrated Circuits.
+
+### List of experiments
+1. I. Fundamentals of operational amplifiers and basic circuits
+1. [Minimum seven experiments are to be done]
+1. Familiarization of Operational amplifiers – Inverting and Non inverting amplifiers, frequency response, Adder, Integrator, Comparators.
+1. Measurement of Op-Amp parameters.
+1. Difference Amplifier and Instrumentation amplifier.
+1. Schmitt trigger circuit using Op–Amps.
+1. Astable and Monostable multivibrator using Op-Amps.
+1. Waveform generators using Op-Amps – Triangular and saw tooth
+1. Wien bridge oscillator using Op-Amp – without & with amplitude stabilization.
+1. RC Phase shift Oscillator.
+1. Active second order filters using Op-Amp (LPF, HPF, BPF and BSF).
+1. Notch filters to eliminate the 50Hz power line frequency.
+1. Precision rectifiers using Op-Amp.
+1. II. Application circuits of 555 Timer/565 PLL/ Regulator(IC 723) ICs
+1. [ Minimum three experiments are to be done]
+1. Astable and Monostable multivibrator using Timer IC NE555
+1. DC power supply using IC 723: Low voltage and high voltage configurations, Short circuit and Fold-back protection.
+1. A/D converters- counter ramp and flash type
+1. D/A Converters – R-2R ladder circuit
+1. Study of PLL IC: free running frequency lock range capture range
+1. III. Simulation experiments [The experiments shall be conducted using SPICE]
+1. Simulation of any three circuits from Experiments 3, 5, 6, 7, 8, 9, 10 and 11 of section I
+1. Simulation of Experiments 3 or 4 from section II
+
+[ECL331 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/ECL331-ANALOG-INTEGRATED-CIRCUITS-AND-SIMULATION-LAB-1_compressed.pdf)
+
+## AEL331 Analog Integrated Circuits & Instrumentation Lab
+This course aims to:
+- To develop skills in designing and testing analog integrated circuits
+- Expose the students to a variety of practical circuits using various analog ICs
+
+### List of experiments
+#### Part A – Analog Integrated Circuits Lab (At least 8 experiments are mandatory)
+1. Design and plot the frequency response of i) Inverting and Non inverting amplifiers ii) Differentiator and Integrator.
+1. Design of Adder circuits.
+1. Measurement of Opamp parameters.
+1. Difference Amplifier and Instrumentation amplifier
+1. Schmitt trigger circuit using Op –Amps.
+1. Astable and Monostable multivibrator using Op -Amps.
+1. Triangular and square wave generators using Op- Amps.
+1. RC Phase shift Oscillator using Op-Amps
+1. Wien bridge oscillator using Op-Amp – without & with amplitude stabilization.
+1. Active second order filters using Op-Amp (LPF, HPF, BPF and BSF).
+1. Notch filters to eliminate the 50Hz power line frequency.
+1. Astable and Monostable multivibrator using Timer IC NE555.
+1. IC voltage regulators.
+1. A/D converters – Flash type.
+1. D/A Converters-R-2R ladder circuit.
+1. Study of PLL IC: free running frequency lock range capture range
+
+[AEL331 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/05/12_AEL-331_compressed.pdf)
+
+## ECL332 Communication Lab
+### List of experiments
+#### PART A
+#### Any two experiments are mandatory. The students shall design and setup simple prototype circuits with the help of available ICs. They can observe Waveforms produced by these circuits for standard ideal inputs.
+1. FM generation and demodulation using PLL
+1. Generation and Detection of PCM signals
+1. Generation and Detection of Delta modulated signals
+1. Generation and Detection of BPSK
+1. Generation and Detection of 16-QPSK
+#### PART B
+#### All experiments are mandatory. The students shall write scripts to simulate components of communication systems. They shall plot various graphs that help to appreciate and compare performance.
+1. Performance of Waveform Coding Using PCM
+1. Pulse Shaping and Matched Filtering Eye Diagram Error Performance of BPSK Error Performance of QPSK
+#### PART C
+#### Any two experiments are mandatory. The students shall emulate communication systems with the help of software-defined-radio hardware and necessary control software. Use available blocks in GNU Radio to implement all the signal processing. These experiments will help students to appreciate better how theoretical concepts are translated into practice.
+1. Familiarization with Software Defined Radio (Hardware and Control Software)
+1. FM Reception
+1. FM Transmission
+
+[ECL332 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/05/3_EC332_compressed.pdf)"
+Control Systems Lab,teaching,btech-ece; btech-aei,Lab for Control System and Signal Processing Lab.,Dr. Latha V,Resmy S Anand,,AE431 | Control System and Signal Processing Lab |  | ,,https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-14-at-9.35.59-AM.jpeg,"https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-14-at-9.35.55-AM.jpeg
+https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-14-at-9.35.56-AM.jpeg
+https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-14-at-9.36.00-AM-1.jpeg",http://ece.cet.ac.in/wp-content/uploads/2024/03/Control-System-Lab-Manual_compressed-1.pdf,"## AE431 Control System Lab
+[AE431 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2024/03/Control-System-Lab-Manual_compressed-1.pdf)"
+C2S,teaching,btech-ece; btech-aei,,,,,,,,,,
+Department Computing Facility (DCF),teaching,btech-ece; btech-aei; mtech,Give hands on experience in various digital Signal Processing techniques using TMS 320C6X family processors and in control system analysis using MATLAB.,Dr. Reshmi S Bhooshan; Dr. Latha V,Resmy S Anand; Gopakumar P,,"ECL201 | Scientific Computing Lab | B.Tech ECE, B.Tech AEI | S3
+AE431 | Control System and Signal Processing Lab | B.Tech AEI | S7
+GXESL208 | IT Workshop | B.Tech ECE, B.Tech AEI | S2
+UCEST105 | Algorithmic Thinking with Python | B.Tech ECE, B.Tech AEI | S1
+GXEST204 | Programming in C | B.Tech ECE, B.Tech AEI | S2
+01EC6293 | Communication System Lab | M.Tech CS | M1
+01EC6393 | DSP Systems Lab | M.Tech SP | M1
+01EC6394 | Image Processing Lab | M.Tech SP | M2",,https://ece.cet.ac.in/wp-content/uploads/2022/06/computer-lab2-min.jpg,https://ece.cet.ac.in/wp-content/uploads/2025/10/atp-1.jpg,,"## ECL201 Scientific Computing Lab
+### List of experiments
+1. Familarization of the Computing Tool
+1. Familarization of Scientific Computing
+1. Realization of Arrays and Matrices
+1. Numerical Differentiation and Integration
+1. Solution of Ordinary Differential Equations
+1. Simple Data Visualization
+1. Simple Data Analysis with Spreadsheets
+1. Convergence of Fourier Series
+1. Coin Toss and the Level Crossing Problem
+
+[ECL201 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/S3_ECL201_Scientificcomputinglab_compressed.pdf)
+
+## AE431 Control System and Signal Processing Lab
+This course aims to:
+- To give hands on experience in various digital Signal Processing techniques using TMS 320C6X family processors and in control system analysis using MATLAB.
+- At the end of the semester students are expected to be familiar with the basic s ignal processing & control system techniques.
+
+### List of experiments
+1. CONTROL SYSTEM LAB using MATLAB:
+1. Familiarization of MATLAB commands used in control system design
+1. Representation of system in MATLAB: state space representation & tr ansfer function representation
+1. Stability analysis using Bode plot, root locus & their pole pole-zerozero-gain representation.
+1. Implementation of Ziegler Ziegler- Nicholas/ Cohen Cohen-coon tuning method for 1st order system.
+1. Analysis of a closed loop system.
+1. Implementation of PID control using both m m-file and Simulink.
+1. Pole placement technique applied to stabilize a system.
+1. Realization of a compensator design.
+1. Modelling and analysis of a first order system.
+1. Modelling of an unstable system (inverted pendulum, ball & plate system etc.) PC Based Control:
+1. PLC programming: familiarization of instruction set.
+1. PLC programming: simulation of process control.
+1. SCADA interface.
+1. Familiarization of Distributed Control System (DCS) with different process stations press ure, flow and level.
+1. LabVIEW based Virtual Instrumentation:
+1. Getting started with LabVIEW: Basic operations, controls, indicators, and simple Programming structures.
+1. Debugging a VI and sub sub-VI.
+1. Familiarization of DAQ card. SIGNAL PROCESSING LAB:
+1. Familiarization of signal processing commands used in MATLAB Software.
+1. Developing elementary signal function modules (m-files) for unit impulse, step, exponent and ramp sequence.
+1. Generating continuous and discrete time sequences.
+1. Carrying out mathematical operations on signals.
+1. Response of LTI system described by difference and differential equation.
+1. Developing a program for computing inverse Z-Transform.
+1. Developing program for finding magnitude & phase response of LTI System
+1. Developing program for computing DFT & IDFT.
+1. Developing a program for computing circular convolution.
+1. Design of filter: FIR, IIR, ECG Signal filter (can be done as 3 separate experiments).
+
+[AE431 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/06/2_AE431.pdf)
+
+## 01EC6293 Communication System Lab
+This course aims to:
+- Attain ability to do projects for digital communication
+- Familiarize the use of MATLAB for simulation of optical communication
+- Familiarize with microwave bench setup and measurements.
+
+### List of experiments
+1. Simulation of Digital communication system
+1. Simulation of fading and multipath channels
+1. BER curves and eye patterns
+1. Simulation of a RADAR System
+1. Simulation of Mobile Network
+
+## 01EC6393 DSP Systems Lab
+This course aims to:
+- Attain ability to develop projects using DSP processors
+- Familiarize the use of DSP processor based system for real time applications
+- Develop skill to use higher level as well as assembly language for implementation of DSP based system
+
+### List of experiments
+1. Development Environment
+1. High Level Language Project Development
+1. Assembly Optimizations
+1. Memory Map
+1. Real Time Processing.
+1. Mini Project (Compulsory)
+
+## 01EC6394 Image Processing Lab
+This course aims to:
+- Implement the various image processing algorithms in MATLAB/C/C++.
+
+### List of experiments
+1. Representation of Grayscale and colour images
+1. Image transformations
+1. Image Transforms
+1. Image filtering
+1. Edge detection
+1. Segmentation
+1. Morphological operation
+1. Computed Tomography
+
+## GXESL208 IT Workshop
+[GXESL208 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/IT-WORKSHOP-FINAL-PRINT_compressed.pdf)"
+Digital Lab,teaching,btech-ece; btech-aei,Familiarize students with the Digital Logic Design through the implementation of Logic Circuits using ICs of basic logic gates.,,,,"ECL203 | Logic Design Lab | B.Tech ECE, B.Tech AEI | S3",,https://ece.cet.ac.in/wp-content/uploads/2022/05/20220511_122612-min.jpg,,http://ece.cet.ac.in/wp-content/uploads/2022/05/17_ECL203_compressed.pdf,"## ECL203 Logic Design Lab
+This course aims to:
+- Familiarize students with the Digital Logic Design through the implementation of Logic Circuits using ICs of basic logic gates
+- Familiarize students with the HDL based Digital Design Flow.
+
+### List of experiments
+#### Part A
+1. The following experiements can be conducted on breadboard or trainer kits.
+1. Realization of functions using basic and universal gates (SOP and POS forms).
+1. Design and Realization of half /full adder and subtractor using basic gates and universal gates.
+1. 4 bit adder/subtractor and BCD adder using 7483.
+1. Study of Flip Flops: S-R, D, T, JK and Master Slave JK FF using NAND gates
+1. Asynchronous Counter:3 bit up/down counter
+1. Asynchronous Counter:Realization of Mod N counter
+1. Synchronous Counter: Realization of 4-bit up/down counter.
+1. Synchronous Counter: Realization of Mod-N counters.
+1. Ring counter and Johnson Counter. (using FF & 7495).
+1. Realization of counters using IC’s (7490, 7492, 7493)
+1. Multiplexers and De-multiplexers using gates and ICs. (74150, 74154)
+1. Realization of combinational circuits using MUX & DEMUX.
+1. Random Sequence generator using LFSR.
+#### Part B
+1. Realization of Logic Gates and Familiarization of FPGAs
+1. Adders in Verilog
+1. Mux and Demux in Verilog
+1. Flipflops and coutners
+1. . Multiplexer and Logic Implementation in FPGA
+1. Flip-Flops and their Conversion in FPGA
+1. Asynchronous and Synchronous Counters in FPGA
+1. Universal Shift Register in FPGA
+1. BCD to Seven Segment Decoder in FPGA
+
+[ECL203 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/05/17_ECL203_compressed.pdf)"
+Electronic Circuits Lab,teaching,btech-ece; btech-aei,Familiarize students with the Analog Circuits Design through.,Prof. Sanoj Viswasom,Biju Stanley,,ECL202 | Analog Circuits and Simulation Lab | B.Tech ECE | S4,,https://ece.cet.ac.in/wp-content/uploads/2022/05/CKT.jpg,,http://ece.cet.ac.in/wp-content/uploads/2022/05/22_ECL202.pdf,"## ECL202 Analog Circuits and Simulation Lab
+This course aims to:
+- Familiarize students with the Analog Circuits Design through
+- the implementation of basic Analog Circuits using discrete components.
+- Familiarize students with simulation of basic Analog Circuits.
+
+### List of experiments
+#### PART A
+1. [List of Experiments using discrete components [Any Six experiments mandatory]
+1. RC integrating and differentiating circuits (Transient analysis with different inputs and frequency response)
+1. Clipping and clamping circuits (Transients and transfer characteristics)
+1. RC coupled CE amplifier – frequency response characteristics
+1. MOSFET amplifier (CS) – frequency response characteristics
+1. Cascade amplifier – gain and frequency response
+1. Cascode amplifier -frequency response
+1. Feedback amplifiers (current series, voltage series) – gain and frequency response
+1. Low frequency oscillators –RC phase shift or Wien bridge
+1. Power amplifiers (transformer less) – Class B and Class AB
+1. Transistor Series voltage regulator (load and line regulation)
+#### PART B
+1. [Simulation experiments [Any Six experiments mandatory]
+1. The experiments shall be conducted using open tools such as QUCS, KiCad or variants of SPICE.
+1. RC integrating and differentiating circuits (Transient analysis with different inputs and frequency response)
+1. Clipping and clamping circuits (Transients and transfer characteristics)
+1. RC coupled CE amplifier – frequency response characteristics
+1. MOSFET amplifier (CS) – frequency response characteristics
+1. Cascade amplifier – gain and frequency response
+1. Cascode amplifier – frequency response
+1. Feedback amplifiers (current series, voltage series) – gain and frequency response
+1. Low frequency oscillators – RC phase shift or Wien bridge
+1. Power amplifiers (transformer less) – Class B and Class AB
+1. Transistor series voltage regulator (load and line regulation)
+
+[ECL202 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/05/22_ECL202.pdf)"
+Electronics Workshop,teaching,btech-ece; btech-aei,Impart skills to plan and carry out simple electrical wiring.,,Gopakumar P,,"ESL130 | Electrical & Electronics Workshop | B.Tech ECE, B.Tech AEI | S2",,https://ece.cet.ac.in/wp-content/uploads/2022/06/WhatsApp-Image-2022-06-01-at-3.40.09-PM.jpeg,,,"## ESL130 Electrical & Electronics Workshop
+This course aims to:
+- Impart skills to plan and carry out simple electrical wiring.
+- To identify the basic practices and safety measures in electrical wiring.
+
+### List of experiments
+1. Familiarization/Identification of electronic components with specification (Functionality, type, size, colour coding, package, symbol, cost etc. [Active, Passive, Electrical, Electronic, Electro-mechanical, Wires, Cables, Connectors, Fuses, Switches, Relays, Crystals, Displays, Fasteners, Heat sink etc.)
+1. Drawing of electronic circuit diagrams using BIS/IEEE symbols and introduction to EDA tools (such as Dia or XCircuit), Interpret data sheets of discrete components and IC’s, Estimation and costing.
+1. Familiarization/Application of testing instruments and commonly used tools. [Multimeter, Function generator, Power supply, DSO etc.] [Soldering iron, Desoldering pump, Pliers, Cutters, Wire strippers, Screw drivers, Tweezers, Crimping tool, Hot air soldering and de- soldering station etc.]
+1. Testing of electronic components [Resistor, Capacitor, Diode, Transistor and JFET using multimeter].
+1. Inter-connection methods and soldering practice. [Bread board, Wrapping, Crimping, Soldering – types – selection of materials and safety precautions, soldering practice in connectors and general purpose PCB, Crimping.
+1. Printed circuit boards (PCB) [Types, Single sided, Double sided, PTH, Processing methods, Design and fabrication of a single sided PCB for a simple circuit with manual etching (Ferric chloride) and drilling.]
+1. Assembling of electronic circuits using SMT (Surface Mount Technology) stations.
+1. Assembling of electronic circuit/system on general purpose PCB, test and show the functioning (Any Two circuits).
+1. Fixed voltage power supply with transformer, rectifier diode, capacitor filter, zener/IC regulator.
+1. Square wave generation using IC 555 timer in IC base.
+1. Sine wave generation using IC 741 OP-AMP in IC base.
+1. RC coupled amplifier with transistor BC107."
+Fiber Optics Lab,teaching,btech-ece; btech-aei; mtech,"Provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.",,Sreekumar T,,"EC431 | Communication System Lab (Optical & Microwave) | B.Tech ECE | S7
+01EC6293 | Communication System Lab | M.Tech CS | M1","Archa Chandrasenan | phd | Dr. Joseph Zacharias | 2020 (Part-Time) | ongoing
+Libya Thomas | phd | Dr. Joseph Zacharias | 2021 (Part-Time) | ongoing
+Arya M Krishna | phd |  | 2021 (Part-Time) | ongoing
+Supriya S.S | phd | Dr. Joseph Zacharias |  | ongoing
+Archana S. Sekhar | phd |  | Dr. Pradeep R | ongoing
+R.D.Soumitra | phd | Dr. Joseph Zacharias |  | ongoing
+Soorya Suresh | phd | Dr. Asha Prasad |  | ongoing",https://ece.cet.ac.in/wp-content/uploads/2022/05/OPTIC.jpg,https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-11-at-2.10.09-PM.jpeg,http://ece.cet.ac.in/wp-content/uploads/2022/05/1.1_EC431OPTICAL_compressed.pdf,"## EC431 Communication System Lab (Optical & Microwave)
+This course aims to:
+- To provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.
+
+### List of experiments
+#### Optical Experiments: (Minimum Six Experiments are mandatory)
+1. Measurement of Numerical Aperture of a fiber, after preparing the fiber ends.
+1. Study of losses in Optical fiber
+1. Setting up of Fiber optic Digital link.
+1. Preparation of a Splice joint and measurement of the splice loss.
+1. Power vs Current (P-I) characteristics and measure slope efficiency of Laser Diode.
+1. Voltage vs Current (V-I) characteristics of Laser Diode.
+1. Power vs Current (P-I) characteristics and measure slope efficiency of LED.
+1. Voltage vs Current (V-I) characteristics of LED.
+1. Characteristics of Photodiode and measure the responsivity.
+1. Characteristics of Avalanche Photo Diode (APD) and measure the responsivity.
+1. “Measurement of fiber characteristics, fiber damage and splice loss/connector loss by OTDR.”
+
+[EC431 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/05/1.1_EC431OPTICAL_compressed.pdf)
+
+## 01EC6293 Communication System Lab
+This course aims to:
+- Attain ability to do projects for digital communication,Familiarize the use of MATLAB for simulation of optical communication
+- Familiarize with microwave bench setup and measurements.
+
+### List of experiments
+1. Characterstics of optical transmitters and receivers
+1. Study of Optical Spectrum Analyser
+1. Design and setting up a WDM system
+1. Link Analysis using OTDR"
+Instrumentation and Measurements Lab,teaching,btech-ece; btech-aei,Familiarize the students with various types of sensors and transducers.,Prof. P G Gigy,,,"AEL204 | Transducers and Measurements Lab | B.Tech AEI | S4
+AEL331 | Analog Integrated Circuits & Instrumentation Lab | B.Tech AEI | S5",,https://ece.cet.ac.in/wp-content/uploads/2022/05/MESURE.jpg,,,"## AEL204 Transducers and Measurements Lab
+This course aims to:
+- Familiarize the students with various types of sensors and transducers
+- Enable students to select and design suitable instruments to meet requirements of various industrial applications
+
+### List of experiments
+#### Part A (At least 8 experiments are mandatory)
+1. Determination of characteristics of optical transducers using LDR
+1. Determination of characteristics of LVDT
+1. Measurement of strain and load using strain gauge
+1. Level measurement using capacitive/resistive transducer
+1. Determination of characteristics of RTD
+1. Determination of characteristics of thermocouple
+1. Determination of characteristics of thermistor
+1. Determination of pressure using strain gauge/piezoelectric pickup
+1. Determination of sound pressure level using sound level meter
+1. Calibration of pressure gauge using dead weight tester
+1. Measurement of speed using photoelectric pickup
+1. Measurement of speed using stroboscope
+1. Determination of characteristics of hall effect transducer
+1. Measurement of displacement using inductive transducer
+1. Determination of characteristics of capacitive displacement transducer
+1. Pressure measurement using U-tube manometer
+1. Study of loading effect in potentiometer
+1. Measurement of frequency and phase using Lissajous figures
+#### Part B (At least 4 experiments are mandatory)
+1. Experiments (1-4) shall be done using python/Labview-Aurdino interface
+1. Measurement of temperature
+1. Measurement of level in water tank
+1. Measurement of pressure
+1. Wind velocity measurement
+1. Measurement of humidity
+1. Simulation of Wheatstone bridge using Labview
+1. Simulation of Anderson’s bridge using Labview
+1. Simulation of Maxwell’s inductance bridge and Maxwell’s inductance capacitance bridge using Labview
+
+[AEL204 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/05/23_AEL204_compressed.pdf)
+
+## AEL331 Analog Integrated Circuits & Instrumentation Lab
+This course aims to:
+- To understand the working principle of various transducers and their application in engineering
+
+### List of experiments
+1. Determination of the characteristics of LVDT
+1. Determination of characteristics of temperature sensor (AD590).
+1. Determination of the characteristics of thermocouple.
+1. Determination of the characteristics of RTD
+1. Determination of the characteristics of optical transducers using LDR.
+1. Measurement of pressure using piezoelectric pick up.
+1. Measurement of strain and load using strain gauges.
+1. Level measurement using capacitive transducer
+
+[AEL331 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/05/12_AEL-331_compressed.pdf)"
+IoT Lab,teaching,btech-ece; btech-aei,"The Internet of Things lab (IoT lab) has been set up at the College of Engineering Trivandrum (CET) as an initiative of the Department of Technical Education, Government of Kerala and the Kerala Start.",Prof. Joaquim Ignatious Monteiro,Praveena P,,,,https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-13-at-9.36.47-PM.jpeg,https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-13-at-9.49.51-PM.jpeg,,"The Internet of Things lab (IoT lab) has been set up at the College of Engineering Trivandrum (CET) as an initiative of the Department of Technical Education, Government of Kerala and the Kerala Startup Mission in June 2017.
+
+The IoT lab CET has been co-hosted in the Digital Electronics lab of the Electronics and Communication Engineering department.
+
+The lab provides students and faculty access to latest tools and resources in IoT.
+
+The IoT lab CET aims to build up the technical expertise and to foster a culture of entrepreneurship in IoT.
+
+For more details click here"
+Microcontroller Lab,teaching,btech-ece; btech-aei,Familiarize the students with Assembly Language Programming of modern microcontrollers.,Prof. Viji R,Sajayan S,,ECL204 | Microcontroller Lab | B.Tech ECE | S4,,https://ece.cet.ac.in/wp-content/uploads/2022/05/IMG-20220509-WA0006.jpg,,http://ece.cet.ac.in/wp-content/uploads/2025/10/Lab_Manual_Microcontroller_ECL204_compressed.pdf,"## ECL204 Microcontroller Lab
+This course aims to:
+- Familiarize the students with Assembly Language Programming of modern microcontrollers.
+- Impart the skills for interfacing the microcontroller with the help of Embedded C/Assembly Language Programming.
+
+### List of experiments
+#### Part A (At least 6 experiments are mandatory)
+1. These experiments shall be performed using 8051 trainer kit. The programs shall be written either in embedded C or in assembly language.
+1. Data transfer/exchange between specified memory locations.
+1. Largest/smallest from a series.
+1. Sorting (Ascending/Descending) of data.
+1. Addition / subtraction / multiplication / division of 8/16 bit data.
+1. Sum of a series of 8 bit data.
+1. Multiplication by shift and add method.
+1. Square / cube / square root of 8 bit data.
+1. Matrix addition.
+1. LCM and HCF of two 8 bit numbers.
+1. Code conversion – Hex to Decimal/ASCII to Decimal and vice versa.
+#### Part B (At least 4 experiments are mandatory)
+1. Interfacing experiments shall be done using modern microcontrollers such as 8051 or ARM. The interfacing modules may be developed using Embedded C.
+1. Time delay generation and relay interface.
+1. Display (LED/Seven segments/LCD) and keyboard interface.
+1. ADC interface.
+1. DAC interface with wave form generation.
+1. Stepper motor and DC motor interface.
+1. Realization of Boolean expression through port.
+
+[ECL204 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/Lab_Manual_Microcontroller_ECL204_compressed.pdf)"
+Microwave Lab,teaching,btech-ece; btech-aei; mtech,"Provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.",Prof. Joaquim Ignatious Monteiro,Sreekumar T,,"EC431 | Communication System Lab (Optical & Microwave) | B.Tech ECE | S7
+01EC6293 | Communication System Lab | M.Tech CS | M1
+01EC6294 | RF Design and Simulation Lab | M.Tech CS | M2",,https://ece.cet.ac.in/wp-content/uploads/2022/05/MW.jpg,,http://ece.cet.ac.in/wp-content/uploads/2022/05/1_EC431MW_compressed.pdf,"## EC431 Communication System Lab (Optical & Microwave)
+This course aims to:
+- To provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.
+
+### List of experiments
+#### Microwave Experiments: (Minimum Six experiments are mandatory)
+1. GUNN diode characteristics.
+1. Reflex Klystron Mode Characteristics.
+1. VSWR and Frequency measurement.
+1. Verify the relation between Guide wave length, free space wave length and cut off wave length for rectangular wave guide.
+1. Measurement of E-plane and H-plane characteristics.
+1. Directional Coupler Characteristics.
+1. Unknown load impedance measurement using smith chart and verification using transmission line equation.
+1. Measurement of dielectric constant for given solid dielectric cell.
+1. Antenna Pattern Measurement.
+1. Study of Vector Network Analyser.
+
+[EC431 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/05/1_EC431MW_compressed.pdf)
+
+## 01EC6293 Communication System Lab
+This course aims to:
+- Attain ability to do projects for digital communication
+- Familiarize the use of MATLAB for simulation of optical communication
+- Familiarize with microwave bench setup and measurements.
+
+### List of experiments
+1. Calibration & Trubleshooting of Microwave measurement set up
+1. Crystal Index measurement
+1. Parameter measurements of H-plane,E-plane & Magic T
+1. Measurement of dielectric constant
+
+## 01EC6294 RF Design and Simulation Lab
+This course aims to:
+- Attain ability to do measurements using network analyser and spectrum analyser,Familiarize the use of CAD methods for RF circuit and antenna analysis.
+
+### List of experiments
+1. Study of analog modulated signals using Spectrum Analyser
+1. Study of digital modulated signals
+1. S’C Parameter measurement of 2 PORT RF circuits using Network Analyser
+1. Simulation of Dipoe,Yagi and Log Periodic Antenna using 4NEC2
+1. Design of RF amplifier using microwave CAD packages(Microwave office/HFSS)
+1. Design of oscillators using microwave CAD packages
+1. Design of filters using microwave CAD packages
+1. Design and simulation of Patch Antenna using HFSS
+1. Design and simulation of 1D arrays using MATLAB/HFSS
+1. Design and simulation of 2D arrays using MATLAB/HFSS"
+Power Electronics Lab,teaching,btech-ece; btech-aei,Familiarize the students with different types of power electronics circuits and application.,Prof. Ambily N,Santhosh C B,,AEL332 | Power Electronics Lab | B.Tech AEI | S6,,https://ece.cet.ac.in/wp-content/uploads/2022/05/POWER-ELE.jpg,,http://ece.cet.ac.in/wp-content/uploads/2025/10/AEL332_POWER_ELECTRONICS_LAB_compressed.pdf,"## AEL332 Power Electronics Lab
+This course aims to:
+- Familiarize the students with different types of power electronics circuits and application
+- Familiarize students with simulation of basic power electronics circuits
+
+### List of experiments
+#### Part A (At least 8 experiments are mandatory)
+1. Power BJT drive circuits
+1. Power MOSFET drive circuits
+1. Snubber circuits
+1. Three phase diode bridge rectifier
+1. Single phase Controlled rectifiers with R, RL loads
+1. Realization of half bridge converter
+1. Realization of half bridge converter
+1. Application of PWM IC TL 494
+1. DC to AC inverter using MOSFET & IC
+1. Realization of simple SMPS
+#### Part B (At least 8 experiments are mandatory)
+1. Experiments shall be done using SPICE/ MATLAB
+1. Drive circuitsfor Power BJT
+1. Drive circuits for Power MOSFET
+1. Snubber circuits – shunt and series
+1. Three phase diode bridge rectifier
+1. Single phase Controlled rectifiers with R, RL loads
+1. Realization of Buck, Boost and Buck-Boost converters. Study its Continuous and discontinuous conduction mode
+1. Realization of Isolated Converters : Push-Pull, Half bridgeand Full bridge configurations
+1. DC to AC inverter using MOSFET
+1. Realization of simple SMPS
+1. DC motor speed control
+
+[AEL332 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/AEL332_POWER_ELECTRONICS_LAB_compressed.pdf)"
+Process Control Lab,teaching,btech-ece; btech-aei; mtech,Provide experience on control of various industrial processes using different control paradigms.,Dr. Sindhu N,Abhilash S Devan,,"AE332 | Process Control Lab | B.Tech AEI | S6
+AEL411 | Process Control Lab | B.Tech AEI | S7
+01EC6193 | Instrumentation & Control System Lab | M.Tech AEI | M1",,https://ece.cet.ac.in/wp-content/uploads/2022/06/Process-Control-Lab-min.jpg,,,"## AE332 Process Control Lab
+This course aims to:
+- To provide experience on control of various industrial processes using different control paradigms
+- To provide experience in development of virtual instrumentation systems for industry applications
+- To introduce few novel control strategies based on artificial neural networks, fuzzy logic, digital control algorithm, etc.
+
+### List of experiments
+1. Temperature control using P, PI, PD, and PID controllers–Study of output response
+1. Flow control using P, PI, PD, and PID controllers–Study of output response
+1. Liquid level control using P, PI, PD, and PID controllers–Study of output response
+1. Pressure control using P, PI, PD, and PID controllers–Study of output response
+1. Study of ratio controls
+1. Familiarization of Programmable Logic Controller
+1. Block diagram simulation of complex control system
+1. Controller tuning for various processes – using Ziegler-Nichols rule
+1. Controller tuning for various processes – using Cohen and Coon rule
+1. Controller Tuning – Simulation
+1. Data acquisition using Labview
+1. Simulation of Heat Exchanger Temperature Control
+
+[AE332 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/06/5_AE332-part-1.pdf)
+
+[AE332 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/06/5_AE332-part2_compressed.pdf)
+
+## 01EC6193 Instrumentation & Control System Lab
+This course aims to:
+- Familiarizing various PLC software and Ladder Logic
+- Familiarizing GUI software like SCADA and LabVIEW
+- Implementing various control systems.
+
+### List of experiments
+1. Data Acquisition and control using Lab VIEW
+1. Controller tuning techniques
+1. Determining the non-linearity of a system
+1. Distributed Control through PROFIBUS
+1. SCADA
+1. Control of Robotic arm
+1. PLC
+1. Cascade control
+1. Feed forward control
+1. Ratio Control
+1. Inferential Control
+1. Override Control"
+Project Lab (ECE & AEI),teaching,btech-ece; btech-aei,Testing and measuring facilities for doing mini project and project for the students are provided in this lab.,Prof. A swini S. H.,Sajayan S; Santhosh Raj S,,,,https://ece.cet.ac.in/wp-content/uploads/2022/06/IMG_20220602_154628-min.jpg,"https://ece.cet.ac.in/wp-content/uploads/2022/06/IMG_20220602_151853-min.jpg
+https://ece.cet.ac.in/wp-content/uploads/2022/06/IMG_20220602_151911-min.jpg
+https://ece.cet.ac.in/wp-content/uploads/2022/06/IMG_20220602_151900-min.jpg
+https://ece.cet.ac.in/wp-content/uploads/2022/06/IMG_20220602_154530-min.jpg
+https://ece.cet.ac.in/wp-content/uploads/2022/06/IMG_20220602_154538-min.jpg",,"Testing and measuring facilities for doing mini project and project for the students are provided in this lab.
+
+Project Lab (ECE):
+
+Project Lab (AEI):"
+UG DSP Lab,teaching,btech-ece; btech-aei; mtech,Make the student do real time DSP computing. Dedicated DSP hardware (such as TI or Analog Devices development/evaluation boards) will be used for realization.,,Jayasree R,,"ECL333 | Digital Signal Processing Lab | B.Tech ECE | S5
+EST102 | Programming in C | B.Tech ECE, B.Tech AEI | S2
+221LEC001 | Signal Processing Lab I | M.Tech SP | M1
+222LEC001 | Signal Processing Lab Ii | M.Tech SP | M2",,https://ece.cet.ac.in/wp-content/uploads/2022/06/DSP.jpg,,,"## ECL333 Digital Signal Processing Lab
+This course aims to:
+- Make the student do real time DSP computing. Dedicated DSP hardware (such as TI or Analog Devices development/evaluation boards) will be used for realization.
+
+### List of experiments
+1. Simulation of Signals
+1. Verification of the Properties of DFT
+1. Familarization of DSP Hardware
+1. Linear convolution
+1. FFT of signals using DIT
+1. FFT of signals using DIF
+1. IFFT with FFT
+1. FIR low pass filter
+1. IIR filter design
+1. Overlap Save Block Convolution
+1. Overlap Add Block Convolution
+
+[ECL333 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/06/7_EC333_compressed.pdf)
+
+## EST102 Programming in C
+### List of experiments
+1. Familiarization of Hardware Components of a Computer
+1. Familiarization of Linux environment – How to do Programming in C with Linux
+1. Familiarization of console I/O and operators in C
+1. Read 3 integer values and find the largest amoung them
+1. Read a Natural Number and check whether the number is prime or not
+1. Read a Natural Number and check whether the number is Armstrong or not
+1. Read n integers, store them in an array and find their sum and average
+1. Read n integers, store them in an array and search for an element in the array using an algorithm for Linear Search
+1. Read n integers, store them in an array and sort the elements in the array using Bubble Sort algorithm
+1. Read a string (word), store it in an array and check whether it is a palindrome word or not.
+1. Read two strings (each one ending with a $ symbol), store them in arrays and concatenate them without using library functions.
+1. Read a string (ending with a $ symbol), store it in an array and count the number of vowels, consonants and spaces in it.
+1. Read two input each representing the distances between two points in the Euclidean space, store these in structure variables and add the two distance values
+1. Using structure,read and print data of n employees (Name,Employee Id and Salary)
+1. Declare a union containing 5 string variables (Name, House Name, City Name, State and Pin code) each with a length of C_SIZE (user defined constant). Then, read and display the address of a person using a variable of the union.
+1. Find the factorial of a given Natural Number n using recursive and non recursive functions
+1. Read a string (word), store it in an array and obtain its reverse by using a user defined function.
+1. Write a menu driven program for performing matrix addition, multiplication and finding the transpose. Use functions to (i) read a matrix, (ii) find the sum of two matrices, (iii) find the product of two matrices, (i) find the transpose of a matrix and (v) display a matrix.
+1. Do the following using pointers i) add two numbers ii) swap two numbers using a user defined function
+1. Input and Print the elements of an array using pointers
+1. Compute sum of the elements stored in an array using pointers and user defined function
+1. Create a file and perform the following i) Write data to the file ii) Read the data in a given file & display the file content on console iii) append new data and display on console
+
+## 221LEC001 Signal Processing Lab I
+### List of experiments
+1. Linear Algebra
+1. 1 Row Reduced Echelon Form: To reduce the given mxn matrix into Row reduced Echelon form
+1. 2 Gram-Schmidt Orthogonalization: To find orthogonal basis vectors for the given set of vectors. Also find orthonormal basis.
+1. 3 Least SquaresFit to a Sinusoidal function
+1. 4 Least Squares fit to a quadratic polynomial
+1. 5 Eigen Value Decomposition
+1. 6 Singular Value Decomposition
+1. 7 Karhunen- Loeve Transform
+1. Advanced DSP
+1. 1 Sampling rate conversion: To implement Down sampler and Up sampler and study their characteristics
+1. 2 Two channel Quadrature Mirror Filterbank: Design and implement a two channel Quadrature Mirror Filterbank
+1. Random Processes
+1. 1 To generate random variables having the following probability distributions (a)
+1. Bernoulli(b) Binomial(c) Geometric(d) Poisson(e)Uniform,(f)
+1. Gaussian(g)Exponential (h) Laplacian
+1. 2 Central Limit Theorem: To verify the sum of sufficiently large number of
+1. Uniformly distributed random variables is approximately Gaussian distributed and to estimate the probability density function of the random variable.
+1. Machine Learning
+1. 1 Implementation of K Nearest Neighbours Algorithm with decision region plots
+1. 2 Implementation of K Means Algorithm with decision region plots
+1. 3 Implementation of Perceptron Learning Algorithms with decision region plots
+1. 4 Implementation of SVM algorithmfor classification applications
+1. Implement a mini project pertaining to an application of Signal Processing in real life, make a presentation and submit a report
+
+[221LEC001 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2024/03/SP-LAB-MANUAL-1..pdf)
+
+## 222LEC001 Signal Processing Lab Ii
+### List of experiments
+1. Set I Speech, Image and Deep Learning Lab
+1. Image processing fundamentals-Simulation and Display of an Image, Negative of an Image- Implementation of Relationships between Pixels Geometric transformations- Image rotation, scaling, and translation
+1. Apply 2 D DFT, DCT and DWT transform for an image and compare the results
+1. Image enhancement-Point/spatial/transform operations – Enhance an image using image arithmetic and logical operations— Gray level slicing/Sharpening/histogram equalization/Filtering/homomorphic filtering
+1. Colour image processing –Wavelet-based Image Processing.
+1. Image Segmentation
+1. Edge detection-basic edge detection methods- parametric and nonparametric approaches Morphological operations -dilation, erosion.
+1. Object recognition in an image Template matching/ clustering
+1. Feature extraction from speech – Implement the steps for the extraction of MFCC/rhythmic features from a given audio file
+1. Visualization of spectrogram/Mel-spectrogram—narrow-band and wideband spectrogram
+1. Implement the steps to extract LPC coefficient from the given speech file
+1. Implement the steps to extract formants using homographic filtering
+1. Pattern classification using machine learning/Deep learning, Implementation of KNN, K-Means Clustering, Implementation of Logistic Regression, SVM (speech or image data)
+1. Deep learning architectures using TensorFlow/Keras(speech or image data)
+1. Set II. Communication Engineering
+1. Simulation of probability Distributions- Continuous and Discrete. -Illustration of Central Limit theorem.
+1. Simulation of PAM and PCM systems and performance evaluation.
+1. Implementation of digital modulation schemes-BASK,BFSK, BPSK. Plot BER vs Eb/N0 in AWGN channel.
+1. Implementation and performance comparison of QPSK , DPSK, MSK& GMSK.
+1. Plotting Eye pattern and Constellation diagram of various digital modulation schemes
+1. Implementation of Matched filter, Correlation receiver.
+1. Communication over fading Channels-Rayleigh fading & Rician fading
+1. Simulation of RAKE receiver.
+1. Spread spectrum communication systems-Develop simulation models for Direct sequence Spread spectrum systems and Frequency Hopping spread spectrum systems.
+1. Simulation of OFDM system. Set III. Embedded Systems A FPGA based experiments:
+1. Design entry using Verilog/ VHDL examples for circuit description.
+1. Sequential and concurrent statements.
+1. Structural and behavioral descriptions, principles of operation and limitation of HDL simulators.
+1. Examples of sequential and combinational logic design and simulation.
+1. Test vector generation.
+1. Synthesis principles, logical effort, standard cell-based design and synthesis, interpretation synthesis scripts, constraint introduction and library preparation and generation.
+1. FPGA programming
+1. I/O interfacing
+1. Analog interfacing
+1. Real time application development.
+1. B Microcontroller based Experiments:
+1. Design with ARM Processors: I/O programming, ADC/DAC, Timers, Interrupts.
+1. Study of one type of Real Time Operating Systems (RTOS)
+
+[222LEC001 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2024/03/SP-LAB-MANUAL-2.pdf)"
+Advanced Communication Lab,teaching,mtech,,,,,,,,,,
+Advanced Computational Lab,teaching,mtech,,,,,,,,,,
+Advanced Process Control Lab,teaching,mtech; btech-aei,Provide experience on control of various industrial processes using different control paradigms.,Dr. Sindhu N,Abhilash S Devan,,"AE332 | Process Control Lab | B.Tech AEI | S6
+01EC6193 | Instrumentation & Control System Lab | M.Tech AEI | M1",,https://ece.cet.ac.in/wp-content/uploads/2022/06/ADV.PROC-min.jpg,,,"## AE332 Process Control Lab
+This course aims to:
+- To provide experience on control of various industrial processes using different control paradigms
+- To provide experience in development of virtual instrumentation systems for industry applications
+- To introduce few novel control strategies based on artificial neural networks, fuzzy logic, digital control algorithm, etc.
+
+### List of experiments
+1. Temperature control using P, PI, PD, and PID controllers–Study of output response
+1. Flow control using P, PI, PD, and PID controllers–Study of output response
+1. Liquid level control using P, PI, PD, and PID controllers–Study of output response
+1. Pressure control using P, PI, PD, and PID controllers–Study of output response
+1. Study of ratio controls
+1. Familiarization of Programmable Logic Controller
+1. Block diagram simulation of complex control system
+1. Controller tuning for various processes – using Ziegler-Nichols rule
+1. Controller tuning for various processes – using Cohen and Coon rule
+1. Controller Tuning – Simulation
+1. Data acquisition using Labview
+1. Simulation of Heat Exchanger Temperature Control
+
+[AE332 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/06/5_AE332-part-1.pdf)
+
+[AE332 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/06/5_AE332-part2_compressed.pdf)
+
+## 01EC6193 Instrumentation & Control System Lab
+This course aims to:
+- Familiarizing various PLC software and Ladder Logic
+- Familiarizing GUI software like SCADA and LabVIEW
+- Implementing various control systems.
+
+### List of experiments
+1. Data Acquisition and control using Lab VIEW
+1. Controller tuning techniques
+1. Determining the non-linearity of a system
+1. Distributed Control through PROFIBUS
+1. SCADA
+1. Control of Robotic arm
+1. PLC
+1. Cascade control
+1. Feed forward control
+1. Ratio Control
+1. Inferential Control
+1. Override Control"
+Advanced Research Lab on Information System Security (ARLISS),research,mtech,,,,,,,,,,
+Audio Speech and Language Lab,teaching,mtech,,,,,,,,,,
+Biomedical Engineering and Research Lab,research,mtech,,,,,,,,,,
+Computer Vision Lab,research,mtech,"Computer vision is the science and technology of machines that can see. As a scientific discipline, computer vision is concerned with the theory behind artificial systems that extract information from.",Dr. Linu Shine,,Signal and image processing; Biomedical engineering,,"Cynara Justine | phd | Dr. Linu Shine |  | ongoing
+Anu S.S | phd | Dr. Joseph Zacharias |  | ongoing
+Rehna T S | phd |  | Dr. Sreeni K G | ongoing
+Devika R.G | phd | Dr. Sivakumar R |  | ongoing
+Akhilaraj D | phd | Dr. Joseph Zacharias |  | ongoing
+Smrithi Govind | phd |  | Dr. Pradeep R | ongoing
+Shijin Knox G U | phd |  | Dr. Sreeni K G | ongoing
+Anju J S | phd |  | Dr. Pradeep R | ongoing
+Kailas Nath V D | phd | Dr. Linu Shine |  | ongoing
+Arunima C V | phd | Dr. Linu Shine |  | ongoing",https://ece.cet.ac.in/wp-content/uploads/2022/06/cvlab6-min-1.jpg,"https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-11-at-2.09.44-PM.jpeg
+https://ece.cet.ac.in/wp-content/uploads/2022/06/cvlab6-min.jpg
+https://ece.cet.ac.in/wp-content/uploads/2022/06/cvlab3.jpg
+https://ece.cet.ac.in/wp-content/uploads/2022/06/cvlab2-min.jpg
+https://ece.cet.ac.in/wp-content/uploads/2022/06/cvlab-1.jpg",,"Computer vision is the science and technology of machines that can see. As a scientific discipline, computer vision is concerned with the theory behind artificial systems that extract information from images. The image data can take many forms, such as video sequences, views from multiple cameras, or multi-dimensional data from a medical scanner. As a technological discipline, computer vision seeks to apply its theories and models to the construction of computer vision systems. Various reseach areas includes: Applications in Display Technology, Computer Vision for Navigation, Metrology, High Level Video Analysis, and Human Computer Interfaces. Pharmaceutical biomathematical modeling, Signal and System theory.
+
+## Research areas
+- Image Denoising
+- Image Segmentation
+- Image Classification
+- Image and Video Dehazing
+- Biomedical Image Processing
+- Smartphone camera image enhancement
+
+## Publications
+1. Chippy M Manu and Sreeni K G, “Msdnet: A novel multi-stage progressive image dehazing network,” in Proceedings of the Twelfth Indian Conference on Computer Vision, Graphics and Image Processing, New York, NY, USA, 2021, ICVGIP ’21, Association for Computing Machinery.”
+1. Chippy M Manu and Sreeni K G, “GANID: A Novel Generative Adversarial Network for Image Dehazing”” Visual computer springer journal,2022.
+1. Codruta O. Ancuti, Cosmin Ancuti, Florin-Alexandru Vasluianu, Radu Timofte, Minghan Fu, Huan Liu, Yankun Yu, Jun Chen, Keyan Wang, Jerome Chang, Xiyao Wang, Jing Liu, Yi Xu, Xinjian Zhang, Minyi Zhao, Shuigeng Zhou, Tianyi Chen, Jiahui Fu, Wentao Jiang, Chen Gao, Si Liu, Yudong Wang, Jichang Guo, Chongyi Li, Qixin Yan, Sida Zheng, Syed Waqas Zamir, Aditya Arora, Akshay Dudhane, Salman Khan, Munawar Hayat, Fahad Shahbaz Khan, Ling Shao, Haichuan Zhang, Tiantong Guo, Vishal Monga, Wen-jin Yang, Jin Lin, Xiaotong Luo, Guowen Huang, Shuxin Chen, Yanyun Qu, Kele Xu, Lehan Yang, Pengliang Sun, Xuetong Niu, Junjun Zheng, Xiaotong Ruan, Yunfeng Wang, Jiang Yang, Zhipeng Luo, Sai Wang, Zhenyu Xu, Xiaochun
+1. Cao, Jun Luo, Zhuoran Zheng, Wenqi Ren, Tao Wang, Yiqun Chen, Cong Leng, Chenghua Li, Jian Cheng, Chang- Sung Sung, Jun-Cheng Chen, Eunsung Jo, Jae-Young Sim, Geethu M M, Akhil K A, Sreeni K G, Jeena R S, Joseph Zacharias, Chippy M Manu, Zexi Huang, Baofeng Zhang, Yi-wen Zhang, Jindong Li, Mianjie Chen, Quan Xiao, Qingchao Su, Lihua Han, Yanting Huang, Kalpesh Prajapati, Vishal Chudasama, Heena Patel, Anjali Sarvaiya, Kishor Upla, Kiran Raja, Raghavendra Ramachandra, Christoph Busch, Hongyuan Jing, Zilong Huang, Yiran Fu, Haoqiang Wu, Quanxing Zha, Zhiwei Zhu, and Hejun Lv. Ntire 2021 non-homogeneous dehazing challenge report. In 2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW), pages 627–646, 2021.
+1. Ashok L R and Sreeni K G, “Abnormality Detection and Classification of Macular Diseases from Optical Coherence Tomography Images: Using Feature Space Comparison,” in Proceedings of the Twelfth Indian Conference on Computer Vision, Graphics and Image Processing, New
+1. York, NY, USA, 2021, ICVGIP ’21, Association for Computing Machinery.”
+1. “5. Latha V and Sreeni K G, “ Deep Feature Fusion for Automated Retinal Disease Detection Using OCT Images,” in Proceedings of the Twelfth Indian Conference on Computer Vision, Graphics and Image Processing, New
+1. York, NY, USA, 2021, ICVGIP ’21, Association for Computing Machinery.”"
+C V Raman Center for Nanoelectronics,teaching,mtech,,,,,,,,,,
+Embedded Systems Lab,teaching,mtech,,,,,,,,,,
+Fiber Optics and Photonics Research Lab,research,mtech,,,,,,,,,,
+MEMS Lab,teaching,mtech,Familiarising Various MEMS software.,Prof. Titto Anujan,,,"01EC6793 | Device Modeling and Process Simulation Lab | M.Tech MNE | M1
+01EC6794 | MEMS Lab | M.Tech MNE | M2",,,,,"## 01EC6794 MEMS Lab
+This course aims to:
+- Familiarising Various MEMS software.
+- Simulation of MEMS structure.
+
+### List of experiments
+1. Simulation of cantilever.
+1. Simulation of micro machined structures
+1. Simulation of accelerometers
+1. Simulation of micromirror.
+1. Simulation MEMS structures using sacrificial layer method.
+1. Simulation of MEMS sensors.
+1. Simulation study of integration of circuits and MEMS.
+
+## 01EC6793 Device Modeling and Process Simulation Lab
+This course aims to:
+- Familiarising process and device simulation softwares
+- Familiarising device modelling.
+
+### List of experiments
+1. Simulation of process steps for PN junction diode and study of device performance.
+1. Study process steps in CMOS .
+1. Study the Effects of different process methods of Gate oxide formation and its effects in device
+1. Study the Effects of annealing temperature variation process and its effects in device
+1. Circuit simulation using device simulator.
+1. Simulation of high K -MOSFET.
+1. Device model generation using LUT method
+1. Application of PWM IC TL 494
+1. BSIM parameter extraction from simulated device."
+PG DSP Lab,research,mtech,,,Jayasree R,Signal and image processing; Communication systems,,"Aswathy Madhu | phd |  |  | completed
+T S Anu | phd |  |  | completed
+Reshmi S Bhooshan | phd |  |  | completed
+M.Tech Students: | phd |  |  | ongoing
+Thamara Prakash S | phd |  |  | completed
+Adithya Anil | phd |  |  | completed
+Vijitha P R | phd |  |  | completed
+Augustine Babu | phd |  |  | completed
+Asif Abdul Thahir | phd |  |  | completed
+Ahda S | phd |  |  | completed
+Kavya Nair M | phd |  |  | completed",https://ece.cet.ac.in/wp-content/uploads/2022/06/pg-dsp4-min.jpg,"https://ece.cet.ac.in/wp-content/uploads/2022/06/pgdsp_2.jpg
+https://ece.cet.ac.in/wp-content/uploads/2022/06/pgdsp_3.jpg",,"## Research areas
+- Environmental sound classification
+- Channel estimation in wireless communication
+- Video analytics – (captioning)
+- Underwater Image processing
+- Low Light Image Processing
+
+## Publications
+1. Aswathy Madhu and Suresh K., “Data augmentation using generative adversarial network for environmental sound classification”, in Proc. 27th European Signal Processing Conference (EUSIPCO), Spain, Sep 2 – 6, 2019, pp. 1–5.
+1. Aswathy Madhu and Suresh K., “SiamNet: Siamese CNN based Similarity Model for Adversarially Generated Environmental Sounds”, in Proc. 31st IEEE International Workshop on Machine Learning for Signal Processing (MLSP-21), Gold Coast, Australia, Sep 25 – 28, 2021.
+1. Aswathy Madhu and Suresh K., “EnvGAN: A GAN based augmentation to improve Environmental Sound Classification”, Artificial Intelligence Review (2022), Springer.https://doi.org/10.1007/s10462-022-10153-0.
+1. Reshmi S. Bhooshan, Suresh K. and Santhoshkumar S., “WavNet – Visual
+1. Saliency Detection Using Discrete Wavelet Convolutional Neural Network”,
+1. Journal of Visual Communication and Image Representation, Volume 79, 2021.
+1. Reshmi S. Bhooshan and Suresh K., “An Attention Based Wavelet Convolutional Model for Visual Saliency Detection”, ICASSP 2021 – 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Toronto, Canada, June 2021, pp. 2240-2244.
+1. Reshmi S. Bhooshan and Suresh K.,“Automated Surveillance Video Analysis With Textual Descriptions”, communicated to Seventh International Conference on ICT Sustainable Development, Goa, India, 29 – 30 July 2022."
+Power Electronics Research Lab (PERL),research,mtech,,Prof. Lalu V .,,,,"Jeeshma Mary Paul | phd |  |  | completed
+Gauri A | phd |  |  | ongoing
+Surashmi N.L | phd |  |  | ongoing
+Shani S.J | phd |  |  | ongoing
+Lalu V | phd |  |  | ongoing
+Aswathy G | phd |  |  | ongoing",https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-11-at-2.08.41-PM.jpeg,,,
+RF Research Lab,research,mtech,,,,,,,,,,
+Robotics Lab,teaching,mtech,,,,,,,,,,
+Signal Processing Research Lab,research,mtech,,,,,,,,,,
+Srinivasa Ramanujan Centre for Machine Intelligence,teaching,mtech,,,,,,,,,,
+VLSI Lab,teaching,mtech,,,,,,,,,,
+Optical Communication Lab,teaching,btech-ece; mtech,"Provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.",,Sreekumar T,,"EC431 | Communication System Lab (Optical & Microwave) | B.Tech ECE | S7
+01EC6293 | Communication System Lab | M.Tech CS | M1",,https://ece.cet.ac.in/wp-content/uploads/2022/05/OPTIC.jpg,,http://ece.cet.ac.in/wp-content/uploads/2022/05/1.1_EC431OPTICAL_compressed.pdf,"## EC431 Communication System Lab (Optical & Microwave)
+This course aims to:
+- To provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.
+
+### List of experiments
+#### Optical Experiments: (Minimum Six Experiments are mandatory)
+1. Measurement of Numerical Aperture of a fiber, after preparing the fiber ends.
+1. Study of losses in Optical fiber
+1. Setting up of Fiber optic Digital link.
+1. Preparation of a Splice joint and measurement of the splice loss.
+1. Power vs Current (P-I) characteristics and measure slope efficiency of Laser Diode.
+1. Voltage vs Current (V-I) characteristics of Laser Diode.
+1. Power vs Current (P-I) characteristics and measure slope efficiency of LED.
+1. Voltage vs Current (V-I) characteristics of LED.
+1. Characteristics of Photodiode and measure the responsivity.
+1. Characteristics of Avalanche Photo Diode (APD) and measure the responsivity.
+1. “Measurement of fiber characteristics, fiber damage and splice loss/connector loss by OTDR.”
+
+[EC431 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/05/1.1_EC431OPTICAL_compressed.pdf)
+
+## 01EC6293 Communication System Lab
+This course aims to:
+- Attain ability to do projects for digital communication,Familiarize the use of MATLAB for simulation of optical communication
+- Familiarize with microwave bench setup and measurements.
+
+### List of experiments
+1. Characterstics of optical transmitters and receivers
+1. Study of Optical Spectrum Analyser
+1. Design and setting up a WDM system
+1. Link Analysis using OTDR"

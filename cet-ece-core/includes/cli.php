@@ -29,6 +29,12 @@ class CET_ECE_Importer {
 	private $index  = array();
 	private $photos = true;
 
+	/**
+	 * Also copy files linked from the text (PDFs, pictures in posts, lab galleries).
+	 * Off in the Playground demo, which loads in a browser and only copies main photos.
+	 */
+	public $copy_linked = true;
+
 	/** Address of the old site: links to its uploads are copied into the media library. */
 	const OLD_HOST = 'ece.cet.ac.in';
 
@@ -216,7 +222,7 @@ class CET_ECE_Importer {
 	 * $notes collects files that could not be copied.
 	 */
 	private function localise( $html, $post_id, &$notes ) {
-		if ( ! $this->photos || $this->dry ) {
+		if ( ! $this->photos || ! $this->copy_linked || $this->dry ) {
 			return $html;
 		}
 		$html = preg_replace( '/\s(srcset|sizes)="[^"]*"/i', '', $html );
@@ -539,7 +545,7 @@ class CET_ECE_Importer {
 
 		if ( ! $this->dry && $id > 0 ) {
 			$content = self::markup_to_blocks( $r['content'] ?? '' );
-			if ( $photos ) {
+			if ( $photos && $this->copy_linked ) {
 				$gallery = '';
 				foreach ( array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n/', (string) ( $r['gallery'] ?? '' ) ) ) ) as $k => $u ) {
 					$att = $this->media( $u, $id, 'Photo of the ' . $name );
@@ -553,14 +559,6 @@ class CET_ECE_Importer {
 				if ( $gallery ) {
 					$content .= "\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Photos</h2>\n<!-- /wp:heading -->\n\n<!-- wp:gallery {\"linkTo\":\"none\"} -->\n<figure class=\"wp-block-gallery has-nested-images columns-default is-cropped\">" . $gallery . "</figure>\n<!-- /wp:gallery -->";
 				}
-				if ( ! empty( $r['photo_url'] ) && ! get_post_thumbnail_id( $id ) ) {
-					$att = $this->media( $r['photo_url'], $id, 'Photo of the ' . $name );
-					if ( is_wp_error( $att ) ) {
-						$note[] = 'photo not copied: ' . $att->get_error_message();
-					} else {
-						set_post_thumbnail( $id, $att );
-					}
-				}
 				if ( ! empty( $r['manual_url'] ) && ! cet_ece_get( 'manual', $id ) ) {
 					$att = $this->media( $r['manual_url'], $id );
 					if ( is_wp_error( $att ) ) {
@@ -568,6 +566,14 @@ class CET_ECE_Importer {
 					} else {
 						update_field( 'manual', $att, $id );
 					}
+				}
+			}
+			if ( $photos && ! empty( $r['photo_url'] ) && ! get_post_thumbnail_id( $id ) ) {
+				$att = $this->media( $r['photo_url'], $id, 'Photo of the ' . $name );
+				if ( is_wp_error( $att ) ) {
+					$note[] = 'photo not copied: ' . $att->get_error_message();
+				} else {
+					set_post_thumbnail( $id, $att );
 				}
 			}
 			$this->set_content( $id, $this->localise( $content, $id, $note ), $note );
