@@ -27,6 +27,7 @@ function cet_ece_block_defs() {
 
 add_action( 'init', function () {
 	wp_register_style( 'cet-ece-blocks', CET_ECE_CORE_URL . 'assets/blocks.css', array(), CET_ECE_CORE_VERSION );
+	wp_register_script( 'cet-ece-filters', CET_ECE_CORE_URL . 'assets/filters.js', array(), CET_ECE_CORE_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
 	wp_register_script(
 		'cet-ece-blocks-editor',
 		CET_ECE_CORE_URL . 'assets/editor.js',

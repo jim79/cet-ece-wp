@@ -10,6 +10,14 @@ The demo builds a complete site in your browser in a few minutes: Secure Custom 
 
 **[Open an empty import test site](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/import-blueprint.json)**: the same theme and plugin with no sample content. It opens on Tools › ECE import, so you can upload the reviewed spreadsheets (see [tools/migrate/](tools/migrate/README.md)) and see the result. It also lives only in your browser tab.
 
+## Static copy for everyone
+
+**[ECE CET website preview](https://jim79.github.io/cet-ece-wp/)**: the same site as plain web pages on GitHub Pages. It opens instantly on any phone or computer, so it is the link to share for review. Nobody can log in or edit there.
+
+It is rebuilt automatically on every push to `main` (`.github/workflows/pages.yml`, about 15 minutes), so it always matches the code and `playground/data/`. One-time setup: repository Settings › Pages › Source: **GitHub Actions**. Progress and errors show on the repository's Actions tab.
+
+To build it yourself: `sh tools/build_static.sh _site` (needs Node 24 or later, wget and Python 3). The faculty, lab and publication filters work in the static copy; the header search box needs WordPress, so the copy leaves it out.
+
 ## Repository layout
 
 | Folder | Contents |
@@ -18,7 +26,7 @@ The demo builds a complete site in your browser in a few minutes: Secure Custom 
 | `cet-ece-core/` | The plugin (source). |
 | `dist/` | Installable zips of both. Upload these in WordPress. |
 | `playground/` | Playground blueprints, the demo banner, and `data/`: the converted content the demo loads, without phone numbers or personal email addresses (made by `tools/make_demo_data.py`). |
-| `tools/` | Template and pattern generator, block markup validator, build script, blueprint generator. |
+| `tools/` | Template and pattern generator, block markup validator, build script, blueprint generator, static copy builder (`build_static.sh`). |
 | `tools/migrate/` | Converter from the old site to review spreadsheets, and the guide to importing them (Tools › ECE import, or `wp ece import`). |
 
 To rebuild after changing the generator: `cd tools && npm install && cd .. && sh tools/build.sh`. Commit the updated `dist/` zips so the demo picks them up.

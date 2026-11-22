@@ -85,6 +85,12 @@ function cet_ece_render_last_updated( $attributes, $content, $block ) {
 
 /* ---------- faculty ---------- */
 
+/** Space-separated term slugs, for the in-page filters (assets/filters.js). */
+function cet_ece_term_slugs( $id, $tax ) {
+	$terms = get_the_terms( $id, $tax );
+	return $terms && ! is_wp_error( $terms ) ? implode( ' ', wp_list_pluck( $terms, 'slug' ) ) : '';
+}
+
 function cet_ece_faculty_card( $id ) {
 	$d     = cet_ece_designations();
 	$des   = $d[ cet_ece_get( 'designation', $id ) ] ?? '';
@@ -96,7 +102,7 @@ function cet_ece_faculty_card( $id ) {
 	if ( ! $img ) {
 		$img = '<span class="ece-avatar ece-ph" aria-hidden="true"></span>';
 	}
-	$h  = '<article class="ece-fcard">' . $img . '<div class="ece-fcard-body">';
+	$h  = '<article class="ece-fcard" data-des="' . esc_attr( cet_ece_get( 'designation', $id ) ) . '" data-areas="' . esc_attr( cet_ece_term_slugs( $id, 'research_area' ) ) . '">' . $img . '<div class="ece-fcard-body">';
 	$h .= '<h3 class="ece-fcard-name"><a href="' . esc_url( get_permalink( $id ) ) . '">' . esc_html( get_the_title( $id ) ) . '</a></h3>';
 	$h .= '<p class="ece-fcard-role">' . esc_html( $des ) . ( $role ? ' · ' . esc_html( $role ) : '' ) . '</p>';
 	if ( $names ) {
@@ -151,8 +157,10 @@ function cet_ece_render_faculty_directory( $attributes ) {
 		}
 	}
 
-	$h = '<div class="ece-directory">';
+	$complete = ! $q && ! $des && ( ! $area || ! empty( $attributes['area'] ) || is_tax() );
+	$h        = '<div class="ece-directory" data-complete="' . ( $complete ? '1' : '0' ) . '">';
 	if ( $show_filters && ! is_tax() ) {
+		wp_enqueue_script( 'cet-ece-filters' );
 		$h .= '<form class="ece-filters" method="get" role="search" aria-label="Filter faculty">';
 		$h .= '<div class="ece-field ece-field-wide"><label for="f_q">Search by name or keyword</label><input id="f_q" name="f_q" type="search" value="' . esc_attr( $q ) . '"></div>';
 		$h .= '<div class="ece-field"><label for="f_des">Designation</label><select id="f_des" name="f_des"><option value="">All designations</option>';
@@ -316,7 +324,7 @@ function cet_ece_lab_card( $id ) {
 	$img   = get_post_thumbnail_id( $id ) ? cet_ece_image( get_post_thumbnail_id( $id ), 'medium_large', get_the_title( $id ), 'ece-lcard-img' ) : '<span class="ece-lcard-img ece-ph" aria-hidden="true"></span>';
 	$progs = get_the_terms( $id, 'programme' );
 	$tags  = $progs && ! is_wp_error( $progs ) ? implode( ' · ', wp_list_pluck( $progs, 'name' ) ) : '';
-	$h     = '<article class="ece-lcard">' . $img . '<div class="ece-lcard-body">';
+	$h     = '<article class="ece-lcard" data-type="' . esc_attr( 'research' === $type ? 'research' : 'teaching' ) . '" data-progs="' . esc_attr( cet_ece_term_slugs( $id, 'programme' ) ) . '">' . $img . '<div class="ece-lcard-body">';
 	$h    .= '<span>' . cet_ece_badge( 'research' === $type ? 'Research lab' : 'Teaching lab', 'research' === $type ) . '</span>';
 	$h    .= '<h3><a href="' . esc_url( get_permalink( $id ) ) . '">' . esc_html( get_the_title( $id ) ) . '</a></h3>';
 	if ( cet_ece_get( 'summary', $id ) ) {
@@ -350,8 +358,10 @@ function cet_ece_render_lab_list( $attributes ) {
 	}
 	$ids = get_posts( $args );
 
-	$h = '';
+	$h        = '';
+	$complete = ! $show_filters || ( ! cet_ece_get_param( 'l_type' ) && ! cet_ece_get_param( 'l_prog' ) );
 	if ( $show_filters ) {
+		wp_enqueue_script( 'cet-ece-filters' );
 		$h .= '<form class="ece-filters" method="get" aria-label="Filter labs"><div class="ece-field"><label for="l_type">Type</label><select id="l_type" name="l_type">';
 		foreach ( array( '' => 'All labs', 'teaching' => 'Teaching labs', 'research' => 'Research labs' ) as $k => $v ) {
 			$h .= '<option value="' . esc_attr( $k ) . '"' . selected( $type, $k, false ) . '>' . esc_html( $v ) . '</option>';
@@ -392,7 +402,7 @@ function cet_ece_render_lab_list( $attributes ) {
 	if ( ! $any ) {
 		$h .= '<p class="ece-empty">No labs to show.</p>';
 	}
-	return '<div class="ece-lab-list">' . $h . '</div>';
+	return '<div class="ece-lab-list" data-complete="' . ( $complete ? '1' : '0' ) . '">' . $h . '</div>';
 }
 
 function cet_ece_render_lab_details( $attributes, $content, $block ) {
@@ -597,7 +607,7 @@ function cet_ece_publication_query( $attributes ) {
 		$args['s'] = $f['q'];
 	}
 	if ( $f['year'] ) {
-		$meta[] = 'earlier' === $f['year'] ? array( 'key' => 'year', 'value' => (int) wp_date( 'Y' ) - 3, 'compare' => '<', 'type' => 'NUMERIC' ) : array( 'key' => 'year', 'value' => (int) $f['year'], 'type' => 'NUMERIC' );
+		$meta[] = 'earlier' === $f['year'] ? array( 'key' => 'year', 'value' => (int) wp_date( 'Y' ) - 2, 'compare' => '<', 'type' => 'NUMERIC' ) : array( 'key' => 'year', 'value' => (int) $f['year'], 'type' => 'NUMERIC' );
 	}
 	if ( $f['type'] ) {
 		$meta[] = array( 'key' => 'pub_type', 'value' => $f['type'] );
@@ -619,7 +629,8 @@ function cet_ece_render_publications( $attributes ) {
 	$h = '';
 	if ( $show_filters && ! is_tax() ) {
 		$this_year = (int) wp_date( 'Y' );
-		$h        .= '<form class="ece-filters" method="get" role="search" aria-label="Filter publications">';
+		wp_enqueue_script( 'cet-ece-filters' );
+		$h        .= '<form class="ece-filters" method="get" role="search" aria-label="Filter publications" data-earlier="' . ( $this_year - 2 ) . '">';
 		$h        .= '<div class="ece-field ece-field-wide"><label for="pub_q">Search title</label><input id="pub_q" name="pub_q" type="search" value="' . esc_attr( $f['q'] ) . '"></div>';
 		$h        .= '<div class="ece-field"><label for="pub_year">Year</label><select id="pub_year" name="pub_year"><option value="">All years</option>';
 		for ( $y = $this_year; $y > $this_year - 3; $y-- ) {
@@ -653,11 +664,12 @@ function cet_ece_render_publications( $attributes ) {
 		$h .= '<section class="ece-sec"><h2>' . esc_html( $year ? $year : 'Undated' ) . ' <span class="ece-count">' . count( $list ) . '</span></h2><ol class="ece-cites">';
 		foreach ( $list as $id ) {
 			$t  = cet_ece_get( 'pub_type', $id );
-			$h .= '<li>' . cet_ece_cite( $id ) . ( isset( $types[ $t ] ) ? ' ' . cet_ece_badge( $types[ $t ] ) : '' ) . '</li>';
+			$h .= '<li data-year="' . (int) $year . '" data-type="' . esc_attr( $t ) . '" data-fac="' . esc_attr( implode( ' ', cet_ece_ids( cet_ece_get( 'faculty', $id ) ) ) ) . '">' . cet_ece_cite( $id ) . ( isset( $types[ $t ] ) ? ' ' . cet_ece_badge( $types[ $t ] ) : '' ) . '</li>';
 		}
 		$h .= '</ol></section>';
 	}
-	return '<div class="ece-pubs">' . $h . '</div>';
+	$complete = ! array_filter( array( $f['q'], $f['year'], $f['type'], $f['fac'] ) );
+	return '<div class="ece-pubs" data-complete="' . ( $complete ? '1' : '0' ) . '">' . $h . '</div>';
 }
 
 /* ---------- research areas ---------- */

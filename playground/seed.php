@@ -39,7 +39,8 @@ add_filter( 'intermediate_image_sizes_advanced', function ( $sizes ) {
 	return array_intersect_key( $sizes, array_flip( array( 'thumbnail', 'medium_large', 'large' ) ) );
 } );
 
-$dir = __DIR__ . '/demo-data/';
+// The Playground blueprint writes the data next to this file; the static build mounts playground/ as is.
+$dir = is_dir( __DIR__ . '/demo-data' ) ? __DIR__ . '/demo-data/' : __DIR__ . '/data/';
 foreach ( array( 'faculty', 'staff', 'labs', 'batches', 'publications', 'news', 'sections' ) as $type ) {
 	$file = $dir . $type . '.csv';
 	if ( ! is_readable( $file ) ) {

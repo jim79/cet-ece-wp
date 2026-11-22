@@ -137,3 +137,10 @@ a.ece-chip:hover { color: var(--_link); text-decoration: underline; }
 .ece-poster-img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; background: var(--_surface); border: 1px solid var(--_line); border-radius: 12px; }
 .ece-poster-title { font-weight: 600; font-size: 15px; line-height: 1.35; }
 .ece-poster-link:hover .ece-poster-title { color: var(--_link); text-decoration: underline; }
+
+/* In-page filters (assets/filters.js): hidden items stay hidden whatever their display. */
+.ece-directory [hidden],
+.ece-lab-list [hidden],
+.ece-pubs [hidden] {
+	display: none !important;
+}
