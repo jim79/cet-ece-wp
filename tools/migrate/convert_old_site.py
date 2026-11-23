@@ -899,6 +899,34 @@ def enrich_labs(rows, faculty_names, staff_rows):
     return rows
 
 
+# ---------- corrections ----------
+
+def apply_corrections(out, path):
+    """Fixes that the old site gets wrong, kept in corrections.csv so they survive a rerun.
+
+    Columns: sheet (faculty, staff, labs, publications...), name (as in that sheet:
+    the name, or the title for publications), column, value. Example:
+        faculty,Dr. Joseph Zacharias,additional_role,Principal
+    """
+    if not os.path.exists(path):
+        return
+    with open(path, encoding='utf-8-sig') as fh:
+        rows = list(csv.DictReader(fh))
+    for c in rows:
+        sheet, who, col, val = (c.get(k, '').strip() for k in ('sheet', 'name', 'column', 'value'))
+        target = out.get(sheet)
+        if target is None:
+            warn('corrections', who, 'Unknown sheet "%s" in corrections.csv' % sheet)
+            continue
+        key = 'title' if sheet in ('publications', 'news') else 'name'
+        hits = [r for r in target if norm_name(r.get(key, '')) == norm_name(who)]
+        if not hits:
+            warn('corrections', who, 'Not found in %s.csv: correction to "%s" not applied' % (sheet, col))
+        for r in hits:
+            r[col] = val
+    print('corrections  %4d applied' % len(rows))
+
+
 # ---------- output ----------
 
 def write(path, rows, cols):
@@ -928,7 +956,7 @@ def main():
     os.makedirs(a.out, exist_ok=True)
 
     cols = {
-        'faculty': ['name', 'designation', 'designation_text', 'additional_role', 'joined_year', 'email', 'room', 'specialisation', 'research_areas', 'qualifications', 'courses', 'scholar_url', 'orcid_url', 'scopus_url', 'is_guide', 'about', 'photo_url', 'old_profile_url'],
+        'faculty': ['name', 'display_order', 'designation', 'designation_text', 'additional_role', 'joined_year', 'email', 'room', 'specialisation', 'research_areas', 'qualifications', 'courses', 'scholar_url', 'orcid_url', 'scopus_url', 'is_guide', 'about', 'photo_url', 'old_profile_url'],
         'staff': ['name', 'category', 'lab'],
         'batches': ['programme', 'admission_year', 'batch_label', 'advisors', 'source_line'],
         'labs': ['name', 'type', 'programmes', 'summary', 'lead_faculty', 'tech_staff', 'research_areas', 'courses', 'scholars', 'photo_url', 'gallery', 'manual_url', 'content', 'old_url'],
@@ -951,11 +979,16 @@ def main():
         out[name] = fn(soup)
         if name == 'faculty':
             FACULTY_NAMES[:] = [r['name'] for r in out[name]]
+    # Seniority: the old Faculty page lists people in order of service seniority.
+    # Numbered in tens so a new colleague can be placed in between later.
+    for i, r in enumerate(out['faculty'], 1):
+        r['display_order'] = str(i * 10)
     if API_PAGES:
         enrich_faculty(out['faculty'])
         enrich_labs(out['labs'], FACULTY_NAMES, out['staff'])
     else:
         warn('pages', '-', 'No individual pages in the input: profiles and lab details not converted (use --site, or --pages with api/pages.json)')
+    apply_corrections(out, os.path.join(a.out, 'corrections.csv'))
     summary = []
     for name in parsers:
         if out[name] or name in ('faculty', 'labs'):

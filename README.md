@@ -63,7 +63,7 @@ Work through the [brackets] on each page: they mark facts to confirm or add (NBA
 
 | To add | Go to | Appears on |
 |---|---|---|
-| A faculty member | Faculty › Add | Faculty directory, their profile, lab pages, staff advisor tables |
+| A faculty member | Faculty › Add; set **Seniority order** to place them in the directory (numbers run in tens: 10, 20, 30…, so 25 goes between the 2nd and 3rd) | Faculty directory, their profile, lab pages, staff advisor tables |
 | A lab | Labs › Add, choose Teaching or Research | Laboratories page, programme pages, Research page |
 | A staff advisor batch | Staff advisors › Add batch | Staff advisors page; moves to Past batches after graduation |
 | A publication | Publications › Add | Publications page, Research page, faculty profiles, BibTeX download |

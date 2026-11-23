@@ -178,6 +178,22 @@ function cet_ece_render_faculty_directory( $attributes ) {
 	}
 
 	$total = 0;
+	if ( 'designation' !== ( $attributes['order'] ?? 'seniority' ) ) {
+		// One list in order of service seniority (the Seniority order field), as on the department's notice board.
+		$list = array();
+		foreach ( $groups as $g ) {
+			$list = array_merge( $list, $g );
+		}
+		if ( $list ) {
+			$total = count( $list );
+			$h    .= '<section class="ece-sec"><p class="ece-muted"><span class="ece-count">' . $total . '</span> faculty members, in order of seniority</p><div class="ece-grid">';
+			foreach ( cet_ece_sort_people( $list ) as $id ) {
+				$h .= cet_ece_faculty_card( $id );
+			}
+			$h .= '</div></section>';
+		}
+		$groups = array();
+	}
 	foreach ( $groups as $k => $list ) {
 		if ( ! $list ) {
 			continue;
@@ -246,7 +262,8 @@ function cet_ece_render_faculty_details( $attributes, $content, $block ) {
 
 	// Main.
 	$main  = '<div class="ece-profile-head"><h1>' . esc_html( $name ) . '</h1>';
-	$main .= '<p class="ece-profile-role">' . esc_html( $des ) . ( $role ? ' · ' . esc_html( $role ) : '' ) . ', Department of Electronics and Communication Engineering</p>';
+	// The role comes last: "Principal" and "Dean" are college roles, not the department's.
+	$main .= '<p class="ece-profile-role">' . esc_html( $des ) . ', Department of Electronics and Communication Engineering' . ( $role ? ' · ' . esc_html( $role ) : '' ) . '</p>';
 	if ( cet_ece_get( 'joined_year', $id ) ) {
 		$main .= '<p class="ece-muted">With the department since ' . esc_html( cet_ece_get( 'joined_year', $id ) ) . '</p>';
 	}

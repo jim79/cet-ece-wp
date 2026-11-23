@@ -411,7 +411,7 @@ class CET_ECE_Importer {
 		if ( isset( $r['is_guide'] ) && '' !== $r['is_guide'] ) {
 			$fields['is_guide'] = in_array( strtolower( $r['is_guide'] ), array( '1', 'yes', 'true', 'y' ), true ) ? 1 : 0;
 		}
-		foreach ( array( 'additional_role', 'joined_year', 'email', 'room', 'scholar_url', 'orcid_url', 'scopus_url' ) as $k ) {
+		foreach ( array( 'additional_role', 'joined_year', 'email', 'room', 'scholar_url', 'orcid_url', 'scopus_url', 'display_order' ) as $k ) {
 			if ( isset( $r[ $k ] ) && '' !== $r[ $k ] ) {
 				$fields[ $k ] = $r[ $k ];
 			}

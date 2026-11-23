@@ -1,5 +1,5 @@
-name,designation,additional_role,joined_year,email,room,specialisation,research_areas,qualifications,courses,scholar_url,orcid_url,scopus_url,is_guide,about,photo_url
-Dr. Joseph Zacharias,professor,Principal in charge,2019,joseph.zacharias@cet.ac.in,"EC 154, New block, ECE Dept.","Optical Communication, Radio Over Fibre, Microwave Engineering, Computational Electromagnetics",Communication systems; Optics and photonics,"Ph.D. | ECE | Kerala University | 2018
+name,display_order,designation,additional_role,joined_year,email,room,specialisation,research_areas,qualifications,courses,scholar_url,orcid_url,scopus_url,is_guide,about,photo_url
+Dr. Joseph Zacharias,10,professor,Principal,2019,joseph.zacharias@cet.ac.in,"EC 154, New block, ECE Dept.","Optical Communication, Radio Over Fibre, Microwave Engineering, Computational Electromagnetics",Communication systems; Optics and photonics,"Ph.D. | ECE | Kerala University | 2018
 M.Tech | Microwave & TV Engg | Kerala University | 1998
 B.Tech | ECE | M G University | 1995",,https://scholar.google.com/citations?user=iP3ohVgAAAAJ&hl=en,https://orcid.org/0000-0001-5816-6570,,1,"## Areas of interest
 - Optical Communication, Radio Over Fibre, Microwave Engineering, Computational Electromagnetics
@@ -9,7 +9,7 @@ B.Tech | ECE | M G University | 1995",,https://scholar.google.com/citations?user
 
 ## Professional memberships
 - MISTE, FIE.",https://ece.cet.ac.in/wp-content/uploads/2019/12/joseph_zakh-n.jpg
-Dr. Hari R,professor,Dean – Corporate and International Affairs,2026,harir@cet.ac.in,,"Machine Learning, Data Analytics, Computing System Design",Signal and image processing; Communication systems; Machine learning,"B.Tech | Electronics and Communication Engineering form University of Kerala | College of Engineering, Trivandrum | 
+Dr. Hari R,20,professor,Dean – Corporate and International Affairs,2026,harir@cet.ac.in,,"Machine Learning, Data Analytics, Computing System Design",Signal and image processing; Communication systems; Machine learning,"B.Tech | Electronics and Communication Engineering form University of Kerala | College of Engineering, Trivandrum | 
 M.Tech | Computer and Information Science | Cochin University of Science and Technology | 
 Ph.D. | Video Processing | University of Kerala | ",,,,,,"## Areas of interest
 Machine Intelligence, Computational System Design, Video Analytics, Vibration Analysis, Communication Network and Protocol Design
@@ -31,7 +31,7 @@ Machine Intelligence, Computational System Design, Video Analytics, Vibration An
 - Dean – Corporate and International Affairs
 - BoG Member of KTU
 - Instittional Coordinator of MERITE",https://ece.cet.ac.in/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-13-at-7.29.56-PM.jpeg
-Dr. Tara Raveendran,professor,,2022,tara@cet.ac.in,ECE 354 New Block,"Statistical Signal Processing, Particle filters, Deep Learning",Signal and image processing; Machine learning,"B.Tech | Electronics Engineering | Model Engineering College Ernakulam | 
+Dr. Tara Raveendran,30,professor,,2022,tara@cet.ac.in,ECE 354 New Block,"Statistical Signal Processing, Particle filters, Deep Learning",Signal and image processing; Machine learning,"B.Tech | Electronics Engineering | Model Engineering College Ernakulam | 
 M.E. | Systems Science and Automation | Indian Institute of Science Bangalore | 
 Ph.D. |  | Indian Institute of Science Bangalore | ","Estimation and Detection Theory
 Random Processes and Applications
@@ -42,7 +42,7 @@ Foundations of Deep Learning",https://scholar.google.com/citations?user=7O6ueQIA
 - Joined as Lecturer in the Department of ECE, College of Engineering, Trivandrum in July 2000.
 - Worked as Associate Professor in ECE at RIT Kottayam (2009), GEC Thrissur (2012-2017) and CET (2017 -March 2019)
 - Worked as Professor in ECE at GEC Kozhikode (2019-2nd Sept 2022) before re-joining CET on 3.9.2022",https://ece.cet.ac.in/wp-content/uploads/2022/11/TARA.jpg
-Dr. Shajahan E S,professor,Head of Department,2025,shajahan@cet.ac.in,HoD Cabin,"RF MEMS Switches, Reconfigurable microsystems, Phased array antennas, Analog Integrated Circuit design",Communication systems,"M.Tech | Digital Systems and Communication | National Institute of Technology Calicut | 
+Dr. Shajahan E S,40,professor,Head of Department,2025,shajahan@cet.ac.in,HoD Cabin,"RF MEMS Switches, Reconfigurable microsystems, Phased array antennas, Analog Integrated Circuit design",Communication systems,"M.Tech | Digital Systems and Communication | National Institute of Technology Calicut | 
 Ph.D. | RFMEMS | National Institute of Technology Suratkal | ","Mixed Signal Circuit Design
 RF MEMS",,,,,"## Profile
 Completed the bachelor degree in Electronics and Communication Engineering from TKM College of Engineering Kollam (Affiliated to university of Kerala)
@@ -62,7 +62,7 @@ Completed the bachelor degree in Electronics and Communication Engineering from 
 ## Innovations in teaching and learning
 - Virtual labs
 - Provides remote access to Laboratories in various disciplines of Science and Engineering for students at all levels from undergraduate to research.",https://ece.cet.ac.in/wp-content/uploads/2019/12/shajahan.png
-Dr. Christy James Jose,professor,,2023,christy@cet.ac.in,"EC 206, Old block, ECE Dept.","Image Processing, Machine Learning, Embedded Systems",Signal and image processing; Machine learning,"B.Tech | Electronics and Communication Engineering | MG University | 
+Dr. Christy James Jose,50,professor,,2023,christy@cet.ac.in,"EC 206, Old block, ECE Dept.","Image Processing, Machine Learning, Embedded Systems",Signal and image processing; Machine learning,"B.Tech | Electronics and Communication Engineering | MG University | 
 M.Tech | Computer Science | University of Kerala | 
 Ph.D. | Computer Science and Engineering | University of Kerala | ","Embedded Systems
 Microprocessor & Microcontrollers
@@ -75,7 +75,7 @@ Soft Computing",https://scholar.google.com/citations?hl=en&authuser=3&user=JKAdL
 - Joined as Lecturer in the department of ECE, RIT Kottayam (1999-2003)
 - Worked as Lecturer in ECE at GEC Idukki (2003-2007), GEC Barton Hill (2007), GEC Kozhikode (2007-2008)
 - Worked as Associate Professor at GCE Kannur (2008-2012), GEC Barton Hill (2012-2019) CET (2019-2020), GEC Idukki (2020- 2023) before re-joining CET on 21-11-2023",https://ece.cet.ac.in/wp-content/uploads/2024/03/CJJ_photo_1.jpg
-Dr. Binu L. S.,professor,,2020,binuls@cet.ac.in,,"Biomedical Engineering, Robotics & Automation",Biomedical engineering,"B.Tech | Electronics &Communication Engineering | Mahatma Gandhi University (Mar Athanasius College of Engineering, Kothamangalam) | 
+Dr. Binu L. S.,60,professor,,2020,binuls@cet.ac.in,,"Biomedical Engineering, Robotics & Automation",Biomedical engineering,"B.Tech | Electronics &Communication Engineering | Mahatma Gandhi University (Mar Athanasius College of Engineering, Kothamangalam) | 
 M.Tech | Applied Electronics & Instrumentation | College of Engineering Trivandrum | 
 Ph.D. | Electronics & Communication Engineering | Kerala University | ","Process Control
 Control Systems
@@ -139,7 +139,7 @@ Ph D Thesis: Modeling and Simulation of Human Left Main Coronary Bifurcation and
 - Chaired the National Conference (2016) at LBS Institute of Technology for Women, Poojappura, organized by of ECE and CSE, LBSITW, Poojappura during 2016.
 - Chaired the 3rd International Conference on control Communication & Computing (ICCC-2015) 19-11-2015 to 20-11-2015, College of Engineering Trivandrum
 - Chaired Session in The International Conference on Technology innovation in Mechatronics, Energy Management and Intelligent Communication (ICTIMEMIC-2018) at Lourdes Matha College of Science & Technology, Trivandrum 26th and 27th April 2018",https://ece.cet.ac.in/wp-content/uploads/2021/08/BinuLS.jpeg
-Dr. Biju K. S,professor,,2021,bijukarunnya@cet.ac.in,"EC 206 (Main), ECE Dept.",BioSignal Processing,Signal and image processing; Control and power electronics,"Ph.D. | BioSignal Processing | Cochin University of Science & Technology, Kochi | 
+Dr. Biju K. S,70,professor,,2021,bijukarunnya@cet.ac.in,"EC 206 (Main), ECE Dept.",BioSignal Processing,Signal and image processing; Control and power electronics,"Ph.D. | BioSignal Processing | Cochin University of Science & Technology, Kochi | 
 B.Tech | Applied Electronics and Instrumentation | College of Engineering Thiruvananthapuram, University of Kerala | 
 M.Tech | Applied Electronics and Instrumentation | College of Engineering Thiruvananthapuram, University of Kerala | ","Bio Signal Processing
 Control system
@@ -169,7 +169,7 @@ Digital Signal Processing",,https://orcid.org/0000-0002-1384-518X,,1,"## Areas o
 
 ## Other research profiles
 - [Web of Science ResearcherID AAA-2432-2020](https://publons.com/researcher/3218590/k-s-biju/)",https://ece.cet.ac.in/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-24-at-11.00.02-AM.jpeg
-Dr. Sivakumar R,professor,,2026,sivan@cet.ac.in,,"Image Analysis, Signal Processing, Computer vision and Deep learning",Signal and image processing; Machine learning,"B.Tech | Electronics & Communication Engineering | Calicut University | 
+Dr. Sivakumar R,80,professor,,2026,sivan@cet.ac.in,,"Image Analysis, Signal Processing, Computer vision and Deep learning",Signal and image processing; Machine learning,"B.Tech | Electronics & Communication Engineering | Calicut University | 
 M.Tech | Biomedical Engineering | IIT Madras | 
 Ph.D. | Medical Image Processing | IIT Hyderabad | ","Signal Processing
 Image Processing
@@ -192,7 +192,7 @@ Electronic Circuits",https://scholar.google.com/citations?user=alFbA0QAAAAJ&hl=e
 ## Innovations in teaching and learning
 - Onsite learning and demonstration
 - Teaching method used to communicate an idea with the aid of visuals such as flip charts, posters, power point, etc.",https://ece.cet.ac.in/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-17-at-1.43.48-PM.jpeg
-Dr. Arun Varghese,professor,,2024,arun.varghese@cet.ac.in,"EC (Main), ECE Dept.","Embedded Systems, Machine Learning",Machine learning,"Ph.D. |  |  | 
+Dr. Arun Varghese,90,professor,,2024,arun.varghese@cet.ac.in,"EC (Main), ECE Dept.","Embedded Systems, Machine Learning",Machine learning,"Ph.D. |  |  | 
 M.Tech |  |  | 
 B.Tech |  |  | ","Analog Integrated Circuits
 Computer Vision
@@ -201,7 +201,7 @@ Analog Integrated Circuits and Instumentation Lab",https://scholar.google.com/ci
 
 ## Experience
 - Associate Professor in Electronics and Communication Engg., Government College of Engineering, Wayanad",https://ece.cet.ac.in/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-27-at-1.46.06-PM.jpeg
-Dr. Asha Prasad,professor,,2023,ashaprasad@cet.ac.in,,Fiber Bragg Grating Sensing applications in engineering and biomedical domain,Optics and photonics; Biomedical engineering,"B.Tech | Electronics and Communication Engineering | MG University | 
+Dr. Asha Prasad,100,professor,,2023,ashaprasad@cet.ac.in,,Fiber Bragg Grating Sensing applications in engineering and biomedical domain,Optics and photonics; Biomedical engineering,"B.Tech | Electronics and Communication Engineering | MG University | 
 M.Tech | Optoelectronics & Laser Technology | CUSAT, Kochi | 
 Ph.D. | Fiber Bragg Grating Tactile Sensing Devices | Indian Institute of Science, Bangalore | ","Optical Fiber Communication
 Electromagnetics",https://scholar.google.co.in/citations?hl=en&user=yjr9BfsAAAAJ,https://orcid.org/0000-0002-0050-4095,,1,"## Experience
@@ -221,7 +221,7 @@ Electromagnetics",https://scholar.google.co.in/citations?hl=en&user=yjr9BfsAAAAJ
 - IQAC Dept. Coordinator
 - Lab in charge
 - Staff Advisor",https://ece.cet.ac.in/wp-content/uploads/2023/06/asha-photo-etlab.jpg
-Dr. Latha V,assistant_professor,,2022,vlatha@cet.ac.in,,Image processing and Computer vision,Signal and image processing,"B.Tech | Electronics & Communication Engineering | University of Calicut (Govt College of Engineering, Kannur) | 
+Dr. Latha V,110,assistant_professor,,2022,vlatha@cet.ac.in,,Image processing and Computer vision,Signal and image processing,"B.Tech | Electronics & Communication Engineering | University of Calicut (Govt College of Engineering, Kannur) | 
 M.Tech | Applied Electronics and Instrumentation | University of Kerala (College of Engineering, Trivandrum) | ","Logic Circuit Design
 Sustainable Engineering",,,,,"## Profile
 Currently doing research in Biomedical Imaging at the University of Kerala (College of Engineering, Trivandrum).
@@ -229,7 +229,7 @@ Currently doing research in Biomedical Imaging at the University of Kerala (Coll
 
 ## Areas of interest
 - Image processing and Computer vision",https://ece.cet.ac.in/wp-content/uploads/2022/09/Latha_V.jpg
-Dr. Sindhu N,professor,,2020,sindhun@cet.ac.in,EC119(Old block),"Biomedical Signal Processing, Digital Electronics & Advanced Communication",Signal and image processing; Communication systems; Biomedical engineering,"Ph.D. | Emotion recognition in children with ASD |  | 
+Dr. Sindhu N,120,professor,,2020,sindhun@cet.ac.in,EC119(Old block),"Biomedical Signal Processing, Digital Electronics & Advanced Communication",Signal and image processing; Communication systems; Biomedical engineering,"Ph.D. | Emotion recognition in children with ASD |  | 
 M.Tech |  | National Institute of Technology Surathkal, Karnataka | 
 B.Tech |  | NSS college of Engineering, Palakkad | ","Transform theory
 Adaptive signal processing
@@ -256,7 +256,7 @@ Logic circuit design",https://scholar.google.com/citations?user=WKsebTsAAAAJ&hl=
 - Served as Placement officer (GEC Wayanad),
 - Professor in charge of CERD innovation centre (GECW&GECBH),
 - Professor in charge of Technology Business Incubation centre TBI-GECBH",https://ece.cet.ac.in/wp-content/uploads/2021/01/IMG-20200916-WA0039sindhu.jpg
-Prof. Lekshmi T,associate_professor,,2026,lekshmit@cet.ac.in,"EC 353, New block, ECE Dept.","Microelectronics, Nanoelectronics, VLSI",VLSI and micro-nano electronics,"B.Tech | Electronics Engineering | College of Engineering, Chengannur | 2002
+Prof. Lekshmi T,130,associate_professor,,2026,lekshmit@cet.ac.in,"EC 353, New block, ECE Dept.","Microelectronics, Nanoelectronics, VLSI",VLSI and micro-nano electronics,"B.Tech | Electronics Engineering | College of Engineering, Chengannur | 2002
 M.Tech | Microelectronics and VLSI | IIT, Madras | 2009",,https://scholar.google.com/citations?user=JUsJ__UAAAAJ&hl=en,,,,"## Areas of interest
 - Microelectronics, Nanoelectronics, VLSI
 
@@ -265,11 +265,11 @@ M.Tech | Microelectronics and VLSI | IIT, Madras | 2009",,https://scholar.google
 - Worked as Assistant Professor in Dept of ECE, at GEC, Bartonhill from 2005-2013
 - Worked as Assistant Professor in Dept of ECE at GEC, Idukki from 2018-2019
 - Worked as Assistant Professor in Dept of ECE at GEC, Bartonhill from 2019-2026",https://ece.cet.ac.in/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-01-at-3.29.52-PM.jpeg
-Prof. Ambily N,assistant_professor,,2024,ambily@cet.ac.in,"EC 220, Old block, ECE Dept.",Image Processing,Signal and image processing,,"Logic Circuit Design
+Prof. Ambily N,140,assistant_professor,,2024,ambily@cet.ac.in,"EC 220, Old block, ECE Dept.",Image Processing,Signal and image processing,,"Logic Circuit Design
 Control Systems
 Pattern Recognition",https://scholar.google.com/citations?user=g7INcScAAAAJ&hl=en,https://orcid.org/0000-0003-4869-1501,,,"## Areas of interest
 - Image Processing",https://ece.cet.ac.in/wp-content/uploads/2024/07/Ambily-Miss.png
-Prof. Joaquim Ignatious Monteiro,associate_professor,,2010,joaquim@cet.ac.in,EC 205,"Biomedical Engineering, MEMS, IoT",Biomedical engineering; Machine learning,"B.Tech | Electronics and Communication Engineering | Mahatma Gandhi University | 
+Prof. Joaquim Ignatious Monteiro,150,associate_professor,,2010,joaquim@cet.ac.in,EC 205,"Biomedical Engineering, MEMS, IoT",Biomedical engineering; Machine learning,"B.Tech | Electronics and Communication Engineering | Mahatma Gandhi University | 
 M.Tech | Biomedical Engineering | Indian Institute of Technology Bombay | ","Microntrollers
 IoT
 Logic Circuit Design
@@ -283,7 +283,7 @@ Robotics Lab",https://scholar.google.com/citations?user=OkMhlkMAAAAJ&hl=en,,,,"#
 
 ## Other responsibilities
 Microwave lab in charge, IoT lab charge, Dept. Purchase committee member, Automotive project advisory committee member, Product design and development cell member",https://ece.cet.ac.in/wp-content/uploads/2021/01/joaquim23.jpg
-Dr. Linu Shine,professor,,2023,linushine@cet.ac.in,"105, Old block, ECE Dept.","Digital Electronics, Microcontrollers, Computer Vision, Deep Learning, Electronics Design Technology",Signal and image processing; Control and power electronics; Machine learning,"B.Tech | Electronics Engineering | Model Engineering College, Ernakulam | 
+Dr. Linu Shine,160,professor,,2023,linushine@cet.ac.in,"105, Old block, ECE Dept.","Digital Electronics, Microcontrollers, Computer Vision, Deep Learning, Electronics Design Technology",Signal and image processing; Control and power electronics; Machine learning,"B.Tech | Electronics Engineering | Model Engineering College, Ernakulam | 
 M.Tech | Electronic Design Technology | Indian Institute of Science | 
 Ph.D. | Computer vision | University of Kerala | ","Logic system Design
 Sustainable Engineering
@@ -306,7 +306,7 @@ Deep Learning and Applications",https://scholar.google.co.in/citations?hl=en&use
 ## Other responsibilities
 - Staff Advisor B.Tech ECE batch 2023-2027
 - CGPU Department Coordinator.",https://ece.cet.ac.in/wp-content/uploads/2023/09/LinuShine.jpg
-Prof. Smitha Satheesh,associate_professor,,2025,smithasatheesh@cet.ac.in,"Micro Controller Lab, ECE Dept.",Multimodal Biometrics,,"B.Tech | ECE | MES College of Engineering, Kuttippuram (Calicut University) | 
+Prof. Smitha Satheesh,170,associate_professor,,2025,smithasatheesh@cet.ac.in,"Micro Controller Lab, ECE Dept.",Multimodal Biometrics,,"B.Tech | ECE | MES College of Engineering, Kuttippuram (Calicut University) | 
 M.Tech | Microwave and Radar Engineering | CUSAT | ","Advanced Micro processor
 Computer architecture and micro controllers
 Microwave and Radar engineering
@@ -316,7 +316,7 @@ She joined CET on 2005.
 Her area of interest is multi modal biometrics.
 
 She teaches Advanced Micro processor, Computer architecture and micro controllers, Microwave and Radar engineering, Radio frequency circuit design.",https://ece.cet.ac.in/wp-content/uploads/2025/09/smitha-miss.png
-Dr. Reshmi S Bhooshan,professor,,2023,reshmibhooshan@cet.ac.in,,"Video analytics, Computer vision",Signal and image processing,"B.Tech | Applied Electronics & | University of Kerala (College of Engineering Trivandrum) | 
+Dr. Reshmi S Bhooshan,180,professor,,2023,reshmibhooshan@cet.ac.in,,"Video analytics, Computer vision",Signal and image processing,"B.Tech | Applied Electronics & | University of Kerala (College of Engineering Trivandrum) | 
 M.Tech | Applied Electronics and Instrumentation | University of Kerala (College of Engineering, Trivandrum) | 
 Ph.D. | Video Analytics | APJ Abdul Kalam Technological University | ",,https://scholar.google.com/citations?user=YCwgEF4AAAAJ&hl=en,,,,"## Areas of interest
 - Video analytics, Computer vision
@@ -334,7 +334,7 @@ Ph.D. | Video Analytics | APJ Abdul Kalam Technological University | ",,https://
 ## Other responsibilities
 - Worked as the Coordinator of Unnat Bharat Abhiyan in GEC Wayanad
 - Worked as the Convenor of Women Cell and Anti Sexual Harassment Cell in GEC Kozhikode",https://ece.cet.ac.in/wp-content/uploads/2023/09/a1.jpg
-Dr. Anurenjan P R,professor,,2025,anurenjan@cet.ac.in,Computer Vision Lab,"Machine learning, Speech Processing, Signal Processing, Image",Signal and image processing; Machine learning,Ph.D. | Electrical Engineering Department | IISc Bangalore with the guidance of Sriram Ganapathy in Electrical Engineering Department | 2023,,https://scholar.google.com/citations?user=imFfiRgAAAAJ&hl=en&oi=ao,https://orcid.org/0000-0001-6779-4122,,,"## Profile
+Dr. Anurenjan P R,190,professor,,2025,anurenjan@cet.ac.in,Computer Vision Lab,"Machine learning, Speech Processing, Signal Processing, Image",Signal and image processing; Machine learning,Ph.D. | Electrical Engineering Department | IISc Bangalore with the guidance of Sriram Ganapathy in Electrical Engineering Department | 2023,,https://scholar.google.com/citations?user=imFfiRgAAAAJ&hl=en&oi=ao,https://orcid.org/0000-0001-6779-4122,,,"## Profile
 Anurenjan P. R. is currently an Associate Professor at College of Engineering Trivandrum.
 
 Born in Kerala, in 1985, he received the Bachelor’s degree in Electronics and Communication Engineering from Govt. Engineering College, Barton Hill, Trivandrum in 2006, the Master’s degree in Signal Processing from College of
@@ -357,7 +357,7 @@ Currently serving at the Department of ECE, College of Engineering, Trivandrum.
 - Speech Processing
 - Signal Processing
 - Image Processing",https://ece.cet.ac.in/wp-content/uploads/2025/09/my_new_photo.jpeg
-Prof. Viji R,assistant_professor,,2023,vijir@cet.ac.in,"Microcontroller Lab, New block, ECE Dept.","Signal Processing, Pattern recognition, Machine learning",Signal and image processing; Machine learning,"B.Tech | Electronics and Communication Engineering | Government Engineering College, Barton Hill , Thiruvananthapuram | 2004
+Prof. Viji R,200,assistant_professor,,2023,vijir@cet.ac.in,"Microcontroller Lab, New block, ECE Dept.","Signal Processing, Pattern recognition, Machine learning",Signal and image processing; Machine learning,"B.Tech | Electronics and Communication Engineering | Government Engineering College, Barton Hill , Thiruvananthapuram | 2004
 M.Tech | Digital Electronics | CUSAT | 2007","Signal Processing
 Pattern recognition",https://scholar.google.com/citations?hl=en&user=9XiUkpIAAAAJ,https://orcid.org/0009-0004-3123-9767,,,"## Profile
 Currently pursuing PhD under the guidance of Dr Sreelatha G. and Dr. Santhosh Kumar S.
@@ -369,7 +369,7 @@ Before that, served as Junior Research Fellow at C-DAC, Trivandrum, Kerala durin
 Worked as Assistant Professor at College of Engineering Trivandrum (2008 – 2021) and Govt. Engineering College, Idukki (2021-2023).
 
 Research area is Object Detection and Tracking in video and has published 6 conference papers.",https://ece.cet.ac.in/wp-content/uploads/2023/09/vijiphoto_1.jpg
-Prof. Sanoj Viswasom,assistant_professor,,2023,sanojv@cet.ac.in,"353, New Block, ECE Dept.","Microwave Communication, Antenna Design",Communication systems,"B.Tech | Electronics and Communication Engineering | University of Kerala(T.K.M College of Engineering, Kollam) and his | 1998
+Prof. Sanoj Viswasom,210,assistant_professor,,2023,sanojv@cet.ac.in,"353, New Block, ECE Dept.","Microwave Communication, Antenna Design",Communication systems,"B.Tech | Electronics and Communication Engineering | University of Kerala(T.K.M College of Engineering, Kollam) and his | 1998
 M.Tech |  | Cochin University of Science and Technology | 2001","Array signal Processing
 CDMA Systems
 Microwave Engineering
@@ -380,7 +380,7 @@ He served as faculty of Engineering at TKM College of Engineering, Kollam (2002-
 He Teaches Array signal Processing, CDMA Systems, Microwave Engineering, Microwave Integrated Circuits, Microwave Devices and Circuits
 
 His research areas are Microwave Communication, Antenna Design.",https://ece.cet.ac.in/wp-content/uploads/2023/09/PHOT_sanoj.jpg
-Dr. Kiran R,associate_professor,,2025,kiranr@cet.ac.in,"EC 353, New block, ECE Dept.","Computational Electromagnetics, Quantum Algorithms for Solving Partial Differential Equations, Machine Learning and Deep Neural Networks, Robotics.",Communication systems; Machine learning,"B.Tech | Electronics & Communication Engineering | CUSAT | 
+Dr. Kiran R,220,associate_professor,,2025,kiranr@cet.ac.in,"EC 353, New block, ECE Dept.","Computational Electromagnetics, Quantum Algorithms for Solving Partial Differential Equations, Machine Learning and Deep Neural Networks, Robotics.",Communication systems; Machine learning,"B.Tech | Electronics & Communication Engineering | CUSAT | 
 M.Tech | Communication & Networks with minor Microwaves | IISc Bangalore | 
 Ph.D. | Stochastic Computational Electromagnetics | IISc Bangalore | ","Electronic Circuits
 Robotics and Industrial Automation
@@ -403,7 +403,7 @@ Optimization Theory",https://scholar.google.com/citations?hl=en&user=TImdl-4AAAA
 
 ## Professional memberships
 - Orchid profile link",https://ece.cet.ac.in/wp-content/uploads/2022/08/IMG_1631.jpg
-Dr. Resmi E,assistant_professor,,2023,resmi@cet.ac.in,"EC 353, New block, ECE Dept.",VLSI Design,VLSI and micro-nano electronics,"B.Tech | Electronics and Communication Engineering | Rajiv Gandhi Institute of Technology, Kottayam | 2001
+Dr. Resmi E,230,assistant_professor,,2023,resmi@cet.ac.in,"EC 353, New block, ECE Dept.",VLSI Design,VLSI and micro-nano electronics,"B.Tech | Electronics and Communication Engineering | Rajiv Gandhi Institute of Technology, Kottayam | 2001
 M.E. | VLSI Design | Karunya University, Coimbatore | 2008
 Ph.D. |  | QIP at IIT Bombay | ",,https://scholar.google.com/citations?view_op=list_works&hl=id&user=4b8lOnMAAAAJ,https://orcid.org/0000-0002-8729-4376,,,"## Experience
 - Worked as Engineer in Kerala State Electronics Development Cooperation from 2001 to 2002.
@@ -419,9 +419,9 @@ Ph.D. |  | QIP at IIT Bombay | ",,https://scholar.google.com/citations?view_op=l
 - Coordinator of National conference on NCCCSP 20116, Govt. Engineering College Wayanad
 - Reviewer and Session Manager of International Conference on Control Communication and Computing (ICCC 2013), College of Engineering Trivandrum
 - ORCID profile lin",https://ece.cet.ac.in/wp-content/uploads/2024/03/Resmi-E.png
-Prof. Lalu V .,assistant_professor,,2015,laluv@cet.ac.in,"213, Old block,ECE Dept.",VLSI,VLSI and micro-nano electronics,"B.Tech | Electronics & Communication Engineering | University of Kerala (College of Engineering, Trivandrum) | 
+Prof. Lalu V .,240,assistant_professor,,2015,laluv@cet.ac.in,"213, Old block,ECE Dept.",VLSI,VLSI and micro-nano electronics,"B.Tech | Electronics & Communication Engineering | University of Kerala (College of Engineering, Trivandrum) | 
 M.E. | Embedded System Technologies | Anna University ( College of Engineering, Guindy) | ",,https://scholar.google.com/citations?user=3dBYrCQAAAAJ&hl=en,,,,,https://ece.cet.ac.in/wp-content/uploads/2019/12/lalu_7468.jpg
-Prof. P G Gigy,assistant_professor,,2023,gijypg@cet.ac.in,"EC 105, Old block, ECE Dept.","Telecommunication, Cryptography & Secure Communications",Communication systems,"B.Tech | Electronics and Communication Engineering | College of Engineering Trivandrum, Thiruvananthapuram | 2003
+Prof. P G Gigy,250,assistant_professor,,2023,gijypg@cet.ac.in,"EC 105, Old block, ECE Dept.","Telecommunication, Cryptography & Secure Communications",Communication systems,"B.Tech | Electronics and Communication Engineering | College of Engineering Trivandrum, Thiruvananthapuram | 2003
 M.Tech | Telecommunication | NIT Calicut | 2016","Communication Engineering
 Open Source Technology",,,,,"## Profile
 Joined as Lecturer at College of Engineering Trivandrum in 2010.
@@ -431,7 +431,7 @@ Before that, served as Team Leader, Open Source Technology at C-DIT, Thiruvanant
 Worked as Assistant Professor at College of Engineering Trivandrum (2010 – 2021) and Govt.
 
 Engineering College, Idukki (2021-2023).",https://ece.cet.ac.in/wp-content/uploads/2021/02/Gijy_photo.jpg
-Dr. Sangeetha Gopan G S,assistant_professor,,2026,sangeethagopan@cet.ac.in,"253, New block, ECE Dept.","VLSI, Supercapacitors",VLSI and micro-nano electronics,"B.Tech | Electronics and Communication Engineering | CUSAT | 2011
+Dr. Sangeetha Gopan G S,260,assistant_professor,,2026,sangeethagopan@cet.ac.in,"253, New block, ECE Dept.","VLSI, Supercapacitors",VLSI and micro-nano electronics,"B.Tech | Electronics and Communication Engineering | CUSAT | 2011
 M.Tech | Electronics and Communication Engineering with specialization in VLSI Design | AnnaUniversity | 2014
 Ph.D. | Supercapacitor fabrication |  | 2026","VLSI Design
 Optical Communication
@@ -443,7 +443,7 @@ Digital Electronics",https://scholar.google.com/citations?user=RSw-EmYAAAAJ&hl=e
 - Senior Section Engineer in Indian Railways (2016-17)
 - Assistant Engineer in KSEB Ltd(2017-19)
 - Assistant Professor under Technical Education Department (2019-2023: CET, 2023-2026: GEC Wayanad, 2026 onwards CET)",https://ece.cet.ac.in/wp-content/uploads/2019/12/sangeethagopan.jpg
-Dr. Joshua Thomas,assistant_professor,,2019,joshuaalackal@cet.ac.in,"EC 207, Old Block, ECE Dept.","Image Processing, Biomedical Engineering and Machine Learning",Signal and image processing; Biomedical engineering; Machine learning,"Ph.D. | Image Processing |  | 
+Dr. Joshua Thomas,270,assistant_professor,,2019,joshuaalackal@cet.ac.in,"EC 207, Old Block, ECE Dept.","Image Processing, Biomedical Engineering and Machine Learning",Signal and image processing; Biomedical engineering; Machine learning,"Ph.D. | Image Processing |  | 
 M.Tech | Applied Electronics | Karunya University, Coimbatore | 
 B.E. | Electronics and Communication Engineering | Madras University, Chennai | ","Digital Image Processing
 Biomedical Engineering
@@ -453,7 +453,7 @@ Transducers and Instrumentation
 Sensors and Actuators
 Electronic Systems and Microsystems
 Electronics and Computing",https://scholar.google.com/citations?user=FqcgHT0AAAAJ&hl=en,https://orcid.org/0009-0002-7714-9252,,,,https://ece.cet.ac.in/wp-content/uploads/2021/09/Joshua-Alackal.jpg
-Dr. Helen Mary M C,assistant_professor,,2023,helenmarymc@cet.ac.in,"EC 253, New block, ECE Dept.","Biomedical Signal processing, Image processing, Machine learning",Signal and image processing; Biomedical engineering; Machine learning,"B.Tech | Applied Electronics and Instrumentation Engineering | University of Kerala | 2009
+Dr. Helen Mary M C,280,assistant_professor,,2023,helenmarymc@cet.ac.in,"EC 253, New block, ECE Dept.","Biomedical Signal processing, Image processing, Machine learning",Signal and image processing; Biomedical engineering; Machine learning,"B.Tech | Applied Electronics and Instrumentation Engineering | University of Kerala | 2009
 M.Tech | Control and Instrumentation | NIT Jalandhar | 2013
 Ph.D. | Biomedical signal processing | NIT Jalandhar | 2019","Advanced Biomedical Instrumentation
 SCADA
@@ -465,7 +465,7 @@ Process Control Lab",https://scholar.google.com/citations?hl=en&user=qQywf8oAAAA
 ## Experience
 - Assistant Professor in RIT KOTTAYAM ( 2019-2023)
 - Lecturer in GOVERNMENT POLYTECHNIC COLLEGE, Cherthala (2018-2019)",https://ece.cet.ac.in/wp-content/uploads/2023/09/ID-CARD-PHOTO-1.jpg
-Prof. Ameenudeen P E,assistant_professor,,2026,ameenudeen@cet.ac.in,,Telecommunications,Signal and image processing; Communication systems; Machine learning,"B.Tech | Electronics and Communication Engineering | University of Kerala ( CET) | 2009
+Prof. Ameenudeen P E,290,assistant_professor,,2026,ameenudeen@cet.ac.in,,Telecommunications,Signal and image processing; Communication systems; Machine learning,"B.Tech | Electronics and Communication Engineering | University of Kerala ( CET) | 2009
 M.Tech | Telecommunication | NIT Calicut | 2012","Network Theory
 Analog and Digital Communication
 Electromagnetic Theory
@@ -476,8 +476,8 @@ Digital Signal Processing",https://scholar.google.com/citations?view_op=list_wor
 ## Experience
 - He has worked as an Assistant Professor in ECE at SJCET Palai and Muthoot Institute of Technology and Science,Ernakulam.
 - He was with Codes and Signal Design Lab,IISc Bangalore as a research scholar before joining as an Assistant Professor in Dept. of ECE GEC Idukki in 2019.",https://ece.cet.ac.in/wp-content/uploads/2021/08/PHOTO-2021-08-31-11-12-441.jpg
-Prof. Sreeraj S,assistant_professor,,2026,,,Deep Learning,Machine learning,,,,,,,,https://ece.cet.ac.in/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-04-at-9.57.17-AM.jpeg
-Dr. Nikhil M,assistant_professor,,2022,nikhilm@cet.ac.in,"EC 353, New block, ECE Dept.",Instrumentation and Signal Processing,Signal and image processing,"B.Tech | Electronics and Communication Engineering | Sree Chitra Thirunal College of Engineering under University of Kerala | 2010
+Prof. Sreeraj S,300,assistant_professor,,2026,,,Deep Learning,Machine learning,,,,,,,,https://ece.cet.ac.in/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-04-at-9.57.17-AM.jpeg
+Dr. Nikhil M,310,assistant_professor,,2022,nikhilm@cet.ac.in,"EC 353, New block, ECE Dept.",Instrumentation and Signal Processing,Signal and image processing,"B.Tech | Electronics and Communication Engineering | Sree Chitra Thirunal College of Engineering under University of Kerala | 2010
 M.Tech | Instrumentation and Signal Processing | IIT Roorkee, Uttarakhand | 2013
 Ph.D. |  | IIT Bombay, Mumbai, Maharashtra | 2022","Audio and speech signal processing
 Machine learning",,,,,"## Experience
@@ -489,7 +489,7 @@ Machine learning",,,,,"## Experience
 - Department Series Exam Coordinator of ECE department, GEC Wayanad from 09/2021 to 09/2022.
 - Staff advisor of B.Tech 2016-2020 batch in ECE department, GEC Wayanad from 02/2020 to 07/2020.
 - Staff advisor of B.Tech 2020-2024 batch in ECE department, GEC Wayanad from 09/2020 to 09/2022.",https://ece.cet.ac.in/wp-content/uploads/2022/09/photo_new.jpg
-Prof. A swini S. H.,assistant_professor,,2020,aswinish@cet.ac.in,"EC 253, New block, ECE Dept.",Signal Processing,Signal and image processing,"B.Tech | Electronics and Communication Engineering | LBS Institute of Technology for Women, Poojappura, Thiruvananthapuram under University of Kerala | 2012
+Prof. A swini S. H.,320,assistant_professor,,2020,aswinish@cet.ac.in,"EC 253, New block, ECE Dept.",Signal Processing,Signal and image processing,"B.Tech | Electronics and Communication Engineering | LBS Institute of Technology for Women, Poojappura, Thiruvananthapuram under University of Kerala | 2012
 M.Tech | Electronics and Communication Engineering with specialization in Signal Processing | LBS Institute of Technology for Women, Poojappura, Thiruvananthapuram under University of Kerala | 2014","Logic and Distributed Control System
 Signals and Systems
 Design and Engineering
@@ -519,7 +519,7 @@ Qualified for Assistant Professor in the UGC NET exam in the subject Electronic 
 - Staff advisor for AEI (2020-24) batch.
 - Department ETLAB Coordinator.
 - Staff advisor for AEI (2025 – 29) batch.",https://ece.cet.ac.in/wp-content/uploads/2021/01/Aswini_photo.jpg
-Prof. Rencymol M V,assistant_professor,,2022,rencymv@cet.ac.in,,Communication Systems,Communication systems,"B.E. |  | Anna University | 2005
+Prof. Rencymol M V,330,assistant_professor,,2022,rencymv@cet.ac.in,,Communication Systems,Communication systems,"B.E. |  | Anna University | 2005
 M.E. |  | Anna university | 2007","Microwaves & Antennas
 Analog & Digital Communication
 Signals and Systems",,,,,"## Experience
@@ -533,7 +533,7 @@ Signals and Systems",,,,,"## Experience
 - Faculty in charge of ECE Association
 - Staff advisor of 2021-25
 - Department Newsletter faculty in charge",https://ece.cet.ac.in/wp-content/uploads/2022/08/Photo-from-ℝꫀꪀᥴꪗꪑꪜ.jpg
-Prof. Titto Anujan,assistant_professor,,2022,titto@cet.ac.in,"EC 206 (old block), ECE Dept.",Optoelectronics and Optical Communication,Communication systems; Optics and photonics,"B.Tech | Electronics and Communication Engineering | Rajiv Gandhi Institute of Technology, Govt .Engineering College,Pampady, Kottayam under MG University | 2011
+Prof. Titto Anujan,340,assistant_professor,,2022,titto@cet.ac.in,"EC 206 (old block), ECE Dept.",Optoelectronics and Optical Communication,Communication systems; Optics and photonics,"B.Tech | Electronics and Communication Engineering | Rajiv Gandhi Institute of Technology, Govt .Engineering College,Pampady, Kottayam under MG University | 2011
 M.Tech | Electronics and Communication Engineering with specialization in Optoelectronics and Optical Communication | Dept Of Optoelectronics, University of Kerala, Karyavattom Campus, Thiruvananthapuram under University of Kerala | 2013
 MBA | Operations & Marketing | IMK, University of Kerala, Karyavattom Campus, Thiruvananthapuram under University of Kerala | 2019","Nanoelectronics
 Optical Communication
@@ -552,7 +552,7 @@ Life skills",https://scholar.google.com/citations?view_op=list_works&hl=en&user=
 
 ## Professional memberships
 Titto Anujan, “Photoconductive Antenna for Terahertz Generation” International Journal of Engineering Research & Technology (IJERT) NACTET-2015 Conference Proceedings.",https://ece.cet.ac.in/wp-content/uploads/2022/08/Tittophoto.jpg
-Prof. Anagha V Shankar,assistant_professor,,2025,anaghavshankar@cet.ac.in,"EC 353, New block, ECE Dept.","Wireless Communication, Signal Processing",Signal and image processing; Communication systems,"B.Tech | Electronics and Communication Engineering | College of Engineering, Trivandrum | 2014
+Prof. Anagha V Shankar,350,assistant_professor,,2025,anaghavshankar@cet.ac.in,"EC 353, New block, ECE Dept.","Wireless Communication, Signal Processing",Signal and image processing; Communication systems,"B.Tech | Electronics and Communication Engineering | College of Engineering, Trivandrum | 2014
 M.Tech | ECE with specialization in Telecommunication | National Institute of Technology, Calicut | 2016","Electronics Circuits and Linear ICs
 Embedded Systems",https://scholar.google.com/citations?view_op=list_works&hl=en&authuser=1&user=XmII8H0AAAAJ,,,,"## Experience
 - Junior Telecom Officer, BSNL, Kattakada (2017-2022)
@@ -562,16 +562,16 @@ Embedded Systems",https://scholar.google.com/citations?view_op=list_works&hl=en&
 ## Achievements and awards
 - Secured First position for M.Tech in Electronics & Communication Engineering (Telecommunication) at NIT, Calicut (2016).
 - Secured Fifth position for B.Tech in Electronics & Communication Engineering under the University of Kerala in 2014.",https://ece.cet.ac.in/wp-content/uploads/2025/07/vk5232-cd.jpg
-Prof. Minha Mubarak,assistant_professor,,2026,,"EC 253, New block, ECE Dept.","Communication networks, Reinforcement learning, Machine learning, Digital image processing, Digital signal processing",Signal and image processing; Communication systems; Machine learning,"B.Tech | Electronics and Communication Engineering | Govt Rajiv Gandhi Institute of Technology, Kottayam | 2016
+Prof. Minha Mubarak,360,assistant_professor,,2026,,"EC 253, New block, ECE Dept.","Communication networks, Reinforcement learning, Machine learning, Digital image processing, Digital signal processing",Signal and image processing; Communication systems; Machine learning,"B.Tech | Electronics and Communication Engineering | Govt Rajiv Gandhi Institute of Technology, Kottayam | 2016
 M.Tech | Digital Signal Processing | Indian Institute of Space Science and Technology, Trivandrum | 2019","Linear Integrated Circuits
 Bioinformatics",https://scholar.google.com/citations?user=CGZvbAsAAAAJ&hl=en&oi=ao,https://orcid.org/0000-0002-2253-2791,,,"## Experience
 Assistant Professor (Ad-hoc) at Department of Electronics and Communication Engineering, College of Engineering, Trivandrum (2019-2020).",https://ece.cet.ac.in/wp-content/uploads/2026/02/Minha_photo.jpg.jpeg
-Prof. Jithin R,assistant_professor,,2026,,"353, New block, ECE Dept.",Communication,Communication systems,"B.Tech | Electronics and Communication Engineering | University of Kerala | 2011
+Prof. Jithin R,370,assistant_professor,,2026,,"353, New block, ECE Dept.",Communication,Communication systems,"B.Tech | Electronics and Communication Engineering | University of Kerala | 2011
 M.Tech | Electronics and Communication Engineering with specialization in Signal Processing | University of Kerala | 2013",,,,,,"## Experience
 - RIT Kottayam(Ad-hoc) : 2018-2019
 - NIT Calicut (Ad-hoc) : 2017-2018
 - Calicut University Instituted of Engineering and Technology : 2014-2017",https://ece.cet.ac.in/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-06-at-10.59.16-AM.jpeg
-Dr. Abin Jose,assistant_professor,,2026,,,"Image Content Recognition, Deep Learning and Machine Learning",Signal and image processing; Machine learning,"Ph.D. | Germany | RWTH Aachen, University in Germany | 
+Dr. Abin Jose,380,assistant_professor,,2026,,,"Image Content Recognition, Deep Learning and Machine Learning",Signal and image processing; Machine learning,"Ph.D. | Germany | RWTH Aachen, University in Germany | 
 Postdoctoral | Germany | RWTH Aachen, University in Germany | ","Engineering Ethics and Sustainable Development
 AI and Machine Learning for Robotics",https://scholar.google.com/citations?hl=en&user=BToRQjwAAAAJ,,,,"## Profile
 Completed bachelors from College of Engineering, Trivandrum.
@@ -580,14 +580,14 @@ Completed bachelors from College of Engineering, Trivandrum.
 ## Experience
 - Software Engineer Motorola Solutions
 - Research Assistant RWTH Aachen University.",https://ece.cet.ac.in/wp-content/uploads/2025/07/Abin-Jose.jpeg
-Dr. Libya Thomas,assistant_professor,,2026,libyathomas@cet.ac.in,217,Signal Processing,Signal and image processing,"B.Tech | Electronics and Communication Engineering |  | 
+Dr. Libya Thomas,390,assistant_professor,,2026,libyathomas@cet.ac.in,217,Signal Processing,Signal and image processing,"B.Tech | Electronics and Communication Engineering |  | 
 M.Tech | Signal Processing |  | 
 Ph.D. |  |  | ","Communication Systems(S5 ECE)
 VLSI structures for Signal Processing( S7 AEI)
 Embedded Systems Lab(S5 AEI)
 Electromagnetics Lab(S7 ECE)",,,,,"## Experience
 - Research Scholar(Part Time) at CET",https://ece.cet.ac.in/wp-content/uploads/2024/08/2020-06-18-12-40-47-702.jpg
-Prof. Ammukutty M S,assistant_professor,,2026,ammukutty@cet.ac.in,"EC351, New block, ECE Dept",Communication Systems,Communication systems,"B.E. | Electronics and Communication Engineering |  | 2015
+Prof. Ammukutty M S,400,assistant_professor,,2026,ammukutty@cet.ac.in,"EC351, New block, ECE Dept",Communication Systems,Communication systems,"B.E. | Electronics and Communication Engineering |  | 2015
 M.E. | Communication Systems |  | 2017","Basic Electronics
 Analog and Digital Communication
 FPGA Based System Design",,,,,"## Areas of interest
@@ -598,7 +598,7 @@ FPGA Based System Design",,,,,"## Areas of interest
 - Guest Lecturer in the department of Electronics Engineering, Govt Polytechnic College, Neyyattinkara (October 2021 – October 2022)
 - Asst.Professor in the department of ECE, MG College of Engineering (January 2020 – December 2020)
 - Asst.Professor in the department of ECE, Sivaji College of Engineering and Technology(July 2017 – April 2019)",https://ece.cet.ac.in/wp-content/uploads/2022/11/Ammukutty-M-S.jpg
-Prof. Anagha A S,assistant_professor,,2026,,Research Block,Cybersecurity,,"B.Tech | Electronics & Communication Engineering | LBS ITW, Poojappura | 2008
+Prof. Anagha A S,410,assistant_professor,,2026,,Research Block,Cybersecurity,,"B.Tech | Electronics & Communication Engineering | LBS ITW, Poojappura | 2008
 M.E. | Communication Systems | Anna University | 2013","Basic Electronics Engineering
 Electronic Circuits
 Analog Integrated Circuits

@@ -53,6 +53,17 @@ Formatted text (`about`, `content`, and `content` in `sections.csv`): a line sta
 
 In `sections.csv`, `action` is `replace_section` (replace what is under the heading named in `target`), `add_section` (add a new heading and content at the end of the page) or `replace_text` (replace the exact text in `target`, such as `[Faculty name]`). `page` is the page address on the new site, for example `academics/obe`.
 
+Faculty are numbered in `display_order` (10, 20, 30…) in the order of the old Faculty page, which lists them by service seniority; the new directory shows them in that order.
+
+**Fixes the old site gets wrong** (an outdated role, a misspelt name) go in `migration/corrections.csv`, so they are applied again whenever the converter is rerun:
+
+```
+sheet,name,column,value
+faculty,Dr. Joseph Zacharias,additional_role,Principal
+```
+
+`name` is the name as it appears in that sheet (the title, for publications). A correction that matches nothing is listed in `warnings.csv`.
+
 Keep the column headings. Save each sheet as CSV (UTF-8).
 
 ## 3. Import

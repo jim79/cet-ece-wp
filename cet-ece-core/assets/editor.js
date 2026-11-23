@@ -17,6 +17,9 @@
 			if ( a.showFilters !== undefined ) {
 				controls.push( el( c.ToggleControl, { key: 'f', label: 'Show filters', checked: !! a.showFilters, onChange: function ( v ) { set( { showFilters: v } ); } } ) );
 			}
+			if ( a.order !== undefined ) {
+				controls.push( el( c.SelectControl, { key: 'o', label: 'Order', value: a.order, options: [ { label: 'One list, by seniority', value: 'seniority' }, { label: 'Grouped by designation', value: 'designation' } ], onChange: function ( v ) { set( { order: v } ); } } ) );
+			}
 			if ( name === 'lab-list' ) {
 				controls.push( el( c.SelectControl, { key: 't', label: 'Labs to show', value: a.type, options: [ { label: 'All labs', value: '' }, { label: 'Teaching labs', value: 'teaching' }, { label: 'Research labs', value: 'research' } ], onChange: function ( v ) { set( { type: v } ); } } ) );
 			}

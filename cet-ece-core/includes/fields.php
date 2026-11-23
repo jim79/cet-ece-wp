@@ -71,7 +71,7 @@ add_action( 'acf/init', function () {
 			) ),
 			cet_ece_f( 'fac', 'is_guide', 'Approved Ph.D. guide', 'true_false', array( 'ui' => 1, 'wrapper' => array( 'width' => 33 ) ) ),
 			cet_ece_f( 'fac', 'phd_guided', 'Ph.D. scholars guided', 'number', array( 'min' => 0, 'wrapper' => array( 'width' => 33 ) ) ),
-			cet_ece_f( 'fac', 'display_order', 'Display order', 'number', array( 'instructions' => 'Optional. Lower numbers appear first within the designation; otherwise sorted by name.', 'wrapper' => array( 'width' => 34 ) ) ),
+			cet_ece_f( 'fac', 'display_order', 'Seniority order', 'number', array( 'min' => 0, 'instructions' => 'Position in the faculty directory, by service seniority: lower numbers first. Numbered in tens (10, 20, 30…) so a new colleague can go in between, e.g. 25. Empty: after everyone numbered, by name.', 'wrapper' => array( 'width' => 34 ) ) ),
 		),
 	) );
 

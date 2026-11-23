@@ -12,7 +12,7 @@ function cet_ece_block_defs() {
 	return array(
 		'copyright'         => array( 'cet_ece_render_copyright', array() ),
 		'last-updated'      => array( 'cet_ece_render_last_updated', array() ),
-		'faculty-directory' => array( 'cet_ece_render_faculty_directory', array( 'showFilters' => array( 'type' => 'boolean', 'default' => true ), 'area' => array( 'type' => 'string', 'default' => '' ) ) ),
+		'faculty-directory' => array( 'cet_ece_render_faculty_directory', array( 'showFilters' => array( 'type' => 'boolean', 'default' => true ), 'area' => array( 'type' => 'string', 'default' => '' ), 'order' => array( 'type' => 'string', 'default' => 'seniority' ) ) ),
 		'faculty-details'   => array( 'cet_ece_render_faculty_details', array() ),
 		'lab-list'          => array( 'cet_ece_render_lab_list', array( 'type' => array( 'type' => 'string', 'default' => '' ), 'programme' => array( 'type' => 'string', 'default' => '' ), 'showFilters' => array( 'type' => 'boolean', 'default' => false ) ) ),
 		'lab-details'       => array( 'cet_ece_render_lab_details', array() ),
