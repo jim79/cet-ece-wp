@@ -73,7 +73,7 @@ def urls(base):
 
 TEXT = ('.html', '.css', '.js', '.xml', '.json', '.txt', '.bib')
 # Links to things a static copy cannot serve: the REST API, feeds, editing.
-DEAD_LINKS = re.compile(r'<link[^>]+(?:wp-json|xmlrpc\.php|/feed/|oembed|EditURI|wlwmanifest)[^>]*>\s*', re.I)
+DEAD_LINKS = re.compile(r'<link[^>]+(?:wp-json|xmlrpc\.php|/feed/|oembed|EditURI|wlwmanifest|dns-prefetch|shortlink)[^>]*>\s*', re.I)
 # The header search box needs the server.
 SEARCH = re.compile(r'<form[^>]*\bwp-block-search\b.*?</form>', re.I | re.S)
 

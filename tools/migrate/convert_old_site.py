@@ -600,7 +600,9 @@ def parse_pub_entry(text, year_ctx):
     pm = re.search(r'\bpp?\.?\s*([\d]+\s*[-–]\s*[\d]+|\d+)', rest)
     if pm:
         r['pages'] = pm.group(1).replace(' ', '')
-    ys = re.findall(r'\b(19[89]\d|20[0-3]\d)\b', raw)
+    # Years, but not page ranges ("pp. 2025-2032") or dates in the future.
+    no_pages = re.sub(r'\b\d{3,5}\s*[-–]\s*\d{3,5}\b', ' ', raw)
+    ys = [y for y in re.findall(r'\b(19[89]\d|20[0-3]\d)\b', no_pages) if int(y) <= int(time.strftime('%Y')) + 1]
     r['year'] = ys[-1] if ys else year_ctx
     if ys and year_ctx and ys[-1] != year_ctx:
         warn('publications', r['title'][:80], 'Listed under %s but the citation says %s' % (year_ctx, ys[-1]))
