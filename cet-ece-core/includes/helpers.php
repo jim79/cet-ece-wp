@@ -112,7 +112,8 @@ function cet_ece_table( $heads, $rows ) {
 	if ( empty( $rows ) ) {
 		return '';
 	}
-	$h = '<div class="ece-table"><table><thead><tr>';
+	// tabindex and a label let keyboard users scroll a wide table on a phone.
+	$h = '<div class="ece-table" role="region" tabindex="0" aria-label="' . esc_attr( implode( ', ', $heads ) ) . ' (scrollable table)"><table><thead><tr>';
 	foreach ( $heads as $head ) {
 		$h .= '<th scope="col">' . esc_html( $head ) . '</th>';
 	}

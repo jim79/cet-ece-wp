@@ -78,3 +78,11 @@ remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 remove_action( 'admin_print_styles', 'print_emoji_styles' );
 remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
 remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+
+// Tables added in the editor: make their scroll area reachable by keyboard on phones.
+add_filter( 'render_block_core/table', function ( $html ) {
+	if ( false === strpos( $html, 'tabindex=' ) ) {
+		$html = preg_replace( '/<figure class="wp-block-table/', '<figure tabindex="0" role="region" aria-label="Table (scrollable)" class="wp-block-table', $html, 1 );
+	}
+	return $html;
+} );
