@@ -24,9 +24,9 @@ const lib = require('@wordpress/block-library');
 lib.registerCoreBlocks();
 
 // Our dynamic blocks: comment-only, register as dynamic so they parse.
-const custom = ['news', 'copyright', 'faculty-directory', 'faculty-details', 'lab-list', 'lab-details', 'staff-advisors', 'publications', 'research-areas', 'tech-staff', 'faculty-card', 'last-updated', 'projects'];
+const custom = ['news', 'copyright', 'faculty-directory', 'faculty-details', 'lab-list', 'lab-details', 'staff-advisors', 'publications', 'research-areas', 'tech-staff', 'faculty-card', 'last-updated', 'projects', 'research-figures'];
 for (const n of custom) {
-	blocks.registerBlockType('cet-ece/' + n, { apiVersion: 3, title: n, category: 'widgets', attributes: { type: { type: 'string' }, limit: { type: 'number' }, area: { type: 'string' }, designation: { type: 'string' }, programme: { type: 'string' }, showFilters: { type: 'boolean' } }, save: () => null });
+	blocks.registerBlockType('cet-ece/' + n, { apiVersion: 3, title: n, category: 'widgets', attributes: { type: { type: 'string' }, limit: { type: 'number' }, area: { type: 'string' }, designation: { type: 'string' }, programme: { type: 'string' }, showFilters: { type: 'boolean' }, order: { type: 'string' } }, save: () => null });
 }
 
 let bad = 0;

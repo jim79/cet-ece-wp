@@ -98,7 +98,11 @@ def slug(title):
 
 
 def main():
-    path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'playground', 'data', 'news.csv')
+    add_to(sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'playground', 'data', 'news.csv'))
+
+
+def add_to(path):
+    """Add the placement posts to a news.csv (posts already there by title are skipped)."""
     with open(path, encoding='utf-8') as fh:
         rows = list(csv.DictReader(fh))
         cols = list(rows[0].keys()) if rows else ['title', 'date', 'slug', 'category', 'featured_image_url', 'excerpt', 'content_html']

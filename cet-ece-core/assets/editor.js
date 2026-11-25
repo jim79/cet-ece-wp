@@ -57,6 +57,7 @@
 		'publications': [ 'Publications list', 'book' ],
 		'research-areas': [ 'Research areas', 'tag' ],
 		'tech-staff': [ 'Technical staff list', 'hammer' ],
+		'research-figures': [ 'Research figures', 'chart-bar' ],
 		'news': [ 'News and announcements', 'megaphone' ]
 	};
 

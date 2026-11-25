@@ -21,6 +21,7 @@ function cet_ece_block_defs() {
 		'publications'      => array( 'cet_ece_render_publications', array( 'showFilters' => array( 'type' => 'boolean', 'default' => true ), 'limit' => array( 'type' => 'number', 'default' => 0 ) ) ),
 		'research-areas'    => array( 'cet_ece_render_research_areas', array() ),
 		'tech-staff'        => array( 'cet_ece_render_tech_staff', array() ),
+		'research-figures'  => array( 'cet_ece_render_research_figures', array() ),
 		'news'              => array( 'cet_ece_render_news', array( 'limit' => array( 'type' => 'number', 'default' => 3 ), 'category' => array( 'type' => 'string', 'default' => '' ), 'exclude' => array( 'type' => 'string', 'default' => '' ), 'style' => array( 'type' => 'string', 'default' => 'cards' ) ) ),
 	);
 }

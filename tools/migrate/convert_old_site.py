@@ -38,6 +38,7 @@ import old_pages
 
 WARN = []
 API_PAGES = []  # every published page of the old site, from /wp-json/wp/v2/pages
+SAVED_POSTS = []  # (posts, attachments) from a saved posts.json, for --pages reruns
 
 
 def warn(kind, item, reason):
@@ -148,6 +149,14 @@ def read_site(base, save_to):
         time.sleep(1)
     with open(os.path.join(save_to, 'posts.json'), 'w', encoding='utf-8') as fh:
         json.dump(raw_posts, fh, ensure_ascii=False, indent=1)
+    posts, more = posts_from_feed(raw_posts)
+    atts.update(more)
+    return pages, posts, atts
+
+
+def posts_from_feed(raw_posts):
+    """Posts from the public posts feed (live, or the copy saved in posts.json)."""
+    posts, atts = [], {}
     for p in raw_posts:
         emb = p.get('_embedded', {})
         media = (emb.get('wp:featuredmedia') or [{}])[0] or {}
@@ -165,7 +174,7 @@ def read_site(base, save_to):
             'thumbnail_id': str(p.get('featured_media') or ''),
             'link': p.get('link', ''),
         })
-    return pages, posts, atts
+    return posts, atts
 
 
 def read_api_pages(base, save_to):
@@ -196,10 +205,15 @@ def read_api_pages(base, save_to):
 
 
 def read_pages(folder):
+    """Saved pages; also the saved pages feed and posts feed when they are there."""
     api = os.path.join(folder, 'api', 'pages.json')
     if os.path.exists(api):
         with open(api, encoding='utf-8') as fh:
             API_PAGES[:] = json.load(fh)
+    feed = os.path.join(folder, 'posts.json')
+    if os.path.exists(feed):
+        with open(feed, encoding='utf-8') as fh:
+            SAVED_POSTS[:] = posts_from_feed(json.load(fh))
     pages = {}
     for f in os.listdir(folder):
         if f.endswith('.html'):
@@ -260,7 +274,7 @@ AREA_HINTS = [
     (r'communication|antenna|wireless|microwave|\brf\b|network', 'Communication systems'),
     (r'optic|photon|fib(er|re)|laser', 'Optics and photonics'),
     (r'bio-?medical|medical|health', 'Biomedical engineering'),
-    (r'power|control|drive|converter', 'Control and power electronics'),
+    (r'power electronic|converter|inverter|motor|\bdrives?\b|control', 'Control and power electronics'),
     (r'machine learning|deep learning|\bai\b|neural|\bml\b|data science', 'Machine learning'),
     (r'vlsi|nano|semiconductor|device|microelectronic', 'VLSI and micro-nano electronics'),
 ]
@@ -684,6 +698,8 @@ def parse_publications(soup):
             continue
         r = parse_pub_entry(t, year)
         r['faculty'] = fac
+        # Suggested from the title only: venue names ("Conference on Communication...") mislead.
+        r['research_areas'] = suggest_areas(r['title'])
         rows.append(r)
     # Merge duplicates (same title), combining faculty.
     merged = {}
@@ -878,6 +894,8 @@ def enrich_labs(rows, faculty_names, staff_rows):
             r['type'] = 'research'
         if d['research_areas'] and r['type'] == 'research':
             r['research_areas'] = suggest_areas(' '.join(d['research_areas'] + d['description'])) or r.get('research_areas', '')
+        elif not r.get('research_areas'):
+            r['research_areas'] = suggest_areas(' '.join([r['name']] + [c['name'] for c in d['courses']]))
         r['photo_url'] = d['images'][0] if d['images'] else ''
         r['gallery'] = '\n'.join(d['images'][1:6])
         manual = next((h for l, h in d['manuals'] if 'manual' in l.lower()), '')
@@ -888,7 +906,12 @@ def enrich_labs(rows, faculty_names, staff_rows):
             first = next((a for a in aims if len(a) > 30), '')
             if first:
                 first = re.sub(r'^to\s+', '', first.strip(' .'), flags=re.I)
-                r['summary'] = (first[:1].upper() + first[1:])[:200].rstrip(' ,;') + '.'
+                first = first[:1].upper() + first[1:]
+                # One whole sentence, never cut in the middle (the summary field holds 240 characters).
+                sentence = re.split(r'(?<=[a-z0-9)])\.\s+', first)[0].rstrip('.')
+                if len(sentence) > 230:
+                    sentence = sentence[:230].rsplit(' ', 1)[0].rstrip(' ,;:') + '…'
+                r['summary'] = sentence + ('' if sentence.endswith('…') else '.')
             elif d['courses']:
                 r['summary'] = 'Lab for ' + ', '.join(c['name'] for c in d['courses'][:3]) + '.'
             if r['summary']:
@@ -901,11 +924,12 @@ def enrich_labs(rows, faculty_names, staff_rows):
 
 # ---------- corrections ----------
 
-def apply_corrections(out, path):
+def apply_corrections(out, path, only=None):
     """Fixes that the old site gets wrong, kept in corrections.csv so they survive a rerun.
 
-    Columns: sheet (faculty, staff, labs, publications...), name (as in that sheet:
-    the name, or the title for publications), column, value. Example:
+    Columns: sheet (faculty, staff, labs, publications, news...), name (as in that
+    sheet: the name, or the title for publications and news; for news also a file
+    name from the post's image or a link in it), column, value. Example:
         faculty,Dr. Joseph Zacharias,additional_role,Principal
     """
     if not os.path.exists(path):
@@ -914,17 +938,53 @@ def apply_corrections(out, path):
         rows = list(csv.DictReader(fh))
     for c in rows:
         sheet, who, col, val = (c.get(k, '').strip() for k in ('sheet', 'name', 'column', 'value'))
+        if (only and sheet != only) or (not only and sheet == 'news'):
+            continue
         target = out.get(sheet)
         if target is None:
             warn('corrections', who, 'Unknown sheet "%s" in corrections.csv' % sheet)
             continue
         key = 'title' if sheet in ('publications', 'news') else 'name'
-        hits = [r for r in target if norm_name(r.get(key, '')) == norm_name(who)]
+        hits = [r for r in target if norm_name(r.get(key, '')) == norm_name(who)
+                or (sheet == 'news' and who and (who in r.get('featured_image_url', '') or who in r.get('content_html', '')))]
         if not hits:
             warn('corrections', who, 'Not found in %s.csv: correction to "%s" not applied' % (sheet, col))
         for r in hits:
             r[col] = val
-    print('corrections  %4d applied' % len(rows))
+    print('corrections  %4d read' % len(rows))
+
+
+def home_news(existing, home):
+    """The old homepage's announcements and photo highlights, as news posts.
+
+    The old site showed these only on its homepage, never as posts. Items that
+    repeat an existing post are skipped; the date is the month the photo or
+    document was uploaded.
+    """
+    if not home:
+        return []
+    have = [re.sub(r'[^a-z0-9 ]', '', r['title'].lower()) for r in existing]
+    rows = []
+    for it in old_pages.home_items(home):
+        title = old_pages.short_title(it['title']) if it['kind'] == 'highlight' else it['title']
+        key = re.sub(r'[^a-z0-9 ]', '', title.lower())
+        if any(difflib.SequenceMatcher(None, key, h).ratio() > 0.6 for h in have):
+            continue
+        have.append(key)
+        if it['kind'] == 'announcement':
+            cat = 'announcements'
+            body = '<p><a href="%s">%s (PDF)</a></p>' % (html.escape(it['link']), html.escape(it['title']))
+        else:
+            blob = it['title'].lower()
+            cat = 'department-news' if re.search(r'\bpatent|handed over|foundation stone|expo|programme|program\b', blob) else news_category(title, it['title'], '')
+            if cat == 'department-news' and re.search(r'won|prize|champion|runner|first prize|congratulations to (mr|ms)|place in .* team|contingent|students?\b.*\b(designed|developed|implemented)', blob):
+                cat = 'student-achievements'
+            body = '<p>%s</p>' % html.escape(it['title'])
+        if not it['date']:
+            warn('news', title, 'Homepage item without a date: set the date by hand')
+        rows.append({'old_id': '', 'title': title, 'date': it['date'], 'slug': '', 'category': cat, 'old_categories': 'homepage',
+                     'featured_image_url': it['image'], 'excerpt': it['title'][:240], 'content_html': body, 'old_url': home.get('link', '')})
+    return rows
 
 
 # ---------- output ----------
@@ -953,6 +1013,8 @@ def main():
         pages, posts, atts = read_export(a.export)
     if a.pages:
         pages.update(read_pages(a.pages))
+        if SAVED_POSTS and not posts:
+            posts, atts = SAVED_POSTS[0], SAVED_POSTS[1]
     os.makedirs(a.out, exist_ok=True)
 
     cols = {
@@ -960,7 +1022,7 @@ def main():
         'staff': ['name', 'category', 'lab'],
         'batches': ['programme', 'admission_year', 'batch_label', 'advisors', 'source_line'],
         'labs': ['name', 'type', 'programmes', 'summary', 'lead_faculty', 'tech_staff', 'research_areas', 'courses', 'scholars', 'photo_url', 'gallery', 'manual_url', 'content', 'old_url'],
-        'publications': ['title', 'authors', 'venue', 'type', 'year', 'volume', 'pages', 'doi', 'status', 'faculty', 'confidence', 'raw'],
+        'publications': ['title', 'authors', 'venue', 'type', 'year', 'volume', 'pages', 'doi', 'status', 'faculty', 'research_areas', 'confidence', 'raw'],
     }
     parsers = {
         'faculty': (parse_faculty, ('faculty-2', 'faculty')),
@@ -1001,8 +1063,16 @@ def main():
         summary.append('%-13s %4d rows' % ('sections', len(sections)))
     if posts:
         rows = parse_news(posts, atts)
-        write(os.path.join(a.out, 'news.csv'), rows, ['old_id', 'title', 'date', 'slug', 'category', 'old_categories', 'featured_image_url', 'excerpt', 'content_html', 'old_url'])
-        summary.append('%-13s %4d rows' % ('news', len(rows)))
+        if API_PAGES:
+            rows += home_news(rows, {p['slug']: p for p in API_PAGES}.get('home'))
+        apply_corrections({'news': rows}, os.path.join(a.out, 'corrections.csv'), only='news')
+        path = os.path.join(a.out, 'news.csv')
+        write(path, rows, ['old_id', 'title', 'date', 'slug', 'category', 'old_categories', 'featured_image_url', 'excerpt', 'content_html', 'old_url'])
+        # Placement posters and highlights from the old Placements page (tools/migrate/placement_posts.py).
+        import placement_posts
+        placement_posts.add_to(path)
+        with open(path, encoding='utf-8') as fh:
+            summary.append('%-13s %4d rows' % ('news', sum(1 for _ in csv.DictReader(fh))))
     write(os.path.join(a.out, 'warnings.csv'), WARN, ['type', 'item', 'reason'])
     print('\n'.join(summary))
     print('%-13s %4d to review' % ('warnings', len(WARN)))

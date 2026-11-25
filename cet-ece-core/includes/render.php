@@ -186,7 +186,7 @@ function cet_ece_render_faculty_directory( $attributes ) {
 		}
 		if ( $list ) {
 			$total = count( $list );
-			$h    .= '<section class="ece-sec"><p class="ece-muted"><span class="ece-count">' . $total . '</span> faculty members, in order of seniority</p><div class="ece-grid">';
+			$h    .= '<section class="ece-sec"><div class="ece-grid">';
 			foreach ( cet_ece_sort_people( $list ) as $id ) {
 				$h .= cet_ece_faculty_card( $id );
 			}
@@ -275,8 +275,20 @@ function cet_ece_render_faculty_details( $attributes, $content, $block ) {
 	}
 	$main .= cet_ece_section( 'Research areas', cet_ece_term_chips( $id ) );
 
-	$rows = array();
-	foreach ( (array) cet_ece_get( 'qualifications', $id ) as $q ) {
+	$rows  = array();
+	$quals = array_filter( (array) cet_ece_get( 'qualifications', $id ) );
+	// Highest degree first (Ph.D., then master's, then bachelor's), newest first within a level.
+	usort( $quals, function ( $a, $b ) {
+		$rank = function ( $d ) {
+			$d = strtolower( preg_replace( '/[^a-z]/i', '', (string) $d ) );
+			if ( preg_match( '/^(phd|doctor|postdoc)/', $d ) ) {
+				return 0;
+			}
+			return preg_match( '/^(m|pg)/', $d ) ? 1 : 2;
+		};
+		return array( $rank( $a['degree'] ?? '' ), -(int) ( $a['year'] ?? 0 ) ) <=> array( $rank( $b['degree'] ?? '' ), -(int) ( $b['year'] ?? 0 ) );
+	} );
+	foreach ( $quals as $q ) {
 		if ( ! empty( $q['degree'] ) ) {
 			$rows[] = array( esc_html( $q['degree'] ), esc_html( $q['specialisation'] ?? '' ), esc_html( $q['institution'] ?? '' ), esc_html( $q['year'] ?? '' ) );
 		}
@@ -417,7 +429,7 @@ function cet_ece_render_lab_list( $attributes ) {
 		$h .= '</div></section>';
 	}
 	if ( ! $any ) {
-		$h .= '<p class="ece-empty">No labs to show.</p>';
+		$h .= '<p class="ece-empty">' . ( $area ? 'No labs in this research area yet.' : 'No labs to show.' ) . '</p>';
 	}
 	return '<div class="ece-lab-list" data-complete="' . ( $complete ? '1' : '0' ) . '">' . $h . '</div>';
 }
@@ -454,6 +466,9 @@ function cet_ece_render_lab_details( $attributes, $content, $block ) {
 	$band .= cet_ece_facts( $facts ) . '</div>';
 
 	$main = '';
+	if ( get_post_thumbnail_id( $id ) ) {
+		$main .= '<figure class="ece-lab-photo">' . cet_ece_image( get_post_thumbnail_id( $id ), 'large', 'Photo of the ' . $name ) . '</figure>';
+	}
 	$body = trim( get_post_field( 'post_content', $id ) );
 	if ( $body ) {
 		$main .= '<div class="ece-prose">' . apply_filters( 'the_content', $body ) . '</div>'; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals
@@ -501,6 +516,9 @@ function cet_ece_render_lab_details( $attributes, $content, $block ) {
 	}
 	$main .= cet_ece_section( $research ? 'Facilities' : 'Major equipment', cet_ece_table( array( 'Item', 'Make and model or details', 'Quantity' ), $rows ) );
 
+	if ( ! $body && ! cet_ece_get( 'courses', $id ) && ! cet_ece_get( 'equipment', $id ) && ! $scholars && ! $projects ) {
+		$main .= '<p class="ece-muted">Details of this lab (courses, equipment and people) are being added.</p>';
+	}
 	$aside     = '';
 	$downloads = cet_ece_file_link( cet_ece_get( 'manual', $id ), 'Lab manual (PDF)' ) . cet_ece_file_link( cet_ece_get( 'timetable', $id ), 'Lab timetable (PDF)' ) . cet_ece_file_link( cet_ece_get( 'safety_file', $id ), 'Safety rules (PDF)' );
 	$aside    .= cet_ece_side_card( 'Downloads', $downloads );
@@ -548,7 +566,50 @@ function cet_ece_projects_table( $lab_ids = null ) {
 
 function cet_ece_render_projects() {
 	$t = cet_ece_projects_table();
-	return $t ? '<div class="ece-projects">' . $t . '</div>' : '<p class="ece-empty">Funded projects appear here once they are added to a research lab.</p>';
+	if ( $t ) {
+		return '<div class="ece-projects">' . $t . '</div>';
+	}
+	return current_user_can( 'edit_posts' )
+		? '<p class="ece-empty">Funded projects appear here once they are added to a research lab (Labs › edit a research lab › Funded projects).</p>'
+		: '<p class="ece-empty">No funded projects are listed yet.</p>';
+}
+
+/**
+ * Research figures, counted from the site's own records so they never go stale:
+ * approved guides (faculty marked as guides), Ph.D. scholars (ongoing, in research
+ * labs), ongoing funded projects, and last year's publications. A figure that is
+ * zero is left out rather than shown as 0.
+ */
+function cet_ece_render_research_figures() {
+	$faculty  = get_posts( array( 'post_type' => 'faculty', 'posts_per_page' => -1, 'fields' => 'ids', 'no_found_rows' => true ) );
+	$guides   = count( array_filter( $faculty, function ( $id ) {
+		return (bool) cet_ece_get( 'is_guide', $id );
+	} ) );
+	$scholars = 0;
+	$projects = 0;
+	foreach ( get_posts( array( 'post_type' => 'lab', 'posts_per_page' => -1, 'fields' => 'ids', 'no_found_rows' => true ) ) as $lab ) {
+		foreach ( array_filter( (array) cet_ece_get( 'scholars', $lab ) ) as $s ) {
+			$scholars += ( 'phd' === ( $s['level'] ?? 'phd' ) && 'completed' !== ( $s['status'] ?? '' ) ) ? 1 : 0;
+		}
+		foreach ( array_filter( (array) cet_ece_get( 'projects', $lab ) ) as $p ) {
+			$projects += ( ! empty( $p['title'] ) && 'completed' !== ( $p['status'] ?? '' ) ) ? 1 : 0;
+		}
+	}
+	$last = (int) wp_date( 'Y' ) - 1;
+	$pubs = count( get_posts( array( 'post_type' => 'publication', 'posts_per_page' => -1, 'fields' => 'ids', 'no_found_rows' => true, 'meta_key' => 'year', 'meta_value' => $last ) ) ); // phpcs:ignore WordPress.DB.SlowDBQuery
+	$items = array(
+		array( $guides, 'Approved research guides' ),
+		array( $scholars, 'Ph.D. scholars' ),
+		array( $projects, 'Funded projects, ongoing' ),
+		array( $pubs, 'Publications in ' . $last ),
+	);
+	$h = '';
+	foreach ( $items as $it ) {
+		if ( $it[0] > 0 ) {
+			$h .= '<div class="ece-figure"><p class="ece-stat-number">' . (int) $it[0] . '</p><p class="ece-stat-label">' . esc_html( $it[1] ) . '</p></div>';
+		}
+	}
+	return $h ? '<div class="ece-figures">' . $h . '</div>' : '';
 }
 
 /* ---------- staff advisors ---------- */
@@ -669,7 +730,8 @@ function cet_ece_render_publications( $attributes ) {
 		}
 	}
 	if ( ! $ids ) {
-		return '<div class="ece-pubs">' . $h . '<p class="ece-empty">No publications match these filters.</p></div>';
+		$msg = is_tax() ? 'No publications in this research area yet.' : ( array_filter( array( $f['q'], $f['year'], $f['type'], $f['fac'] ) ) ? 'No publications match these filters.' : 'No publications listed yet.' );
+		return '<div class="ece-pubs">' . $h . '<p class="ece-empty">' . esc_html( $msg ) . '</p></div>';
 	}
 	$by_year = array();
 	foreach ( $ids as $id ) {

@@ -27,7 +27,7 @@ This writes to `migration/`:
 | `batches.csv` | Staff advisors | Programme, admission year, batch letter, advisor names. Graduated batches are kept; the site files them under past batches. |
 | `labs.csv` | Laboratories, and each lab's page | Name, teaching or research, programmes, a summary taken from the course aims, lab in charge, technical staff, courses (code, name, programme, semester), research scholars, photos, the lab manual, and the page text (course aims, experiment lists, research areas, links to every manual). Labs listed in both UG and PG are merged. |
 | `publications.csv` | Recent publications | Split into authors, title, venue, year, volume, pages and DOI. Duplicates merged. Shared conference DOIs removed. `confidence` shows how cleanly each entry split. |
-| `news.csv` | All posts | Title, date, new category, image link, text. |
+| `news.csv` | All posts, the old homepage, the Placements page | Title, date, new category, image link, text. Also the homepage's announcements and captioned photo highlights (dated by the month the photo was uploaded; items that repeat a post are skipped) and the placement posters (`placement_posts.py`). |
 | `sections.csv` | OBE, Programs, Research overview, Placements | Changes to the new site's department pages: OBE committees, head of department, programme coordinators, scheme and syllabus links for each programme, academic calendars and newsletters (Downloads), research guides and their areas (Ph.D.), placement details and the 2025 recruiters. |
 | `warnings.csv` | | Every row that needs a person to look at it, with the reason. |
 

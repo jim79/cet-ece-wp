@@ -635,7 +635,7 @@ pattern('page-technical-staff', 'Technical staff', 'Technical staff by designati
 ]))
 
 RES = '\n\n'.join([
-    grid([stat('[n]', 'Approved research guides'), stat('[n]', 'Ph.D. scholars'), stat('[n]', 'Funded projects, ongoing'), stat('[n]', 'Publications last year')], '170px', cols=4, align='wide'),
+    dyn('cet-ece/research-figures', align='wide'),
     section('Research areas', [dyn('cet-ece/research-areas'), p('Each area lists its faculty, labs and publications.', textColor='muted', fontSize='small')]),
     section('Research labs', [dyn('cet-ece/lab-list', type='research')]),
     section('Funded projects', [dyn('cet-ece/projects')]),

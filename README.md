@@ -89,6 +89,7 @@ Lab pages: the Programme box in the sidebar decides which programme pages list t
 - Comments and XML-RPC are off. The WordPress version is hidden. User names are not exposed.
 - JPEG and PNG uploads are saved as WebP where the server supports it; images larger than 2000 px are scaled down.
 - Old addresses redirect: `/faculty-2/` → `/faculty/`, `/placements-latest/` → `/placements/`, `/research-overview/` → `/research/`, `/publications/` → `/research/publications/`, `/activities/` → `/news/`, `/laboratories/` → `/labs/`, `/golden-jubilee-celebrations/` → `/about/`, `/obe/` → `/academics/obe/`, `/programs/` → `/academics/`.
+- The figures on the Research page (approved guides, Ph.D. scholars, ongoing funded projects, last year's publications) are counted from the faculty, lab and publication records, so they never go out of date. A figure that is zero is left out.
 - Dark mode follows the visitor's device setting.
 - Every page has a meta description and a sharing preview (title, description, image) for WhatsApp, Facebook and LinkedIn. The homepage carries organisation data for search engines. If an SEO plugin is installed later, these step aside.
 - WordPress's built-in sitemap lists every page, faculty profile and lab at `/wp-sitemap.xml`. Submit it in Google Search Console.

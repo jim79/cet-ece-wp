@@ -43,7 +43,9 @@
 .ece-fcard-name a:hover { color: var(--_link); text-decoration: underline; }
 .ece-fcard-role { font-size: 14px; color: var(--_body); }
 .ece-fcard-areas { font-size: 14px; color: var(--_muted); }
-.ece-fcard-email { font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+.ece-fcard-email { font-size: 13px; font-weight: 600; overflow-wrap: anywhere; }
+.ece-lab-photo { margin: 0 0 28px; }
+.ece-lab-photo img { width: 100%; height: auto; max-height: 420px; object-fit: cover; border-radius: 14px; display: block; }
 
 .ece-lcard { display: flex; flex-direction: column; border: 1px solid var(--_line); border-radius: 12px; overflow: hidden; background: var(--_bg); }
 .ece-lcard-img { display: block; width: 100%; height: 150px; object-fit: cover; }
@@ -144,3 +146,11 @@ a.ece-chip:hover { color: var(--_link); text-decoration: underline; }
 .ece-pubs [hidden] {
 	display: none !important;
 }
+
+/* Research figures (cet-ece/research-figures): counted from the site's records. */
+.ece-figures {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+	gap: 24px;
+}
+.ece-figure .ece-stat-label { margin: 4px 0 0; }

@@ -1,5 +1,5 @@
 name,type,programmes,summary,lead_faculty,tech_staff,research_areas,courses,scholars,photo_url,gallery,manual_url,content
-Communication Engineering Lab,teaching,btech-ece; btech-aei,Familiarize students with the Analog Integrated Circuits and Design and implementation of application circuits using basic Analog Integrated Circuits.,Prof. Rencymol M V,Anshad R. Yunus,,"ECL331 | Analog Integrated Circuits & Simulation Lab | B.Tech ECE | S5
+Communication Engineering Lab,teaching,btech-ece; btech-aei,Familiarize students with the Analog Integrated Circuits and Design and implementation of application circuits using basic Analog Integrated Circuits.,Prof. Rencymol M V,Anshad R. Yunus,Communication systems,"ECL331 | Analog Integrated Circuits & Simulation Lab | B.Tech ECE | S5
 AEL331 | Analog Integrated Circuits & Instrumentation Lab | B.Tech AEI | S5
 ECL332 | Communication Lab | B.Tech ECE | S6",,https://ece.cet.ac.in/wp-content/uploads/2022/05/WhatsApp-Image-2022-05-26-at-7.45.06-AM.jpeg,,,"## ECL331 Analog Integrated Circuits & Simulation Lab
 This course aims to:
@@ -8,7 +8,7 @@ This course aims to:
 
 ### List of experiments
 1. I. Fundamentals of operational amplifiers and basic circuits
-1. [Minimum seven experiments are to be done]
+#### (Minimum seven experiments are to be done)
 1. Familiarization of Operational amplifiers – Inverting and Non inverting amplifiers, frequency response, Adder, Integrator, Comparators.
 1. Measurement of Op-Amp parameters.
 1. Difference Amplifier and Instrumentation amplifier.
@@ -21,13 +21,13 @@ This course aims to:
 1. Notch filters to eliminate the 50Hz power line frequency.
 1. Precision rectifiers using Op-Amp.
 1. II. Application circuits of 555 Timer/565 PLL/ Regulator(IC 723) ICs
-1. [ Minimum three experiments are to be done]
+#### (Minimum three experiments are to be done)
 1. Astable and Monostable multivibrator using Timer IC NE555
 1. DC power supply using IC 723: Low voltage and high voltage configurations, Short circuit and Fold-back protection.
 1. A/D converters- counter ramp and flash type
 1. D/A Converters – R-2R ladder circuit
 1. Study of PLL IC: free running frequency lock range capture range
-1. III. Simulation experiments [The experiments shall be conducted using SPICE]
+1. III. Simulation experiments (The experiments shall be conducted using SPICE)
 1. Simulation of any three circuits from Experiments 3, 5, 6, 7, 8, 9, 10 and 11 of section I
 1. Simulation of Experiments 3 or 4 from section II
 
@@ -79,12 +79,12 @@ This course aims to:
 1. FM Transmission
 
 [ECL332 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/05/3_EC332_compressed.pdf)"
-Control Systems Lab,teaching,btech-ece; btech-aei,Lab for Control System and Signal Processing Lab.,Dr. Latha V,Resmy S Anand,,AE431 | Control System and Signal Processing Lab |  | ,,https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-14-at-9.35.59-AM.jpeg,"https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-14-at-9.35.55-AM.jpeg
+Control Systems Lab,teaching,btech-ece; btech-aei,Lab for Control System and Signal Processing Lab.,Dr. Latha V,Resmy S Anand,Signal and image processing; Control and power electronics,AE431 | Control System and Signal Processing Lab |  | ,,https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-14-at-9.35.59-AM.jpeg,"https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-14-at-9.35.55-AM.jpeg
 https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-14-at-9.35.56-AM.jpeg
 https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-14-at-9.36.00-AM-1.jpeg",http://ece.cet.ac.in/wp-content/uploads/2024/03/Control-System-Lab-Manual_compressed-1.pdf,"## AE431 Control System Lab
 [AE431 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2024/03/Control-System-Lab-Manual_compressed-1.pdf)"
 C2S,teaching,btech-ece; btech-aei,,,,,,,,,,
-Department Computing Facility (DCF),teaching,btech-ece; btech-aei; mtech,Give hands on experience in various digital Signal Processing techniques using TMS 320C6X family processors and in control system analysis using MATLAB.,Dr. Reshmi S Bhooshan; Dr. Latha V,Resmy S Anand; Gopakumar P,,"ECL201 | Scientific Computing Lab | B.Tech ECE, B.Tech AEI | S3
+Department Computing Facility (DCF),teaching,btech-ece; btech-aei; mtech,Give hands on experience in various digital Signal Processing techniques using TMS 320C6X family processors and in control system analysis using MATLAB.,Dr. Reshmi S Bhooshan; Dr. Latha V,Resmy S Anand; Gopakumar P,Signal and image processing; Communication systems; Control and power electronics,"ECL201 | Scientific Computing Lab | B.Tech ECE, B.Tech AEI | S3
 AE431 | Control System and Signal Processing Lab | B.Tech AEI | S7
 GXESL208 | IT Workshop | B.Tech ECE, B.Tech AEI | S2
 UCEST105 | Algorithmic Thinking with Python | B.Tech ECE, B.Tech AEI | S1
@@ -219,15 +219,14 @@ This course aims to:
 1. BCD to Seven Segment Decoder in FPGA
 
 [ECL203 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/05/17_ECL203_compressed.pdf)"
-Electronic Circuits Lab,teaching,btech-ece; btech-aei,Familiarize students with the Analog Circuits Design through.,Prof. Sanoj Viswasom,Biju Stanley,,ECL202 | Analog Circuits and Simulation Lab | B.Tech ECE | S4,,https://ece.cet.ac.in/wp-content/uploads/2022/05/CKT.jpg,,http://ece.cet.ac.in/wp-content/uploads/2022/05/22_ECL202.pdf,"## ECL202 Analog Circuits and Simulation Lab
+Electronic Circuits Lab,teaching,btech-ece; btech-aei,Familiarize students with the Analog Circuits Design through the implementation of basic Analog Circuits using discrete components.,Prof. Sanoj Viswasom,Biju Stanley,,ECL202 | Analog Circuits and Simulation Lab | B.Tech ECE | S4,,https://ece.cet.ac.in/wp-content/uploads/2022/05/CKT.jpg,,http://ece.cet.ac.in/wp-content/uploads/2022/05/22_ECL202.pdf,"## ECL202 Analog Circuits and Simulation Lab
 This course aims to:
-- Familiarize students with the Analog Circuits Design through
-- the implementation of basic Analog Circuits using discrete components.
+- Familiarize students with the Analog Circuits Design through the implementation of basic Analog Circuits using discrete components.
 - Familiarize students with simulation of basic Analog Circuits.
 
 ### List of experiments
 #### PART A
-1. [List of Experiments using discrete components [Any Six experiments mandatory]
+1. (List of Experiments using discrete components [Any Six experiments mandatory)
 1. RC integrating and differentiating circuits (Transient analysis with different inputs and frequency response)
 1. Clipping and clamping circuits (Transients and transfer characteristics)
 1. RC coupled CE amplifier – frequency response characteristics
@@ -239,7 +238,7 @@ This course aims to:
 1. Power amplifiers (transformer less) – Class B and Class AB
 1. Transistor Series voltage regulator (load and line regulation)
 #### PART B
-1. [Simulation experiments [Any Six experiments mandatory]
+1. (Simulation experiments [Any Six experiments mandatory)
 1. The experiments shall be conducted using open tools such as QUCS, KiCad or variants of SPICE.
 1. RC integrating and differentiating circuits (Transient analysis with different inputs and frequency response)
 1. Clipping and clamping circuits (Transients and transfer characteristics)
@@ -261,17 +260,17 @@ This course aims to:
 ### List of experiments
 1. Familiarization/Identification of electronic components with specification (Functionality, type, size, colour coding, package, symbol, cost etc. [Active, Passive, Electrical, Electronic, Electro-mechanical, Wires, Cables, Connectors, Fuses, Switches, Relays, Crystals, Displays, Fasteners, Heat sink etc.)
 1. Drawing of electronic circuit diagrams using BIS/IEEE symbols and introduction to EDA tools (such as Dia or XCircuit), Interpret data sheets of discrete components and IC’s, Estimation and costing.
-1. Familiarization/Application of testing instruments and commonly used tools. [Multimeter, Function generator, Power supply, DSO etc.] [Soldering iron, Desoldering pump, Pliers, Cutters, Wire strippers, Screw drivers, Tweezers, Crimping tool, Hot air soldering and de- soldering station etc.]
-1. Testing of electronic components [Resistor, Capacitor, Diode, Transistor and JFET using multimeter].
+1. Familiarization/Application of testing instruments and commonly used tools. (Multimeter, Function generator, Power supply, DSO etc.) (Soldering iron, Desoldering pump, Pliers, Cutters, Wire strippers, Screw drivers, Tweezers, Crimping tool, Hot air soldering and de- soldering station etc.)
+1. Testing of electronic components (Resistor, Capacitor, Diode, Transistor and JFET using multimeter).
 1. Inter-connection methods and soldering practice. [Bread board, Wrapping, Crimping, Soldering – types – selection of materials and safety precautions, soldering practice in connectors and general purpose PCB, Crimping.
-1. Printed circuit boards (PCB) [Types, Single sided, Double sided, PTH, Processing methods, Design and fabrication of a single sided PCB for a simple circuit with manual etching (Ferric chloride) and drilling.]
+1. Printed circuit boards (PCB) (Types, Single sided, Double sided, PTH, Processing methods, Design and fabrication of a single sided PCB for a simple circuit with manual etching (Ferric chloride) and drilling.)
 1. Assembling of electronic circuits using SMT (Surface Mount Technology) stations.
 1. Assembling of electronic circuit/system on general purpose PCB, test and show the functioning (Any Two circuits).
 1. Fixed voltage power supply with transformer, rectifier diode, capacitor filter, zener/IC regulator.
 1. Square wave generation using IC 555 timer in IC base.
 1. Sine wave generation using IC 741 OP-AMP in IC base.
 1. RC coupled amplifier with transistor BC107."
-Fiber Optics Lab,teaching,btech-ece; btech-aei; mtech,"Provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.",,Sreekumar T,,"EC431 | Communication System Lab (Optical & Microwave) | B.Tech ECE | S7
+Fiber Optics Lab,teaching,btech-ece; btech-aei; mtech,"Provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.",,Sreekumar T,Communication systems; Optics and photonics,"EC431 | Communication System Lab (Optical & Microwave) | B.Tech ECE | S7
 01EC6293 | Communication System Lab | M.Tech CS | M1","Archa Chandrasenan | phd | Dr. Joseph Zacharias | 2020 (Part-Time) | ongoing
 Libya Thomas | phd | Dr. Joseph Zacharias | 2021 (Part-Time) | ongoing
 Arya M Krishna | phd |  | 2021 (Part-Time) | ongoing
@@ -362,7 +361,7 @@ This course aims to:
 1. Level measurement using capacitive transducer
 
 [AEL331 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2022/05/12_AEL-331_compressed.pdf)"
-IoT Lab,teaching,btech-ece; btech-aei,"The Internet of Things lab (IoT lab) has been set up at the College of Engineering Trivandrum (CET) as an initiative of the Department of Technical Education, Government of Kerala and the Kerala Start.",Prof. Joaquim Ignatious Monteiro,Praveena P,,,,https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-13-at-9.36.47-PM.jpeg,https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-13-at-9.49.51-PM.jpeg,,"The Internet of Things lab (IoT lab) has been set up at the College of Engineering Trivandrum (CET) as an initiative of the Department of Technical Education, Government of Kerala and the Kerala Startup Mission in June 2017.
+IoT Lab,teaching,btech-ece; btech-aei,"The Internet of Things lab (IoT lab) has been set up at the College of Engineering Trivandrum (CET) as an initiative of the Department of Technical Education, Government of Kerala and the Kerala Startup Mission in June 2017.",Prof. Joaquim Ignatious Monteiro,Praveena P,,,,https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-13-at-9.36.47-PM.jpeg,https://ece.cet.ac.in/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-13-at-9.49.51-PM.jpeg,,"The Internet of Things lab (IoT lab) has been set up at the College of Engineering Trivandrum (CET) as an initiative of the Department of Technical Education, Government of Kerala and the Kerala Startup Mission in June 2017.
 
 The IoT lab CET has been co-hosted in the Digital Electronics lab of the Electronics and Communication Engineering department.
 
@@ -371,7 +370,7 @@ The lab provides students and faculty access to latest tools and resources in Io
 The IoT lab CET aims to build up the technical expertise and to foster a culture of entrepreneurship in IoT.
 
 For more details click here"
-Microcontroller Lab,teaching,btech-ece; btech-aei,Familiarize the students with Assembly Language Programming of modern microcontrollers.,Prof. Viji R,Sajayan S,,ECL204 | Microcontroller Lab | B.Tech ECE | S4,,https://ece.cet.ac.in/wp-content/uploads/2022/05/IMG-20220509-WA0006.jpg,,http://ece.cet.ac.in/wp-content/uploads/2025/10/Lab_Manual_Microcontroller_ECL204_compressed.pdf,"## ECL204 Microcontroller Lab
+Microcontroller Lab,teaching,btech-ece; btech-aei,Familiarize the students with Assembly Language Programming of modern microcontrollers.,Prof. Viji R,Sajayan S,Control and power electronics,ECL204 | Microcontroller Lab | B.Tech ECE | S4,,https://ece.cet.ac.in/wp-content/uploads/2022/05/IMG-20220509-WA0006.jpg,,http://ece.cet.ac.in/wp-content/uploads/2025/10/Lab_Manual_Microcontroller_ECL204_compressed.pdf,"## ECL204 Microcontroller Lab
 This course aims to:
 - Familiarize the students with Assembly Language Programming of modern microcontrollers.
 - Impart the skills for interfacing the microcontroller with the help of Embedded C/Assembly Language Programming.
@@ -399,7 +398,7 @@ This course aims to:
 1. Realization of Boolean expression through port.
 
 [ECL204 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/Lab_Manual_Microcontroller_ECL204_compressed.pdf)"
-Microwave Lab,teaching,btech-ece; btech-aei; mtech,"Provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.",Prof. Joaquim Ignatious Monteiro,Sreekumar T,,"EC431 | Communication System Lab (Optical & Microwave) | B.Tech ECE | S7
+Microwave Lab,teaching,btech-ece; btech-aei; mtech,"Provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.",Prof. Joaquim Ignatious Monteiro,Sreekumar T,Communication systems; Optics and photonics,"EC431 | Communication System Lab (Optical & Microwave) | B.Tech ECE | S7
 01EC6293 | Communication System Lab | M.Tech CS | M1
 01EC6294 | RF Design and Simulation Lab | M.Tech CS | M2",,https://ece.cet.ac.in/wp-content/uploads/2022/05/MW.jpg,,http://ece.cet.ac.in/wp-content/uploads/2022/05/1_EC431MW_compressed.pdf,"## EC431 Communication System Lab (Optical & Microwave)
 This course aims to:
@@ -447,7 +446,7 @@ This course aims to:
 1. Design and simulation of Patch Antenna using HFSS
 1. Design and simulation of 1D arrays using MATLAB/HFSS
 1. Design and simulation of 2D arrays using MATLAB/HFSS"
-Power Electronics Lab,teaching,btech-ece; btech-aei,Familiarize the students with different types of power electronics circuits and application.,Prof. Ambily N,Santhosh C B,,AEL332 | Power Electronics Lab | B.Tech AEI | S6,,https://ece.cet.ac.in/wp-content/uploads/2022/05/POWER-ELE.jpg,,http://ece.cet.ac.in/wp-content/uploads/2025/10/AEL332_POWER_ELECTRONICS_LAB_compressed.pdf,"## AEL332 Power Electronics Lab
+Power Electronics Lab,teaching,btech-ece; btech-aei,Familiarize the students with different types of power electronics circuits and application.,Prof. Ambily N,Santhosh C B,Control and power electronics,AEL332 | Power Electronics Lab | B.Tech AEI | S6,,https://ece.cet.ac.in/wp-content/uploads/2022/05/POWER-ELE.jpg,,http://ece.cet.ac.in/wp-content/uploads/2025/10/AEL332_POWER_ELECTRONICS_LAB_compressed.pdf,"## AEL332 Power Electronics Lab
 This course aims to:
 - Familiarize the students with different types of power electronics circuits and application
 - Familiarize students with simulation of basic power electronics circuits
@@ -478,7 +477,7 @@ This course aims to:
 1. DC motor speed control
 
 [AEL332 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2025/10/AEL332_POWER_ELECTRONICS_LAB_compressed.pdf)"
-Process Control Lab,teaching,btech-ece; btech-aei; mtech,Provide experience on control of various industrial processes using different control paradigms.,Dr. Sindhu N,Abhilash S Devan,,"AE332 | Process Control Lab | B.Tech AEI | S6
+Process Control Lab,teaching,btech-ece; btech-aei; mtech,Provide experience on control of various industrial processes using different control paradigms.,Dr. Sindhu N,Abhilash S Devan,Control and power electronics,"AE332 | Process Control Lab | B.Tech AEI | S6
 AEL411 | Process Control Lab | B.Tech AEI | S7
 01EC6193 | Instrumentation & Control System Lab | M.Tech AEI | M1",,https://ece.cet.ac.in/wp-content/uploads/2022/06/Process-Control-Lab-min.jpg,,,"## AE332 Process Control Lab
 This course aims to:
@@ -532,7 +531,7 @@ https://ece.cet.ac.in/wp-content/uploads/2022/06/IMG_20220602_154538-min.jpg",,"
 Project Lab (ECE):
 
 Project Lab (AEI):"
-UG DSP Lab,teaching,btech-ece; btech-aei; mtech,Make the student do real time DSP computing. Dedicated DSP hardware (such as TI or Analog Devices development/evaluation boards) will be used for realization.,,Jayasree R,,"ECL333 | Digital Signal Processing Lab | B.Tech ECE | S5
+UG DSP Lab,teaching,btech-ece; btech-aei; mtech,Make the student do real time DSP computing.,,Jayasree R,Signal and image processing,"ECL333 | Digital Signal Processing Lab | B.Tech ECE | S5
 EST102 | Programming in C | B.Tech ECE, B.Tech AEI | S2
 221LEC001 | Signal Processing Lab I | M.Tech SP | M1
 222LEC001 | Signal Processing Lab Ii | M.Tech SP | M2",,https://ece.cet.ac.in/wp-content/uploads/2022/06/DSP.jpg,,,"## ECL333 Digital Signal Processing Lab
@@ -651,7 +650,7 @@ This course aims to:
 [222LEC001 lab manual (PDF)](http://ece.cet.ac.in/wp-content/uploads/2024/03/SP-LAB-MANUAL-2.pdf)"
 Advanced Communication Lab,teaching,mtech,,,,,,,,,,
 Advanced Computational Lab,teaching,mtech,,,,,,,,,,
-Advanced Process Control Lab,teaching,mtech; btech-aei,Provide experience on control of various industrial processes using different control paradigms.,Dr. Sindhu N,Abhilash S Devan,,"AE332 | Process Control Lab | B.Tech AEI | S6
+Advanced Process Control Lab,teaching,mtech; btech-aei,Provide experience on control of various industrial processes using different control paradigms.,Dr. Sindhu N,Abhilash S Devan,Control and power electronics,"AE332 | Process Control Lab | B.Tech AEI | S6
 01EC6193 | Instrumentation & Control System Lab | M.Tech AEI | M1",,https://ece.cet.ac.in/wp-content/uploads/2022/06/ADV.PROC-min.jpg,,,"## AE332 Process Control Lab
 This course aims to:
 - To provide experience on control of various industrial processes using different control paradigms
@@ -698,7 +697,7 @@ This course aims to:
 Advanced Research Lab on Information System Security (ARLISS),research,mtech,,,,,,,,,,
 Audio Speech and Language Lab,teaching,mtech,,,,,,,,,,
 Biomedical Engineering and Research Lab,research,mtech,,,,,,,,,,
-Computer Vision Lab,research,mtech,"Computer vision is the science and technology of machines that can see. As a scientific discipline, computer vision is concerned with the theory behind artificial systems that extract information from.",Dr. Linu Shine,,Signal and image processing; Biomedical engineering,,"Cynara Justine | phd | Dr. Linu Shine |  | ongoing
+Computer Vision Lab,research,mtech,Computer vision is the science and technology of machines that can see.,Dr. Linu Shine,,Signal and image processing; Biomedical engineering,,"Cynara Justine | phd | Dr. Linu Shine |  | ongoing
 Anu S.S | phd | Dr. Joseph Zacharias |  | ongoing
 Rehna T S | phd |  | Dr. Sreeni K G | ongoing
 Devika R.G | phd | Dr. Sivakumar R |  | ongoing
@@ -733,7 +732,7 @@ https://ece.cet.ac.in/wp-content/uploads/2022/06/cvlab-1.jpg",,"Computer vision 
 C V Raman Center for Nanoelectronics,teaching,mtech,,,,,,,,,,
 Embedded Systems Lab,teaching,mtech,,,,,,,,,,
 Fiber Optics and Photonics Research Lab,research,mtech,,,,,,,,,,
-MEMS Lab,teaching,mtech,Familiarising Various MEMS software.,Prof. Titto Anujan,,,"01EC6793 | Device Modeling and Process Simulation Lab | M.Tech MNE | M1
+MEMS Lab,teaching,mtech,Familiarising Various MEMS software.,Prof. Titto Anujan,,VLSI and micro-nano electronics,"01EC6793 | Device Modeling and Process Simulation Lab | M.Tech MNE | M1
 01EC6794 | MEMS Lab | M.Tech MNE | M2",,,,,"## 01EC6794 MEMS Lab
 This course aims to:
 - Familiarising Various MEMS software.
@@ -790,7 +789,7 @@ https://ece.cet.ac.in/wp-content/uploads/2022/06/pgdsp_3.jpg",,"## Research area
 1. Journal of Visual Communication and Image Representation, Volume 79, 2021.
 1. Reshmi S. Bhooshan and Suresh K., “An Attention Based Wavelet Convolutional Model for Visual Saliency Detection”, ICASSP 2021 – 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Toronto, Canada, June 2021, pp. 2240-2244.
 1. Reshmi S. Bhooshan and Suresh K.,“Automated Surveillance Video Analysis With Textual Descriptions”, communicated to Seventh International Conference on ICT Sustainable Development, Goa, India, 29 – 30 July 2022."
-Power Electronics Research Lab (PERL),research,mtech,,Prof. Lalu V .,,,,"Jeeshma Mary Paul | phd |  |  | completed
+Power Electronics Research Lab (PERL),research,mtech,,Prof. Lalu V .,,Control and power electronics,,"Jeeshma Mary Paul | phd |  |  | completed
 Gauri A | phd |  |  | ongoing
 Surashmi N.L | phd |  |  | ongoing
 Shani S.J | phd |  |  | ongoing
@@ -801,7 +800,7 @@ Robotics Lab,teaching,mtech,,,,,,,,,,
 Signal Processing Research Lab,research,mtech,,,,,,,,,,
 Srinivasa Ramanujan Centre for Machine Intelligence,teaching,mtech,,,,,,,,,,
 VLSI Lab,teaching,mtech,,,,,,,,,,
-Optical Communication Lab,teaching,btech-ece; mtech,"Provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.",,Sreekumar T,,"EC431 | Communication System Lab (Optical & Microwave) | B.Tech ECE | S7
+Optical Communication Lab,teaching,btech-ece; mtech,"Provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.",,Sreekumar T,Communication systems; Optics and photonics,"EC431 | Communication System Lab (Optical & Microwave) | B.Tech ECE | S7
 01EC6293 | Communication System Lab | M.Tech CS | M1",,https://ece.cet.ac.in/wp-content/uploads/2022/05/OPTIC.jpg,,http://ece.cet.ac.in/wp-content/uploads/2022/05/1.1_EC431OPTICAL_compressed.pdf,"## EC431 Communication System Lab (Optical & Microwave)
 This course aims to:
 - To provide practical experience in design, testing, and analysis of few electronic devices and circuits used for microwave and optical communication engineering.

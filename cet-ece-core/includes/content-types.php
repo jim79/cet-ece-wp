@@ -156,3 +156,21 @@ add_action( 'manage_batch_posts_custom_column', function ( $col, $id ) {
 		echo cet_ece_batch_is_current( cet_ece_get( 'programme', $id ), cet_ece_get( 'admission_year', $id ) ) ? 'Current' : 'Graduated';
 	}
 }, 10, 2 );
+
+/**
+ * One-time repair: sites set up by earlier versions of the theme saved address
+ * rules for the wrong permalink structure, so news posts led to the homepage.
+ * Rebuild them once, after content types are registered.
+ */
+add_action( 'init', function () {
+	if ( get_option( 'cet_ece_rules_v2' ) ) {
+		return;
+	}
+	global $wp_rewrite;
+	$structure = (string) get_option( 'permalink_structure' );
+	if ( '' !== $structure ) {
+		$wp_rewrite->set_permalink_structure( $structure );
+		flush_rewrite_rules();
+	}
+	update_option( 'cet_ece_rules_v2', 1 );
+}, 99 );

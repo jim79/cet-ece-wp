@@ -57,5 +57,7 @@ foreach ( array( 'faculty', 'staff', 'labs', 'batches', 'publications', 'news', 
 	}
 }
 
+global $wp_rewrite;
+$wp_rewrite->set_permalink_structure( '/%postname%/' );
 flush_rewrite_rules();
 echo 'Demo content ready.';

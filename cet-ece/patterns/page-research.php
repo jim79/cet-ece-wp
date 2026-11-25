@@ -8,47 +8,7 @@
  * Inserter: true
  */
 ?>
-<!-- wp:group {"layout":{"type":"grid","minimumColumnWidth":"170px","columnCount":4},"style":{"spacing":{"blockGap":"16px"}},"align":"wide"} -->
-<div class="wp-block-group alignwide"><!-- wp:group {"style":{"spacing":{"blockGap":"4px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"className":"ece-stat-number"} -->
-<p class="ece-stat-number">[n]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ece-stat-label"} -->
-<p class="ece-stat-label">Approved research guides</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"style":{"spacing":{"blockGap":"4px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"className":"ece-stat-number"} -->
-<p class="ece-stat-number">[n]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ece-stat-label"} -->
-<p class="ece-stat-label">Ph.D. scholars</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"style":{"spacing":{"blockGap":"4px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"className":"ece-stat-number"} -->
-<p class="ece-stat-number">[n]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ece-stat-label"} -->
-<p class="ece-stat-label">Funded projects, ongoing</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"style":{"spacing":{"blockGap":"4px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group"><!-- wp:paragraph {"className":"ece-stat-number"} -->
-<p class="ece-stat-number">[n]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ece-stat-label"} -->
-<p class="ece-stat-label">Publications last year</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
+<!-- wp:cet-ece/research-figures {"align":"wide"} /-->
 
 <!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"16px","margin":{"top":"48px"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="margin-top:48px"><!-- wp:heading -->

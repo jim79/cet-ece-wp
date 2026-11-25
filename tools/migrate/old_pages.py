@@ -507,7 +507,11 @@ def parse_lab_page(page):
         elif mode == 'scholars':
             out['scholars'].append(line)
         elif mode == 'aims' and current is not None:
-            current['aims'].append(line)
+            # A sentence the old page broke across lines continues in lowercase.
+            if current['aims'] and line[:1].islower() and not current['aims'][-1].endswith('.'):
+                current['aims'][-1] += ' ' + line
+            else:
+                current['aims'].append(line)
         elif mode == 'experiments' and current is not None:
             current['experiments'].append(line)
         elif mode in ('aims', 'experiments') and current is None:
@@ -527,6 +531,13 @@ def parse_lab_page(page):
 
 def lab_content(lab, manuals):
     """Review markup for the lab page body: course aims, experiments, manuals."""
+    # The old pages write notes in square brackets ("[Any six experiments mandatory]");
+    # on the new site square brackets mark placeholders, so these become parentheses.
+    for key in ('description', 'research_areas', 'pubs', 'aims'):
+        lab[key] = [re.sub(r'\[\s*([^\]]+?)\s*\]', r'(\1)', x) for x in lab[key]]
+    for b in lab['blocks']:
+        b['aims'] = [re.sub(r'\[\s*([^\]]+?)\s*\]', r'(\1)', x) for x in b['aims']]
+        b['experiments'] = [re.sub(r'\[\s*([^\]]+?)\s*\]', r'(\1)', x) for x in b['experiments']]
     md = []
     if lab['description']:
         md += [x + '\n' for x in lab['description']]
@@ -863,3 +874,49 @@ def department_sections(pages, faculty_rows, warn):
             md += ['', 'Offers of 5 LPA and above to the 2025 B.Tech ECE batch, from the old website.']
             add('placements', 'replace_section', 'Recruiters this year', '\n'.join(md))
     return rows
+
+
+# ---------- homepage: announcements and highlights ----------
+
+def upload_date(url):
+    """'.../uploads/2025/08/photo.jpg' -> '2025-08-01 10:00:00' (the month it was posted)."""
+    m = re.search(r'/uploads/(20\d\d)/(\d\d)/', url or '')
+    return '%s-%s-01 10:00:00' % (m.group(1), m.group(2)) if m else ''
+
+
+def home_items(page):
+    """Announcements (links in the Announcements box) and captioned photo highlights."""
+    soup = BeautifulSoup(page['content']['rendered'], 'lxml')
+    out = []
+    for el in soup.find_all(string=re.compile(r'^\s*Announcements\s*$')):
+        box = el.find_parent(class_='elementor-widget-container') or el.find_parent('div')
+        for a in (box.find_all('a', href=True) if box else []):
+            text = clean(a.get_text(' '))
+            if len(text) > 15:
+                out.append({'kind': 'announcement', 'title': text.rstrip(' .'), 'link': a['href'].strip(),
+                            'image': '', 'date': upload_date(a['href'])})
+    seen = set()
+    for sl in soup.select('.swiper-slide'):
+        cap = clean(sl.get_text(' '))
+        if len(cap) < 25 or cap in seen:
+            continue
+        seen.add(cap)
+        img = sl.find('img')
+        src = (img.get('src') or img.get('data-src') or '') if img else ''
+        if not src:
+            bg = re.search(r'url\(([^)]+)\)', str(sl))
+            src = bg.group(1).strip('\'"') if bg else ''
+        src = original_image(src.replace('-scaled.', '.')) if src else ''
+        out.append({'kind': 'highlight', 'title': cap, 'link': '', 'image': src, 'date': upload_date(src)})
+    return out
+
+
+def short_title(caption, limit=90):
+    """First sentence of a caption, cut at a word boundary."""
+    # Split at a sentence end, but not after "Dr.", "Mr.", "Prof." or an initial ("T.U.").
+    parts = re.split(r'(?<!\bDr\.)(?<!\bMr\.)(?<!\bMs\.)(?<!\bProf\.)(?<!\b[A-Z]\.)(?<=[.!?])\s+', caption.strip())
+    t = parts[0].strip(' .!🏸🏐')
+    t = re.sub(r'\s*[.!]{2,}.*$', '', t)
+    if len(t) > limit:
+        t = t[:limit].rsplit(' ', 1)[0].rstrip(',;:–-') + '…'
+    return t

@@ -191,7 +191,12 @@ function cet_ece_create_starter_content() {
 	if ( in_array( get_option( 'blogdescription' ), array( '', 'Just another WordPress site' ), true ) ) {
 		update_option( 'blogdescription', 'College of Engineering Trivandrum' );
 	}
-	update_option( 'permalink_structure', '/%postname%/' );
+	// Through $wp_rewrite, not update_option(): the rules must be rebuilt for the
+	// new structure, not the one WordPress loaded at the start of this request.
+	// (With update_option alone, news posts led to the homepage until someone
+	// re-saved Settings > Permalinks.)
+	global $wp_rewrite;
+	$wp_rewrite->set_permalink_structure( '/%postname%/' );
 	flush_rewrite_rules();
 	update_option( 'cet_ece_starter_done', 1 );
 }
