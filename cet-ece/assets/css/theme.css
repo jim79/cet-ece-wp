@@ -49,7 +49,26 @@
 .ece-header .wp-block-navigation-item__content { padding: 10px 14px; border-radius: 8px; }
 .ece-header .wp-block-navigation-item__content:hover,
 .ece-header .current-menu-item > .wp-block-navigation-item__content { background: var(--ece-tint); }
-.ece-header .wp-block-navigation__responsive-container.is-menu-open { background: var(--ece-bg); color: var(--ece-text); }
+.ece-header .wp-block-navigation:not(.has-background) .wp-block-navigation__responsive-container.is-menu-open { background: var(--ece-bg); color: var(--ece-text); }
+
+/* Phone menu button: three bars plus the word "Menu", with a border, so it is easy to find and tap. */
+.ece-header .wp-block-navigation__responsive-container-open {
+	gap: 8px;
+	align-items: center;
+	min-height: 44px;
+	padding: 0 14px;
+	border: 1px solid var(--ece-line);
+	border-radius: 10px;
+	background: var(--ece-bg);
+	color: var(--ece-text);
+	font-size: 15px;
+	font-weight: 600;
+}
+.ece-header .wp-block-navigation__responsive-container-open::after { content: "Menu"; }
+.ece-header .wp-block-navigation__responsive-container-open svg { width: 22px; height: 22px; fill: currentColor; }
+.ece-header .wp-block-navigation__responsive-container-close { padding: 10px; }
+.ece-header .wp-block-navigation__responsive-container-close svg { width: 28px; height: 28px; fill: currentColor; }
+.ece-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content { font-size: 18px; padding: 12px 0; }
 .ece-header .wp-block-search__button { border-radius: 10px; }
 
 /* Title band used on pages and archives */

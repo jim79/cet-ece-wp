@@ -115,7 +115,87 @@ def fix(folder, base, public):
                 plain = os.path.join(root, f.split('@', 1)[0])
                 if not os.path.exists(plain):
                     shutil.copyfile(os.path.join(root, f), plain)
+    fix_scripts(folder, base, public)
     open(os.path.join(folder, '.nojekyll'), 'w').close()
+
+
+# Scripts. wget saves "view.min.js?ver=1" as "view.min.js@ver=1", which GitHub
+# Pages serves with the wrong type, so browsers refuse to run it as a module.
+# It also never fetches the modules listed in the import map (the Interactivity
+# API behind the phone menu). Point every script at a plain ".js" file and
+# download any module that is missing.
+VERSIONED_JS = re.compile(r'([\w./%-]+?\.js)(?:@|%40|\?)ver=[\w.%-]+(?:\.js)?')
+IMPORTMAP = re.compile(r'(<script[^>]+type="importmap"[^>]*>)(.*?)(</script>)', re.S)
+MODULE_URL = re.compile(r'(<(?:script|link)[^>]+(?:type="module"|rel="modulepreload")[^>]*?(?:src|href)=")([^"]+)(")')
+
+
+def _rel_path(url, base, public):
+    """Site-relative path ("wp-includes/x.js") of an absolute or root-relative URL, or None."""
+    from urllib.parse import urlparse
+    u = urlparse(url)
+    path = u.path
+    pub_path = urlparse(public).path.rstrip('/')
+    if u.netloc and u.netloc not in (urlparse(base).netloc, urlparse(public).netloc):
+        return None
+    if pub_path and path.startswith(pub_path + '/'):
+        path = path[len(pub_path):]
+    return path.lstrip('/')
+
+
+def _ensure(folder, rel, base):
+    dest = os.path.join(folder, rel)
+    if not os.path.exists(dest):
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        try:
+            with urllib.request.urlopen(base + '/' + rel, timeout=60) as r, open(dest, 'wb') as fh:
+                fh.write(r.read())
+        except OSError as e:
+            print('could not fetch %s: %s' % (rel, e), file=sys.stderr)
+            return False
+    return True
+
+
+def fix_scripts(folder, base, public):
+    public = public.rstrip('/')
+
+    def absolute(url, here):
+        if '://' not in url and not url.startswith('/'):
+            rel = os.path.normpath(os.path.join(here, url)).replace(os.sep, '/')
+        else:
+            rel = _rel_path(url, base, public)
+        if rel is None or not rel.endswith('.js'):
+            return url
+        _ensure(folder, rel, base)
+        return public + '/' + rel
+
+    for root, _, files in os.walk(folder):
+        for f in files:
+            if not f.endswith('.html'):
+                continue
+            path = os.path.join(root, f)
+            here = os.path.relpath(root, folder)
+            here = '' if here == '.' else here
+            with open(path, encoding='utf-8', errors='surrogateescape') as fh:
+                s = fh.read()
+            orig = s
+
+            def fix_map(m):
+                try:
+                    data = json.loads(m.group(2))
+                except ValueError:
+                    return m.group(0)
+                imports = data.get('imports', {})
+                for k, v in list(imports.items()):
+                    imports[k] = absolute(v.split('?', 1)[0], here)
+                return m.group(1) + json.dumps(data, separators=(',', ':')) + m.group(3)
+
+            s = IMPORTMAP.sub(fix_map, s)
+            s = MODULE_URL.sub(lambda m: m.group(1) + absolute(m.group(2).split('?', 1)[0].replace('%40', '@').split('@ver=', 1)[0], here) + m.group(3), s)
+            # Classic scripts and anything else that still carries a version suffix.
+            s = VERSIONED_JS.sub(lambda m: m.group(1), s)
+            if s != orig:
+                with open(path, 'w', encoding='utf-8', errors='surrogateescape') as fh:
+                    fh.write(s)
 
 
 if __name__ == '__main__':
