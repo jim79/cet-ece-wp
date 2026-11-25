@@ -25,7 +25,7 @@ def blueprint(path, local):
         {'step': 'activatePlugin', 'pluginPath': 'cet-ece-core/cet-ece-core.php'},
         {'step': 'activateTheme', 'themeFolderName': 'cet-ece'},
         {'step': 'mkdir', 'path': '/wordpress/wp-content/mu-plugins'},
-        {'step': 'runPHP', 'code': "<?php copy( '/demo/demo-banner.php', '/wordpress/wp-content/mu-plugins/demo-banner.php' );"},
+        {'step': 'runPHP', 'code': "<?php copy( '/demo/demo-noindex.php', '/wordpress/wp-content/mu-plugins/demo-noindex.php' );"},
         {'step': 'runPHP', 'code': "<?php require_once '/wordpress/wp-load.php'; require '/demo/seed.php';"},
     ]
     bp = {

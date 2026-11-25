@@ -26,7 +26,7 @@ bp = {
         {'step': 'installPlugin', 'pluginData': {'resource': 'url', 'url': f'{raw}/dist/cet-ece-core.zip'}},
         {'step': 'installTheme', 'themeData': {'resource': 'url', 'url': f'{raw}/dist/cet-ece.zip'}, 'options': {'activate': True}},
         {'step': 'mkdir', 'path': '/wordpress/wp-content/mu-plugins'},
-        {'step': 'writeFile', 'path': '/wordpress/wp-content/mu-plugins/demo-banner.php', 'data': {'resource': 'url', 'url': f'{raw}/playground/demo-banner.php'}},
+        {'step': 'writeFile', 'path': '/wordpress/wp-content/mu-plugins/demo-noindex.php', 'data': {'resource': 'url', 'url': f'{raw}/playground/demo-noindex.php'}},
         {'step': 'mkdir', 'path': '/wordpress/demo-data'},
     ] + [
         {'step': 'writeFile', 'path': f'/wordpress/demo-data/{n}.csv', 'data': {'resource': 'url', 'url': f'{raw}/playground/data/{n}.csv'}}

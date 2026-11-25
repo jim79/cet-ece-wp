@@ -6,7 +6,7 @@ WordPress theme and plugin for the Department of Electronics and Communication E
 
 **[Open the demo in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/blueprint.json)**
 
-The demo builds a complete site in your browser in a few minutes: Secure Custom Fields, the plugin, the theme, all pages, and the department's current content converted from ece.cet.ac.in: faculty profiles with photos, labs, technical staff, staff advisor batches, publications, news, OBE and programme pages. You are logged in as an administrator, so you can open the dashboard and edit anything. Changes stay in your browser tab and disappear when you close it; nothing is saved to any server. A banner on every page says it is a preview. The content has not been reviewed yet: see `migration/warnings.csv` after running the converter.
+The demo builds a complete site in your browser in a few minutes: Secure Custom Fields, the plugin, the theme, all pages, and the department's current content converted from ece.cet.ac.in: faculty profiles with photos, labs, technical staff, staff advisor batches, publications, news, OBE and programme pages. You are logged in as an administrator, so you can open the dashboard and edit anything. Changes stay in your browser tab and disappear when you close it; nothing is saved to any server. The content has not been reviewed yet: see `migration/warnings.csv` after running the converter.
 
 **[Open an empty import test site](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/import-blueprint.json)**: the same theme and plugin with no sample content. It opens on Tools › ECE import, so you can upload the reviewed spreadsheets (see [tools/migrate/](tools/migrate/README.md)) and see the result. It also lives only in your browser tab.
 
@@ -25,7 +25,7 @@ To build it yourself: `sh tools/build_static.sh _site` (needs Node 24 or later, 
 | `cet-ece/` | The theme (source). |
 | `cet-ece-core/` | The plugin (source). |
 | `dist/` | Installable zips of both. Upload these in WordPress. |
-| `playground/` | Playground blueprints, the demo banner, and `data/`: the converted content the demo loads, without phone numbers or personal email addresses (made by `tools/make_demo_data.py`). |
+| `playground/` | Playground blueprints, the search-engine setting for the demo, and `data/`: the converted content the demo loads, without phone numbers or personal email addresses (made by `tools/make_demo_data.py`). |
 | `tools/` | Template and pattern generator, block markup validator, build script, blueprint generator, static copy builder (`build_static.sh`). |
 | `tools/migrate/` | Converter from the old site to review spreadsheets, and the guide to importing them (Tools › ECE import, or `wp ece import`). |
 

@@ -50,10 +50,10 @@
     },
     {
       "step": "writeFile",
-      "path": "/wordpress/wp-content/mu-plugins/demo-banner.php",
+      "path": "/wordpress/wp-content/mu-plugins/demo-noindex.php",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/demo-banner.php"
+        "url": "https://raw.githubusercontent.com/jim79/cet-ece-wp/main/playground/demo-noindex.php"
       }
     },
     {
