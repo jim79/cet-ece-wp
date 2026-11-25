@@ -797,8 +797,8 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 		 * [--report=<file>]
 		 * : Also write the results to this CSV file.
 		 *
-		 * [--no-photos]
-		 * : Do not download photos and images.
+		 * [--[no-]photos]
+		 * : Download photos and images (the default). Add --no-photos to skip them.
 		 *
 		 * ## EXAMPLES
 		 *
@@ -811,7 +811,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			list( $type, $file ) = $args;
 			$dry = isset( $assoc['dry-run'] );
 			try {
-				$log = ( new CET_ECE_Importer() )->run( $type, $file, $dry, ! isset( $assoc['no-photos'] ) );
+				$log = ( new CET_ECE_Importer() )->run( $type, $file, $dry, \WP_CLI\Utils\get_flag_value( $assoc, 'photos', true ) );
 			} catch ( Exception $e ) {
 				WP_CLI::error( $e->getMessage() );
 			}
