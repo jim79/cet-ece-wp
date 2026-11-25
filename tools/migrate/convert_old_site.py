@@ -954,6 +954,50 @@ def apply_corrections(out, path, only=None):
     print('corrections  %4d read' % len(rows))
 
 
+def figures(images, alt):
+    """The rest of an event's photos, below the text."""
+    return ''.join('<figure><img src="%s" alt="%s"></figure>' % (html.escape(u), html.escape(alt)) for u in images)
+
+
+def activity_news(existing, home, talks):
+    """Write-ups the old site kept on pages instead of posts: the homepage's
+    'Activities associated with ECE department' (ROS 2 workshop, CetEcGo, THRIVE,
+    orientation) and the talks written out on the Technical Talks page."""
+    have = [re.sub(r'[^a-z0-9 ]', '', r['title'].lower()) for r in existing]
+    rows = []
+
+    def add(title, date, cat, image, excerpt, body, source):
+        key = re.sub(r'[^a-z0-9 ]', '', title.lower())
+        if any(difflib.SequenceMatcher(None, key, h).ratio() > 0.75 for h in have):
+            return
+        have.append(key)
+        if not date:
+            warn('news', title, 'No date found on the old page: set the date by hand')
+        rows.append({'old_id': '', 'title': title, 'date': date, 'slug': '', 'category': cat, 'old_categories': source,
+                     'featured_image_url': image, 'excerpt': excerpt[:240], 'content_html': body, 'old_url': ''})
+
+    for a in (old_pages.home_activities(home) if home else []):
+        blob = a['text'].lower()
+        cat = 'outreach' if re.search(r'cetecgo|thrive|school', blob) else ('workshops-and-fdps' if re.search(r'workshop|\bfdp\b', blob) else 'department-news')
+        title = a['title'] or ('CetEcGo school visits' if 'cetecgo' in blob else 'Department activity')
+        first = re.sub(r'<[^>]+>', '', a['html'].split('</p>', 1)[0])
+        add(title, a['date'], cat, a['images'][0] if a['images'] else '', first,
+            a['html'] + figures(a['images'][1:], 'Photo: ' + title), 'homepage activities')
+    for t in (old_pages.talks_page(talks) if talks else []):
+        if t['kind'] == 'alumni':
+            about = ' '.join(t['about']).replace(', Division', ' Division').strip(' ,')
+            # The old page names the institute wrongly.
+            about = about.replace('Indian Institute of Bangalore', 'Indian Institute of Science, Bangalore')
+            note = re.sub(r'^(Alumn(?:a|us) of)', r'\1', t['note']).rstrip('.')
+            body = '<p>%s, %s.</p><p>%s.</p>' % (html.escape(t['speaker']), html.escape(about), html.escape(note))
+            add('Alumni talk by %s' % t['speaker'], t['date'], 'talks', '', '%s, %s. %s.' % (t['speaker'], about, note), body, 'technical talks page')
+        else:
+            body = ''.join('<p>%s</p>' % html.escape(x) for x in t['paras']) + figures(t['images'][1:], 'Photo: talk by ' + t['speaker'])
+            add('Talk by %s (%s) on semiconductors in modern technology' % (t['speaker'], t['org']), t['date'], 'talks',
+                t['images'][0] if t['images'] else '', t['paras'][0], body, 'technical talks page')
+    return rows
+
+
 def home_news(existing, home):
     """The old homepage's announcements and photo highlights, as news posts.
 
@@ -1064,7 +1108,9 @@ def main():
     if posts:
         rows = parse_news(posts, atts)
         if API_PAGES:
-            rows += home_news(rows, {p['slug']: p for p in API_PAGES}.get('home'))
+            by_slug = {p['slug']: p for p in API_PAGES}
+            rows += home_news(rows, by_slug.get('home'))
+            rows += activity_news(rows, by_slug.get('home'), by_slug.get('activities'))
         apply_corrections({'news': rows}, os.path.join(a.out, 'corrections.csv'), only='news')
         path = os.path.join(a.out, 'news.csv')
         write(path, rows, ['old_id', 'title', 'date', 'slug', 'category', 'old_categories', 'featured_image_url', 'excerpt', 'content_html', 'old_url'])

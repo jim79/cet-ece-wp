@@ -858,6 +858,17 @@ def department_sections(pages, faculty_rows, warn):
     else:
         warn('pages', 'programs', 'Programs page not found: syllabus, calendars and newsletters not converted')
 
+    home = pages.get('home')
+    ranks = rank_winners(home) if home else {}
+    if ranks:
+        years = sorted({y for _, y in ranks}, reverse=True)
+        def cell(prog, year):
+            return '; '.join('%s (%s, CGPA %s)' % (n.title() if n.islower() or ' ' in n and n.split()[-1].islower() else n, r.lower(), c)
+                             for n, r, c in ranks.get((prog, year), [])) or '–'
+        md = ['| Year | B.Tech ECE | B.Tech AEI |'] + ['| %s | %s | %s |' % (y, cell('B.Tech ECE', y), cell('B.Tech AEI', y)) for y in years]
+        md += ['', '[Add the rank holders from 2019 onwards: the old website showed them only on posters.]']
+        add('students', 'replace_section', 'University rank holders', '\n'.join(md))
+
     plc = pages.get('placements-latest') or pages.get('placement')
     if plc:
         links = placement_links(plc)
@@ -920,3 +931,138 @@ def short_title(caption, limit=90):
     if len(t) > limit:
         t = t[:limit].rsplit(' ', 1)[0].rstrip(',;:–-') + '…'
     return t
+
+
+# ---------- homepage activities and the Technical Talks page ----------
+
+MONTHS = 'January|February|March|April|May|June|July|August|September|October|November|December'
+
+
+def first_date(text, fallback=''):
+    """'On August 6, 2026' / '22 October 2025' / '23 – 08 – 2023' / '01.02.2024' -> 'YYYY-MM-DD 10:00:00'."""
+    names = MONTHS.split('|')
+    m = re.search(r'\b(%s)\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(20\d\d)' % MONTHS, text)
+    if m:
+        return '%s-%02d-%02d 10:00:00' % (m.group(3), names.index(m.group(1)) + 1, int(m.group(2)))
+    m = re.search(r'\b(\d{1,2})(?:st|nd|rd|th)?\s+(%s),?\s+(20\d\d)' % MONTHS, text)
+    if m:
+        return '%s-%02d-%02d 10:00:00' % (m.group(3), names.index(m.group(2)) + 1, int(m.group(1)))
+    m = re.search(r'\b(\d{1,2})\s*[.–-]\s*(\d{1,2})\s*[.–-]\s*(20\d\d)\b', text)
+    if m and 1 <= int(m.group(2)) <= 12:
+        return '%s-%02d-%02d 10:00:00' % (m.group(3), int(m.group(2)), int(m.group(1)))
+    return fallback
+
+
+def clean_html(nodes, skip_first_heading=True):
+    """Plain paragraphs, subheadings and lists from Elementor markup (no classes or styles)."""
+    out, skipped = [], not skip_first_heading
+    for el in nodes:
+        if el.find_parent(['li', 'p']) is not None and el.name != 'li':
+            continue
+        if el.name in ('h1', 'h2', 'h3', 'h4', 'h5', 'h6'):
+            t = clean(el.get_text(' '))
+            if not t:
+                continue
+            if not skipped:
+                skipped = True
+                continue
+            out.append('<h3>%s</h3>' % html_escape(t))
+        elif el.name == 'p':
+            t = clean(el.get_text(' '))
+            if t and not NOISE.match(t):
+                out.append('<p>%s</p>' % html_escape(t))
+        elif el.name in ('ul', 'ol') and el.find_parent(['ul', 'ol']) is None:
+            items = [clean(li.get_text(' ')) for li in el.find_all('li', recursive=False)]
+            items = [i for i in items if i]
+            if items:
+                out.append('<%s>%s</%s>' % (el.name, ''.join('<li>%s</li>' % html_escape(i) for i in items), el.name))
+    return '\n'.join(out)
+
+
+def html_escape(t):
+    return t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+
+def images_in(el):
+    out = []
+    for img in el.find_all('img'):
+        src = img.get('data-src') or img.get('src') or ''
+        src = original_image(src.replace('-scaled.', '.'))
+        if '/wp-content/uploads/' in src and src not in out:
+            out.append(src)
+    return out
+
+
+def home_activities(page):
+    """The 'Activities associated with ECE department' write-ups on the old homepage."""
+    soup = BeautifulSoup(page['content']['rendered'], 'lxml')
+    start = soup.find(string=re.compile(r'ACTIVITIES ASSOCIATED', re.I))
+    if not start:
+        return []
+    sec = start.find_parent('section')
+    out = []
+    for el in sec.find_next_siblings('section'):
+        head = el.find(['h2', 'h3', 'h4', 'h5'])
+        text = clean(el.get_text(' '))
+        if re.search(r'University Rank Winners', text):
+            break
+        if len(text) < 200 or el.find(string=re.compile(r'Read More')):
+            continue  # empty spacer, or teasers for posts that exist already
+        title = clean(head.get_text(' ')) if head else ''
+        imgs = images_in(el)
+        nodes = el.find_all(['h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'ol'])
+        out.append({'title': title, 'date': first_date(text, upload_date(imgs[0]) if imgs else ''),
+                    'html': clean_html(nodes, skip_first_heading=bool(head)), 'images': imgs, 'text': text})
+    return out
+
+
+def rank_winners(page):
+    """University rank winners written as text on the old homepage: {(programme, year): [(name, rank, cgpa)]}."""
+    soup = BeautifulSoup(page['content']['rendered'], 'lxml')
+    start = soup.find(string=re.compile(r'University Rank Winners'))
+    if not start:
+        return {}
+    lines, _ = lines_of(str(start.find_parent('section')))
+    out, prog, year = {}, '', ''
+    i = 0
+    while i < len(lines):
+        t = lines[i]
+        if re.match(r'B\.\s*Tech\.\s*\((EC|ECE)\)', t):
+            prog = 'B.Tech ECE'
+        elif re.match(r'B\.\s*Tech\.\s*\(AEI\)', t):
+            prog = 'B.Tech AEI'
+        elif re.fullmatch(r'20\d\d', t):
+            year = t
+        elif re.match(r'^(Ms|Mr)\.?\s*\S', t) and i + 1 < len(lines) and re.search(r'Rank', lines[i + 1]):
+            name = clean(re.sub(r'^(Ms|Mr)\.?\s*', '', t))
+            cg = re.search(r'([\d.]+)', lines[i + 2]) if i + 2 < len(lines) else None
+            out.setdefault((prog, year), []).append((name, lines[i + 1], cg.group(1) if cg else ''))
+            i += 2
+        i += 1
+    return out
+
+
+def talks_page(page):
+    """Talks written as text on the old Technical Talks page."""
+    lines, soup = lines_of(page['content']['rendered'])
+    imgs = images_in(soup)
+    out, cur = [], None
+    for i, t in enumerate(lines):
+        if re.match(r'^(Dr|Ms|Mr|Prof)\.?\s+[A-Z]', t) and len(t) < 50:
+            cur = {'speaker': t, 'lines': []}
+            continue
+        if cur is not None:
+            cur['lines'].append(t)
+            if re.search(r'\bon\s+\d{1,2}\.\d{1,2}\.20\d\d', t):
+                out.append({'kind': 'alumni', 'speaker': cur['speaker'], 'about': cur['lines'][:-1],
+                            'note': t, 'date': first_date(t), 'images': []})
+                cur = None
+    # The one talk written up in full: from "The talk was conducted on ..." to the end.
+    k = next((i for i, t in enumerate(lines) if t.startswith('The talk was conducted on')), None)
+    if k is not None:
+        body = lines[k:]
+        sp = re.search(r'resource person was (Mr|Ms|Dr)\.\s*([^(]+?)\s*\(([^)]+)\)', ' '.join(body))
+        photos = [u for u in imgs if re.search(r'2023-08-23', u)]
+        out.append({'kind': 'talk', 'speaker': ('%s. %s' % (sp.group(1), sp.group(2))) if sp else '', 'org': sp.group(3) if sp else '',
+                    'paras': body, 'date': first_date(body[0]), 'images': photos})
+    return out
