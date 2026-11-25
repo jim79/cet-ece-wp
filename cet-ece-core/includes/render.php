@@ -350,7 +350,7 @@ function cet_ece_render_faculty_details( $attributes, $content, $block ) {
 
 function cet_ece_lab_card( $id ) {
 	$type  = cet_ece_get( 'lab_type', $id );
-	$img   = get_post_thumbnail_id( $id ) ? cet_ece_image( get_post_thumbnail_id( $id ), 'medium_large', get_the_title( $id ), 'ece-lcard-img' ) : '<span class="ece-lcard-img ece-ph" aria-hidden="true"></span>';
+	$img   = get_post_thumbnail_id( $id ) ? cet_ece_image( get_post_thumbnail_id( $id ), 'medium_large', get_the_title( $id ), 'ece-lcard-img' ) : '';
 	$progs = get_the_terms( $id, 'programme' );
 	$tags  = $progs && ! is_wp_error( $progs ) ? implode( ' · ', wp_list_pluck( $progs, 'name' ) ) : '';
 	$h     = '<article class="ece-lcard" data-type="' . esc_attr( 'research' === $type ? 'research' : 'teaching' ) . '" data-progs="' . esc_attr( cet_ece_term_slugs( $id, 'programme' ) ) . '">' . $img . '<div class="ece-lcard-body">';
@@ -422,6 +422,10 @@ function cet_ece_render_lab_list( $attributes ) {
 			continue;
 		}
 		$any = true;
+		// Labs with a photo first (the complete entries), then the rest; each group by name.
+		usort( $list, function ( $a, $b ) {
+			return array( get_post_thumbnail_id( $a ) ? 0 : 1, strtolower( get_the_title( $a ) ) ) <=> array( get_post_thumbnail_id( $b ) ? 0 : 1, strtolower( get_the_title( $b ) ) );
+		} );
 		$h  .= '<section class="ece-sec">' . ( $type ? '' : '<h2>' . esc_html( $label[0] ) . ' <span class="ece-count">' . count( $list ) . '</span></h2><p class="ece-muted">' . esc_html( $label[1] ) . '</p>' ) . '<div class="ece-grid ece-grid-cards">';
 		foreach ( $list as $id ) {
 			$h .= cet_ece_lab_card( $id );

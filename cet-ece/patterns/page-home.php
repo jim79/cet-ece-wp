@@ -9,16 +9,12 @@
  */
 ?>
 <!-- wp:cover {"dimRatio":100,"overlayColor":"hero","isUserOverlayColor":true,"minHeight":460,"minHeightUnit":"px","align":"full","className":"ece-hero","style":{"spacing":{"padding":{"top":"96px","bottom":"88px"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
-<div class="wp-block-cover alignfull ece-hero" style="margin-top:0;margin-bottom:0;padding-top:96px;padding-bottom:88px;min-height:460px"><span aria-hidden="true" class="wp-block-cover__background has-hero-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"className":"ece-eyebrow"} -->
-<p class="ece-eyebrow">Since 1964 · Sreekariyam, Thiruvananthapuram</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading {"level":1,"fontSize":"xx-large","style":{"typography":{"lineHeight":"1.06"}}} -->
+<div class="wp-block-cover alignfull ece-hero" style="margin-top:0;margin-bottom:0;padding-top:96px;padding-bottom:88px;min-height:460px"><span aria-hidden="true" class="wp-block-cover__background has-hero-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:heading {"level":1,"fontSize":"xx-large","style":{"typography":{"lineHeight":"1.06"}}} -->
 <h1 class="wp-block-heading has-xx-large-font-size" style="line-height:1.06">Electronics and Communication Engineering at CET</h1>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"fontSize":"large"} -->
-<p class="has-large-font-size">Two B.Tech programmes, five M.Tech specialisations and a doctoral programme. AICTE approved, with QIP centre status.</p>
+<p class="has-large-font-size">Two B.Tech programmes, five M.Tech specialisations and a doctoral programme, taught at the Sreekariyam campus since 1964.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
@@ -29,7 +25,11 @@
 <!-- wp:button {"className":"is-style-outline"} -->
 <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/research/">Research at ECE</a></div>
 <!-- /wp:button --></div>
-<!-- /wp:buttons --></div></div>
+<!-- /wp:buttons -->
+
+<!-- wp:paragraph {"className":"ece-photo-credit"} -->
+<p class="ece-photo-credit">Golden Jubilee PG and Research Block. Photo: Biju Jomin</p>
+<!-- /wp:paragraph --></div></div>
 <!-- /wp:cover -->
 
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"40px","bottom":"40px"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
@@ -79,7 +79,7 @@
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"24px","bottom":"72px"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
 <div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:24px;padding-bottom:72px"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"16px","margin":{"top":"48px"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="margin-top:48px"><!-- wp:heading -->
-<h2 class="wp-block-heading">Find what you need</h2>
+<h2 class="wp-block-heading">Information for</h2>
 <!-- /wp:heading -->
 
 <!-- wp:group {"layout":{"type":"grid","minimumColumnWidth":"200px"},"style":{"spacing":{"blockGap":"16px"}}} -->

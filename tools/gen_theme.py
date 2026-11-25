@@ -462,13 +462,13 @@ PATENTS = [
 # ---------- page patterns ----------
 
 hero = f'''<!-- wp:cover {{"dimRatio":100,"overlayColor":"hero","isUserOverlayColor":true,"minHeight":460,"minHeightUnit":"px","align":"full","className":"ece-hero","style":{{"spacing":{{"padding":{{"top":"96px","bottom":"88px"}},"margin":{{"top":"0","bottom":"0"}}}}}},"layout":{{"type":"constrained","contentSize":"1200px"}}}} -->
-<div class="wp-block-cover alignfull ece-hero" style="margin-top:0;margin-bottom:0;padding-top:96px;padding-bottom:88px;min-height:460px"><span aria-hidden="true" class="wp-block-cover__background has-hero-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container">{p("Since 1964 · Sreekariyam, Thiruvananthapuram", className="ece-eyebrow")}
+<div class="wp-block-cover alignfull ece-hero" style="margin-top:0;margin-bottom:0;padding-top:96px;padding-bottom:88px;min-height:460px"><span aria-hidden="true" class="wp-block-cover__background has-hero-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container">{h(1, "Electronics and Communication Engineering at CET", fontSize="xx-large", style={"typography": {"lineHeight": "1.06"}})}
 
-{h(1, "Electronics and Communication Engineering at CET", fontSize="xx-large", style={"typography": {"lineHeight": "1.06"}})}
+{p("Two B.Tech programmes, five M.Tech specialisations and a doctoral programme, taught at the Sreekariyam campus since 1964.", fontSize="large")}
 
-{p("Two B.Tech programmes, five M.Tech specialisations and a doctoral programme. AICTE approved, with QIP centre status.", fontSize="large")}
+{buttons([("Explore programmes", "/academics/", False), ("Research at ECE", "/research/", True)])}
 
-{buttons([("Explore programmes", "/academics/", False), ("Research at ECE", "/research/", True)])}</div></div>
+{p("Golden Jubilee PG and Research Block. Photo: Biju Jomin", className="ece-photo-credit")}</div></div>
 <!-- /wp:cover -->'''
 
 HOME = '\n\n'.join([
@@ -476,7 +476,7 @@ HOME = '\n\n'.join([
     group([grid([stat('1964', 'Established, with a first intake of 33 students'), stat('180', 'B.Tech seats a year, plus lateral entry'), stat('5', 'M.Tech specialisations, 18 seats each'), stat('41', 'Faculty members')], '170px', cols=4, align='wide')],
           align='full', style={'spacing': {'padding': {'top': '40px', 'bottom': '40px'}, 'margin': {'top': '0', 'bottom': '0'}}}, layout={'type': 'constrained', 'contentSize': '1200px'}),
     group([
-        section('Find what you need', [grid([
+        section('Information for', [grid([
             card('Prospective students', 'Programmes, intake, admissions', '/academics/'),
             card('Current students', 'Calendar, syllabus, notices, advisors', '/students/'),
             card('Researchers', 'Labs, projects, publications, Ph.D.', '/research/'),

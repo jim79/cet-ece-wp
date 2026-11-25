@@ -185,6 +185,13 @@ function cet_ece_create_starter_content() {
 		}
 	}
 
+	if ( ! get_option( 'site_logo' ) ) {
+		$logo = cet_ece_bundled_image( 'cet-emblem.png', 'Emblem of the College of Engineering Trivandrum' );
+		if ( $logo ) {
+			update_option( 'site_logo', $logo );
+		}
+	}
+
 	if ( in_array( get_option( 'blogname' ), array( '', 'My WordPress Site', 'WordPress' ), true ) ) {
 		update_option( 'blogname', 'Department of Electronics and Communication Engineering' );
 	}
@@ -201,3 +208,27 @@ function cet_ece_create_starter_content() {
 	update_option( 'cet_ece_starter_done', 1 );
 }
 add_action( 'after_switch_theme', 'cet_ece_create_starter_content' );
+
+/**
+ * Copy an image that ships with the theme (assets/images/) into the media
+ * library, once, and return its attachment ID (0 on failure).
+ */
+function cet_ece_bundled_image( $file, $alt ) {
+	$path = get_theme_file_path( 'assets/images/' . $file );
+	if ( ! is_readable( $path ) ) {
+		return 0;
+	}
+	$upload = wp_upload_bits( $file, null, file_get_contents( $path ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+	if ( ! empty( $upload['error'] ) ) {
+		return 0;
+	}
+	$id = wp_insert_attachment( array( 'post_mime_type' => wp_check_filetype( $file )['type'], 'post_title' => $alt, 'post_status' => 'inherit' ), $upload['file'] );
+	if ( ! $id || is_wp_error( $id ) ) {
+		return 0;
+	}
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+	wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $upload['file'] ) );
+	update_post_meta( $id, '_wp_attachment_image_alt', $alt );
+	return (int) $id;
+}
+

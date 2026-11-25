@@ -57,6 +57,14 @@
 						{ "fontFamily": "Inter", "fontStyle": "normal", "fontWeight": "100 900", "fontDisplay": "swap", "src": ["file:./assets/fonts/inter-latin-wght-normal.woff2"] },
 						{ "fontFamily": "Inter", "fontStyle": "italic", "fontWeight": "100 900", "fontDisplay": "swap", "src": ["file:./assets/fonts/inter-latin-wght-italic.woff2"] }
 					]
+				},
+				{
+					"slug": "serif",
+					"name": "Source Serif 4",
+					"fontFamily": "'Source Serif 4', Georgia, 'Times New Roman', serif",
+					"fontFace": [
+						{ "fontFamily": "Source Serif 4", "fontStyle": "normal", "fontWeight": "200 900", "fontDisplay": "swap", "src": ["file:./assets/fonts/source-serif-4-latin-wght-normal.woff2"] }
+					]
 				}
 			],
 			"fontSizes": [
@@ -85,15 +93,15 @@
 			},
 			"heading": {
 				"color": { "text": "var(--wp--preset--color--contrast)" },
-				"typography": { "fontWeight": "700", "letterSpacing": "-0.02em", "lineHeight": "1.2" }
+				"typography": { "fontFamily": "var(--wp--preset--font-family--serif)", "fontWeight": "600", "letterSpacing": "normal", "lineHeight": "1.2" }
 			},
-			"h1": { "typography": { "fontSize": "clamp(32px, 4vw, 44px)", "letterSpacing": "-0.03em", "lineHeight": "1.1" } },
+			"h1": { "typography": { "fontSize": "clamp(32px, 4vw, 44px)", "letterSpacing": "-0.005em", "lineHeight": "1.12" } },
 			"h2": { "typography": { "fontSize": "clamp(24px, 2.6vw, 28px)" } },
 			"h3": { "typography": { "fontSize": "20px" } },
 			"h4": { "typography": { "fontSize": "17px" } },
 			"button": {
 				"color": { "background": "var(--wp--preset--color--accent)", "text": "var(--wp--preset--color--on-accent)" },
-				"border": { "radius": "10px" },
+				"border": { "radius": "4px" },
 				"spacing": { "padding": { "top": "12px", "bottom": "12px", "left": "20px", "right": "20px" } },
 				"typography": { "fontWeight": "600", "fontSize": "15px" },
 				":hover": { "color": { "background": "var(--wp--preset--color--contrast)", "text": "var(--wp--preset--color--base)" } }

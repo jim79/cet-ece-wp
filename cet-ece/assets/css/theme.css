@@ -58,7 +58,7 @@
 	min-height: 44px;
 	padding: 0 14px;
 	border: 1px solid var(--ece-line);
-	border-radius: 10px;
+	border-radius: 4px;
 	background: var(--ece-bg);
 	color: var(--ece-text);
 	font-size: 15px;
@@ -69,13 +69,26 @@
 .ece-header .wp-block-navigation__responsive-container-close { padding: 10px; }
 .ece-header .wp-block-navigation__responsive-container-close svg { width: 28px; height: 28px; fill: currentColor; }
 .ece-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content { font-size: 18px; padding: 12px 0; }
-.ece-header .wp-block-search__button { border-radius: 10px; }
+.ece-header .wp-block-search__button { border-radius: 4px; }
 
 /* Title band used on pages and archives */
 .ece-band { background: var(--ece-tint); }
-.ece-band .ece-lead { color: var(--ece-body); max-width: 760px; }
+/* Same box as the page title (so it starts where the title starts), with the line
+   length kept to about 760px by padding: WordPress centres narrower blocks here. */
+.ece-band .ece-lead { color: var(--ece-body); max-width: 1200px !important; box-sizing: border-box; padding-right: max(0px, calc(100% - 760px)); }
 
 /* Hero: a cover block with an overlay, white text */
+/* Hero: the Golden Jubilee PG & Research Block (photo: Biju Jomin), under a gradient
+   that is darkest behind the text so white text keeps its contrast. */
+.ece-hero { background: #24364D url(../images/golden-jubilee-block.jpg) center 40% / cover no-repeat; }
+.ece-hero .wp-block-cover__background {
+	background: linear-gradient(90deg, rgba(16, 27, 42, 0.94) 0%, rgba(16, 27, 42, 0.86) 42%, rgba(16, 27, 42, 0.45) 100%) !important;
+	opacity: 1 !important;
+}
+.ece-hero .ece-photo-credit { font-size: 12px; color: rgba(255, 255, 255, 0.72) !important; text-align: right; margin-top: 40px; }
+@media (max-width: 700px) {
+	.ece-hero .wp-block-cover__background { background: rgba(16, 27, 42, 0.86) !important; }
+}
 .ece-hero .wp-block-cover__inner-container { color: #FFFFFF; }
 .ece-hero h1, .ece-hero h2, .ece-hero p { color: #FFFFFF; }
 .ece-hero .ece-eyebrow { color: #C9D6E6; }
@@ -83,17 +96,17 @@
 .ece-hero .wp-block-button:not(.is-style-outline) .wp-block-button__link:hover { background: #DCE5F0; color: #14202E; }
 .ece-hero .is-style-outline .wp-block-button__link { color: #FFFFFF; border-color: rgba(255,255,255,0.6); background: transparent; }
 
-.ece-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ece-muted); }
+.ece-eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--ece-muted); }
 
 /* Cards */
-.ece-card { border: 1px solid var(--ece-line); border-radius: 12px; background: var(--ece-bg); }
-.ece-card-surface { border: 1px solid var(--ece-line); border-radius: 12px; background: var(--ece-surface); }
+.ece-card { border: 1px solid var(--ece-line); border-radius: 6px; background: var(--ece-bg); }
+.ece-card-surface { border: 1px solid var(--ece-line); border-radius: 6px; background: var(--ece-surface); }
 .ece-card a, .ece-card-surface a { text-decoration: none; }
 .ece-stat-number { font-size: 38px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin: 0; }
 .ece-stat-label { color: var(--ece-muted); margin: 0; font-size: 15px; }
 
 /* News cards from the query loop */
-.ece-news .wp-block-post-featured-image img { border-radius: 10px; aspect-ratio: 3 / 2; object-fit: cover; }
+.ece-news .wp-block-post-featured-image img { border-radius: 4px; aspect-ratio: 3 / 2; object-fit: cover; }
 .ece-news .wp-block-post-title a { color: var(--ece-text); text-decoration: none; }
 .ece-news .wp-block-post-title a:hover { color: var(--ece-link); }
 

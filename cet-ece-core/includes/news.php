@@ -40,7 +40,7 @@ function cet_ece_render_news( $attributes ) {
 		$h = '<div class="ece-posters">';
 		foreach ( $posts as $p ) {
 			$cats = get_the_category( $p->ID );
-			$meta = trim( ( $cats ? strtoupper( $cats[0]->name ) : '' ) . ' · ' . strtoupper( get_the_date( 'M Y', $p ) ), ' ·' );
+			$meta = trim( ( $cats ? $cats[0]->name : '' ) . ', ' . get_the_date( 'F Y', $p ), ' ,' );
 			$img  = has_post_thumbnail( $p ) ? cet_ece_image( get_post_thumbnail_id( $p ), 'large', get_the_title( $p ), 'ece-poster-img' ) : '<span class="ece-poster-img ece-ph" aria-hidden="true"></span>';
 			$h   .= '<article class="ece-poster"><a class="ece-poster-link" href="' . esc_url( get_permalink( $p ) ) . '">' . $img . '<span class="ece-news-meta">' . esc_html( $meta ) . '</span><span class="ece-poster-title">' . esc_html( get_the_title( $p ) ) . '</span></a></article>';
 		}
@@ -51,13 +51,13 @@ function cet_ece_render_news( $attributes ) {
 	foreach ( $posts as $p ) {
 		$cats  = get_the_category( $p->ID );
 		$cat   = $cats ? $cats[0]->name : '';
-		$meta  = trim( strtoupper( $cat ) . ' · ' . strtoupper( get_the_date( 'j M Y', $p ) ), ' ·' );
+		$meta  = trim( $cat . ', ' . get_the_date( 'j F Y', $p ), ' ,' );
 		$title = '<a href="' . esc_url( get_permalink( $p ) ) . '">' . esc_html( get_the_title( $p ) ) . '</a>';
 		if ( 'list' === $style ) {
 			$h .= '<li><span class="ece-news-meta">' . esc_html( $meta ) . '</span>' . $title . '</li>';
 			continue;
 		}
-		$img = has_post_thumbnail( $p ) ? cet_ece_image( get_post_thumbnail_id( $p ), 'medium_large', get_the_title( $p ), 'ece-news-img' ) : '<span class="ece-news-img ece-ph" aria-hidden="true"></span>';
+		$img = has_post_thumbnail( $p ) ? cet_ece_image( get_post_thumbnail_id( $p ), 'medium_large', get_the_title( $p ), 'ece-news-img' ) : '';
 		$h  .= '<article class="ece-news-card">' . $img . '<div class="ece-news-body"><span class="ece-news-meta">' . esc_html( $meta ) . '</span><h3>' . $title . '</h3>';
 		$ex  = get_the_excerpt( $p );
 		if ( $ex ) {
